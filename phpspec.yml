@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: Figview
+        psr4_prefix: Figview
+        src_path: app
