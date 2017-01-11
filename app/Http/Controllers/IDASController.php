@@ -4,7 +4,7 @@ namespace Figview\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Figview\Idas;
+use Figview\Models\Idas;
 use Figview\Http\Requests;
 use Figview\Http\Controllers\Controller;
 

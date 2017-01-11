@@ -3,7 +3,7 @@
 namespace Figview\Http\Controllers;
 
 use Illuminate\Http\Request;
-use \Figview\Orion;
+use \Figview\Models\Orion;
 use Figview\Http\Requests;
 use Figview\Http\Controllers\Controller;
 

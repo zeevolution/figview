@@ -1,6 +1,6 @@
 <?php
 
-namespace Figview;
+namespace Figview\Models;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
