@@ -11,7 +11,7 @@
 |
 */
 
-$factory->define(Figview\Models\User::class, function (Faker\Generator $faker) {
+$factory->define(Figview\Entities\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->safeEmail,
@@ -20,7 +20,7 @@ $factory->define(Figview\Models\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(Figview\Models\Orion::class, function (Faker\Generator $faker) {
+$factory->define(Figview\Entities\Orion::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'url' => $faker->url,
@@ -28,7 +28,7 @@ $factory->define(Figview\Models\Orion::class, function (Faker\Generator $faker) 
     ];
 });
 
-$factory->define(Figview\Models\Idas::class, function (Faker\Generator $faker) {
+$factory->define(Figview\Entities\Idas::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'url' => $faker->url,

@@ -1,6 +1,6 @@
 <?php
 
-namespace Figview\Models;
+namespace Figview\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 

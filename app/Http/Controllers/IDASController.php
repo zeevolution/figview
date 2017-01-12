@@ -2,14 +2,25 @@
 
 namespace Figview\Http\Controllers;
 
+use Figview\Repositories\IdasRepository;
 use Illuminate\Http\Request;
 
-use Figview\Models\Idas;
+use Figview\Entities\Idas;
 use Figview\Http\Requests;
 use Figview\Http\Controllers\Controller;
 
 class IDASController extends Controller
 {
+    /**
+     * @var IdasRepository
+     */
+    private $repository;
+
+    public function __construct(IdasRepository $repository)
+    {
+        $this->repository = $repository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +28,7 @@ class IDASController extends Controller
      */
     public function index()
     {
-        return Idas::all();
+        return $this->repository->all();
     }
 
     /**
@@ -38,7 +49,8 @@ class IDASController extends Controller
      */
     public function store(Request $request)
     {
-        Idas::create($request->all());
+        //dd($request->all());
+        return $this->repository->create($request->all());
     }
 
     /**
@@ -49,7 +61,7 @@ class IDASController extends Controller
      */
     public function show($id)
     {
-        return Idas::find($id);
+        return $this->repository->find($id);
     }
 
     /**
@@ -72,7 +84,7 @@ class IDASController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Idas::find($id)->update($request->all());
+        return $this->repository->update($request->all(), $id);
     }
 
     /**
@@ -83,6 +95,6 @@ class IDASController extends Controller
      */
     public function destroy($id)
     {
-        Idas::find($id)->delete();
+        $this->repository->delete($id);
     }
 }

@@ -11,7 +11,7 @@ class OrionTableSeeder extends Seeder
      */
     public function run()
     {
-        \Figview\Models\Orion::truncate();
-        factory(\Figview\Models\Orion::class, 10)->create();
+        \Figview\Entities\Orion::truncate();
+        factory(\Figview\Entities\Orion::class, 10)->create();
     }
 }

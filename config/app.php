@@ -145,6 +145,7 @@ return [
         Figview\Providers\AuthServiceProvider::class,
         Figview\Providers\EventServiceProvider::class,
         Figview\Providers\RouteServiceProvider::class,
+        Figview\Providers\FigviewRepositoryProvider::class, 
 
     ],
 

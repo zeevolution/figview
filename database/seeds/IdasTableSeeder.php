@@ -11,7 +11,7 @@ class IdasTableSeeder extends Seeder
      */
     public function run()
     {
-        \Figview\Models\Idas::truncate();
-        factory(\Figview\Models\Idas::class, 10)->create();
+        \Figview\Entities\Idas::truncate();
+        factory(\Figview\Entities\Idas::class, 10)->create();
     }
 }
