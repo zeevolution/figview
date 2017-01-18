@@ -3,6 +3,7 @@
 namespace Figview\Http\Controllers;
 
 use Figview\Repositories\OrionRepository;
+use Figview\Services\OrionService;
 use Illuminate\Http\Request;
 use Figview\Http\Requests;
 
@@ -12,10 +13,15 @@ class OrionController extends Controller
      * @var OrionRepository
      */
     private $repository;
+    /**
+     * @var OrionService
+     */
+    private $service;
 
-    public function __construct(OrionRepository $repository)
+    public function __construct(OrionRepository $repository, OrionService $service)
     {
         $this->repository = $repository;
+        $this->service = $service;
     }
 
     /**
@@ -25,7 +31,7 @@ class OrionController extends Controller
      */
     public function index()
     {
-        return $this->repository->all();
+        return $this->service->all();
     }
 
     /**
@@ -47,7 +53,7 @@ class OrionController extends Controller
     public function store(Request $request)
     {
         //dd($request->all());
-        return $this->repository->create($request->all());
+        return $this->service->create($request->all());
     }
 
     /**
@@ -58,7 +64,7 @@ class OrionController extends Controller
      */
     public function show($id)
     {
-        return $this->repository->find($id);
+        return $this->service->find($id);
     }
 
     /**
@@ -81,7 +87,7 @@ class OrionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return $this->repository->update($request->all(), $id);
+        return $this->service->update($request->all(), $id);
     }
 
     /**
@@ -92,6 +98,6 @@ class OrionController extends Controller
      */
     public function destroy($id)
     {
-        $this->repository->delete($id);
+        $this->service->delete($id);
     }
 }

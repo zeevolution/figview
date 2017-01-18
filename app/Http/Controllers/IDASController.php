@@ -3,9 +3,9 @@
 namespace Figview\Http\Controllers;
 
 use Figview\Repositories\IdasRepository;
+use Figview\Services\IdasService;
 use Illuminate\Http\Request;
 
-use Figview\Entities\Idas;
 use Figview\Http\Requests;
 use Figview\Http\Controllers\Controller;
 
@@ -15,10 +15,15 @@ class IDASController extends Controller
      * @var IdasRepository
      */
     private $repository;
-
-    public function __construct(IdasRepository $repository)
+    /**
+     * @var IdasService
+     */
+    private $service;
+    
+    public function __construct(IdasRepository $repository, IdasService $service)
     {
         $this->repository = $repository;
+        $this->service = $service;
     }
 
     /**
@@ -28,7 +33,7 @@ class IDASController extends Controller
      */
     public function index()
     {
-        return $this->repository->all();
+        return $this->service->all();
     }
 
     /**
@@ -50,7 +55,7 @@ class IDASController extends Controller
     public function store(Request $request)
     {
         //dd($request->all());
-        return $this->repository->create($request->all());
+        return $this->service->create($request->all());
     }
 
     /**
@@ -61,7 +66,7 @@ class IDASController extends Controller
      */
     public function show($id)
     {
-        return $this->repository->find($id);
+        return $this->service->find($id);
     }
 
     /**
@@ -84,7 +89,7 @@ class IDASController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return $this->repository->update($request->all(), $id);
+        return $this->service->update($request->all(), $id);
     }
 
     /**
@@ -95,6 +100,6 @@ class IDASController extends Controller
      */
     public function destroy($id)
     {
-        $this->repository->delete($id);
+        $this->service->delete($id);
     }
 }
