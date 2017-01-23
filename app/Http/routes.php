@@ -15,20 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('orion', 'OrionController@index');
-Route::post('orion', 'OrionController@store');
-Route::get('orion/{id}', 'OrionController@show');
-Route::delete('orion/{id}', 'OrionController@destroy');
-Route::put('orion/{id}', 'OrionController@update');
 
-Route::get('idas', 'IDASController@index');
-Route::post('idas', 'IDASController@store');
-Route::get('idas/{id}', 'IDASController@show');
-Route::delete('idas/{id}', 'IDASController@destroy');
-Route::put('idas/{id}', 'IDASController@update');
+Route::post('oauth/access_token', function(){
+    return Response::json(\LucaDegasperi\OAuth2Server\Facades\Authorizer::issueAccessToken());
+});
 
-Route::get('iotenv', 'IotEnvsController@index');
-Route::post('iotenv', 'IotEnvsController@store');
-Route::get('iotenv/{id}', 'IotEnvsController@show');
-Route::delete('iotenv/{id}', 'IotEnvsController@destroy');
-Route::put('iotenv/{id}', 'IotEnvsController@update');
+Route::group(['middleware' => 'oauth'], function(){
+    Route::resource('orion', 'OrionController', ['except' => ['create', 'edit']]);
+    Route::resource('idas', 'IDASController', ['except' => ['create', 'edit']]);
+    Route::resource('iotenv', 'IotEnvsController', ['except' => ['create', 'edit']]);
+});

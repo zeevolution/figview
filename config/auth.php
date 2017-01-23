@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'model' => Figview\User::class,
+    'model' => Figview\Entities\User::class,
 
     /*
     |--------------------------------------------------------------------------
