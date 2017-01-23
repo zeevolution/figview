@@ -29,5 +29,8 @@ class FigviewRepositoryProvider extends ServiceProvider
         $this->app->bind(
             \Figview\Repositories\IdasRepository::class,
             \Figview\Repositories\IdasRepositoryEloquent::class);
+        $this->app->bind(
+            \Figview\Repositories\IotEnvRepository::class,
+            \Figview\Repositories\IotEnvRepositoryEloquent::class);
     }
 }

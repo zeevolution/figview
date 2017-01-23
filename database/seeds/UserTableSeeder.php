@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class IdasTableSeeder extends Seeder
+class UserTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +11,6 @@ class IdasTableSeeder extends Seeder
      */
     public function run()
     {
-        
-        factory(\Figview\Entities\Idas::class, 10)->create();
+        factory(\Figview\Entities\User::class, 10)->create();
     }
 }

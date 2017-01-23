@@ -26,3 +26,9 @@ Route::post('idas', 'IDASController@store');
 Route::get('idas/{id}', 'IDASController@show');
 Route::delete('idas/{id}', 'IDASController@destroy');
 Route::put('idas/{id}', 'IDASController@update');
+
+Route::get('iotenv', 'IotEnvsController@index');
+Route::post('iotenv', 'IotEnvsController@store');
+Route::get('iotenv/{id}', 'IotEnvsController@show');
+Route::delete('iotenv/{id}', 'IotEnvsController@destroy');
+Route::put('iotenv/{id}', 'IotEnvsController@update');

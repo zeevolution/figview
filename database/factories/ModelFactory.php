@@ -25,6 +25,7 @@ $factory->define(Figview\Entities\Orion::class, function (Faker\Generator $faker
         'name' => $faker->name,
         'url' => $faker->url,
         'port' => $faker->randomNumber(),
+        'user_id' => rand(1, 10),
     ];
 });
 
@@ -33,5 +34,14 @@ $factory->define(Figview\Entities\Idas::class, function (Faker\Generator $faker)
         'name' => $faker->name,
         'url' => $faker->url,
         'port' => $faker->randomNumber(),
+        'user_id' => rand(1, 10),
+    ];
+});
+
+$factory->define(Figview\Entities\IotEnv::class, function (Faker\Generator $faker) {
+    return [
+        'orion_id' => rand(1, 10),
+        'idas_id' => rand(1, 10),
+        'user_id' => rand(1, 10),
     ];
 });
