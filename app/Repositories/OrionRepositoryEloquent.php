@@ -18,5 +18,6 @@ class OrionRepositoryEloquent extends BaseRepository implements OrionRepository
     {
         return Orion::class;
     }
+    
 
 }

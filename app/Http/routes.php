@@ -21,7 +21,21 @@ Route::post('oauth/access_token', function(){
 });
 
 Route::group(['middleware' => 'oauth'], function(){
+
     Route::resource('orion', 'OrionController', ['except' => ['create', 'edit']]);
+
     Route::resource('idas', 'IDASController', ['except' => ['create', 'edit']]);
+
     Route::resource('iotenv', 'IotEnvsController', ['except' => ['create', 'edit']]);
+
+    Route::resource('contextpath', 'ContextTreePathsController', ['except' => ['create', 'edit']]);
+
+    Route::group(['prefix'=>'contextpath'], function() {
+        Route::get('/', 'ContextTreePathsController@index');
+        Route::post('/', 'ContextTreePathsController@store');
+        Route::get('/', 'ContextTreePathsController@show');
+        Route::delete('/', 'ContextTreePathsController@destroy');
+        Route::put('/', 'ContextTreePathsController@update');
+    });
 });
+

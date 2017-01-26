@@ -18,7 +18,7 @@ class IotEnv extends Model implements Transformable
 
     /**
      * The IoTEnv has one Orion.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function orion()
@@ -34,6 +34,26 @@ class IotEnv extends Model implements Transformable
     public function idas()
     {
         return $this->belongsTo(Idas::class);
+    }
+
+    /**
+     * Query the IoTEnv descendants.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function queryDescendants()
+    {
+        return $this->hasMany(ContextTreePath::class, 'ancestor', 'id');
+    }
+
+    /**
+     * Query the IoTEnv ancestors.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function queryAncestors()
+    {
+        return $this->hasMany(ContextTreePath::class, 'descendant', 'id');
     }
 
     /**

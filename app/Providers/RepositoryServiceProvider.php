@@ -2,6 +2,14 @@
 
 namespace Figview\Providers;
 
+use Figview\Repositories\ContextTreePathRepository;
+use Figview\Repositories\ContextTreePathRepositoryEloquent;
+use Figview\Repositories\IdasRepository;
+use Figview\Repositories\IdasRepositoryEloquent;
+use Figview\Repositories\IotEnvRepository;
+use Figview\Repositories\IotEnvRepositoryEloquent;
+use Figview\Repositories\OrionRepository;
+use Figview\Repositories\OrionRepositoryEloquent;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
@@ -23,7 +31,18 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(\Figview\Repositories\IotEnvRepository::class, \Figview\Repositories\IotEnvRepositoryEloquent::class);
+        $this->app->bind(
+            OrionRepository::class,
+            OrionRepositoryEloquent::class);
+        $this->app->bind(
+            IdasRepository::class,
+            IdasRepositoryEloquent::class);
+        $this->app->bind(
+            IotEnvRepository::class,
+            IotEnvRepositoryEloquent::class);
+        $this->app->bind(
+            ContextTreePathRepository::class,
+            ContextTreePathRepositoryEloquent::class);
         //:end-bindings:
     }
 }

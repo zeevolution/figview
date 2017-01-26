@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call(OrionTableSeeder::class);
         $this->call(IdasTableSeeder::class);
         $this->call(IoTEnvTableSeeder::class);
+        $this->call(ContextTreePathTableSeeder::class);
 
         Model::reguard();
     }

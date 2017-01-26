@@ -45,3 +45,10 @@ $factory->define(Figview\Entities\IotEnv::class, function (Faker\Generator $fake
         'user_id' => rand(1, 10),
     ];
 });
+
+$factory->define(Figview\Entities\ContextTreePath::class, function (Faker\Generator $faker) {
+    return [
+        'ancestor' => rand(1, 10),
+        'descendant' => rand(1, 10),
+    ];
+});

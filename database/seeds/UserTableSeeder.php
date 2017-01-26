@@ -11,7 +11,7 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\Figview\Entities\User::class, 10)->create([
+        factory(\Figview\Entities\User::class, 1)->create([
             'name' => 'Jose',
             'email' => 'engcompneto11@gmail.com',
             'password' => bcrypt(123456),
