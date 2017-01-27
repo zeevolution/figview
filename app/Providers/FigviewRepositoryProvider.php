@@ -4,6 +4,8 @@ namespace Figview\Providers;
 
 use Figview\Repositories\ContextTreePathRepository;
 use Figview\Repositories\ContextTreePathRepositoryEloquent;
+use Figview\Repositories\DeviceModelRepository;
+use Figview\Repositories\DeviceModelRepositoryEloquent;
 use Figview\Repositories\IdasRepository;
 use Figview\Repositories\IdasRepositoryEloquent;
 use Figview\Repositories\IotEnvRepository;
@@ -43,5 +45,8 @@ class FigviewRepositoryProvider extends ServiceProvider
         $this->app->bind(
             ContextTreePathRepository::class,
             ContextTreePathRepositoryEloquent::class);
+        $this->app->bind(
+            DeviceModelRepository::class,
+            DeviceModelRepositoryEloquent::class);
     }
 }

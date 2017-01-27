@@ -52,3 +52,11 @@ $factory->define(Figview\Entities\ContextTreePath::class, function (Faker\Genera
         'descendant' => rand(1, 10),
     ];
 });
+
+$factory->define(Figview\Entities\DeviceModel::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->name,
+        'model' => $faker->latitude,
+        'iotenv_id' => rand(1, 10),
+    ];
+});

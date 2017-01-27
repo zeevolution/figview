@@ -57,6 +57,16 @@ class IotEnv extends Model implements Transformable
     }
 
     /**
+     * Query all Device Models for a IoTEnv.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function queryDeviceModels()
+    {
+        return $this->hasMany(DeviceModel::class, 'iotenv_id', 'id');
+    }
+
+    /**
      * The IoTEnv is created by a user.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

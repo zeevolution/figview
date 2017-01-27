@@ -37,5 +37,8 @@ Route::group(['middleware' => 'oauth'], function(){
         Route::delete('/', 'ContextTreePathsController@destroy');
         Route::put('/', 'ContextTreePathsController@update');
     });
+
+    Route::resource('devicemodel', 'DeviceModelsController', ['except' => ['create', 'edit']]);
+    
 });
 
