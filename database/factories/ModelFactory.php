@@ -60,3 +60,10 @@ $factory->define(Figview\Entities\DeviceModel::class, function (Faker\Generator 
         'iotenv_id' => rand(1, 10),
     ];
 });
+
+$factory->define(Figview\Entities\IoTEnvMember::class, function (Faker\Generator $faker) {
+    return [
+        'iotenv_id' => rand(1, 10),
+        'member_id' => rand(1, 10),
+    ];
+});

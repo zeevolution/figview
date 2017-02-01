@@ -2,32 +2,31 @@
 /**
  * Created by PhpStorm.
  * User: joseneto
- * Date: 17/01/17
- * Time: 14:42
+ * Date: 01/02/17
+ * Time: 19:23
  */
 
 namespace Figview\Services;
 
 
-use Figview\Repositories\OrionRepository;
-use Figview\Validators\OrionValidator;
-use Illuminate\Contracts\Validation\ValidationException;
+use Figview\Repositories\IoTEnvMemberRepository;
+use Figview\Validators\IoTEnvMemberValidator;
 use Prettus\Validator\Exceptions\ValidatorException;
 
-//Servico utilizado para transacoes, e que pode utilizar repository.
-
-class OrionService
+class IoTEnvMemberService
 {
+
     /**
-     * @var OrionRepository
+     * @var IoTEnvMemberRepository
      */
     protected $repository;
+
     /**
-     * @var OrionValidator
+     * @var IoTEnvMemberValidator
      */
     protected $validator;
 
-    public function __construct(OrionRepository $repository, OrionValidator $validator)
+    public function __construct(IoTEnvMemberRepository $repository, IoTEnvMemberValidator $validator)
     {
         $this->repository = $repository;
         $this->validator = $validator;
@@ -54,11 +53,6 @@ class OrionService
     public function find($id)
     {
         return $this->repository->find($id);
-    }
-
-    public function findWhere($id)
-    {
-        return $this->repository->findWhere(['user_id' => $id]);
     }
 
     public function update(array $data, $id)

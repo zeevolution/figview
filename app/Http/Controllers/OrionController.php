@@ -6,6 +6,8 @@ use Figview\Repositories\OrionRepository;
 use Figview\Services\OrionService;
 use Illuminate\Http\Request;
 use Figview\Http\Requests;
+use LucaDegasperi\OAuth2Server\Facades\Authorizer;
+
 
 class OrionController extends Controller
 {
@@ -31,7 +33,7 @@ class OrionController extends Controller
      */
     public function index()
     {
-        return $this->service->all();
+        return $this->service->findWhere(Authorizer::getResourceOwnerId());
     }
 
     /**
@@ -64,6 +66,11 @@ class OrionController extends Controller
      */
     public function show($id)
     {
+        if($this->checkOrionOwner($id) == false)
+        {
+            return ['error' => 'Access Forbidden!'];
+        }
+
         return $this->service->find($id);
     }
 
@@ -87,6 +94,11 @@ class OrionController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if($this->checkOrionOwner($id) == false)
+        {
+            return ['error' => 'Access Forbidden!'];
+        }
+
         return $this->service->update($request->all(), $id);
     }
 
@@ -98,6 +110,18 @@ class OrionController extends Controller
      */
     public function destroy($id)
     {
+        if($this->checkOrionOwner($id) == false)
+        {
+            return ['error' => 'Access Forbidden!'];
+        }
+
         $this->service->delete($id);
+    }
+
+    private function checkOrionOwner($orionId)
+    {
+        $userId = Authorizer::getResourceOwnerId();
+
+        return $this->repository->isOwner($orionId, $userId);
     }
 }

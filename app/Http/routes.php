@@ -22,7 +22,9 @@ Route::post('oauth/access_token', function(){
 
 Route::group(['middleware' => 'oauth'], function(){
 
+    //Route::group(['middleware' => 'check-orion-owner'], function(){
     Route::resource('orion', 'OrionController', ['except' => ['create', 'edit']]);
+    //});
 
     Route::resource('idas', 'IDASController', ['except' => ['create', 'edit']]);
 
@@ -39,6 +41,8 @@ Route::group(['middleware' => 'oauth'], function(){
     });
 
     Route::resource('devicemodel', 'DeviceModelsController', ['except' => ['create', 'edit']]);
-    
+
+    Route::resource('iotenvmember', 'IoTEnvMembersController', ['except' => ['create', 'edit']]);
+
 });
 

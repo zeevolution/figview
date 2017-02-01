@@ -54,6 +54,11 @@ class IdasService
         return $this->repository->find($id);
     }
 
+    public function findWhere($id)
+    {
+        return $this->repository->findWhere(['user_id' => $id]);
+    }
+
     public function update(array $data, $id)
     {
         try{

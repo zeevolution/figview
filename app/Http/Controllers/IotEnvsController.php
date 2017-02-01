@@ -6,6 +6,7 @@ use Figview\Services\IoTEnvService;
 use Illuminate\Http\Request;
 use Figview\Http\Requests;
 use Figview\Repositories\IotEnvRepository;
+use LucaDegasperi\OAuth2Server\Facades\Authorizer;
 
 class IotEnvsController extends Controller
 {
@@ -34,7 +35,7 @@ class IotEnvsController extends Controller
      */
     public function index()
     {
-        return $this->service->all();
+        return $this->service->findWhere(Authorizer::getResourceOwnerId());
     }
 
     /**
@@ -58,6 +59,11 @@ class IotEnvsController extends Controller
      */
     public function show($id)
     {
+        if($this->checkIoTEnvPermissions($id) == false)
+        {
+            return ['error' => 'Access Forbidden!'];
+        }
+
         return $this->service->find($id);
     }
 
@@ -84,6 +90,11 @@ class IotEnvsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if($this->checkIoTEnvOwner($id) == false)
+        {
+            return ['error' => 'Access Forbidden!'];
+        }
+
         return $this->service->update($request->all(), $id);
     }
 
@@ -97,6 +108,47 @@ class IotEnvsController extends Controller
      */
     public function destroy($id)
     {
+        if($this->checkIoTEnvOwner($id) == false)
+        {
+            return ['error' => 'Access Forbidden!'];
+        }
+
         $this->service->delete($id);
+    }
+
+    /**
+     * Check if the user is owner of the iotEnv.
+     *
+     * @param $iotEnvId
+     * @return mixed
+     */
+    private function checkIoTEnvOwner($iotEnvId)
+    {
+        $userId = Authorizer::getResourceOwnerId();
+
+        return $this->repository->isOwner($iotEnvId, $userId);
+    }
+
+    /**
+     * Check the user is member of the IoTEnv.
+     *
+     * @param $iotEnvId
+     * @return mixed
+     */
+    private function checkIoTEnvMember($iotEnvId)
+    {
+        $userId = Authorizer::getResourceOwnerId();
+
+        return $this->repository->hasMember($iotEnvId, $userId);
+    }
+
+    private function checkIoTEnvPermissions($iotEnvId)
+    {
+        if($this->checkIoTEnvOwner($iotEnvId) or $this->checkIoTEnvMember($iotEnvId))
+        {
+            return true;
+        }
+
+        return false;
     }
 }

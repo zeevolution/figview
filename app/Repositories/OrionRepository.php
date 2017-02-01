@@ -14,4 +14,5 @@ use Prettus\Repository\Contracts\RepositoryInterface;
 interface OrionRepository extends RepositoryInterface
 {
 
+    public function isOwner($orionId, $userId);
 }

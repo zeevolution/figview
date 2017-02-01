@@ -36,4 +36,24 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    /**
+     * Return User's IoTEnvs as Member.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function iotenvsMember()
+    {
+        return $this->belongsToMany(IotEnv::class, 'io_t_env_members', 'member_id', 'iotenv_id');
+    }
+
+    /**
+     * Return User's IoTEnvs as Owner. 
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function iotenvsOwner()
+    {
+        return $this->hasMany(IotEnv::class);
+    }
 }

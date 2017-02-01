@@ -8,6 +8,8 @@ use Figview\Repositories\DeviceModelRepository;
 use Figview\Repositories\DeviceModelRepositoryEloquent;
 use Figview\Repositories\IdasRepository;
 use Figview\Repositories\IdasRepositoryEloquent;
+use Figview\Repositories\IoTEnvMemberRepository;
+use Figview\Repositories\IoTEnvMemberRepositoryEloquent;
 use Figview\Repositories\IotEnvRepository;
 use Figview\Repositories\IotEnvRepositoryEloquent;
 use Figview\Repositories\OrionRepository;
@@ -48,5 +50,8 @@ class FigviewRepositoryProvider extends ServiceProvider
         $this->app->bind(
             DeviceModelRepository::class,
             DeviceModelRepositoryEloquent::class);
+        $this->app->bind(
+            IoTEnvMemberRepository::class,
+            IoTEnvMemberRepositoryEloquent::class);
     }
 }

@@ -75,4 +75,14 @@ class IotEnv extends Model implements Transformable
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * The IoTEnv belongs to many members.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function members()
+    {
+        return $this->belongsToMany(User::class, 'io_t_env_members', 'iotenv_id', 'member_id');
+    }
 }

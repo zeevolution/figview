@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 use Figview\Http\Requests;
 use Figview\Http\Controllers\Controller;
+use LucaDegasperi\OAuth2Server\Facades\Authorizer;
 
 class IDASController extends Controller
 {
@@ -33,7 +34,7 @@ class IDASController extends Controller
      */
     public function index()
     {
-        return $this->service->all();
+        return $this->service->findWhere(Authorizer::getResourceOwnerId());
     }
 
     /**
@@ -66,6 +67,11 @@ class IDASController extends Controller
      */
     public function show($id)
     {
+        if($this->checkIdasOwner($id) == false)
+        {
+            return ['error' => 'Access Forbidden!'];
+        }
+
         return $this->service->find($id);
     }
 
@@ -89,6 +95,11 @@ class IDASController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if($this->checkIdasOwner($id) == false)
+        {
+            return ['error' => 'Access Forbidden!'];
+        }
+
         return $this->service->update($request->all(), $id);
     }
 
@@ -100,6 +111,24 @@ class IDASController extends Controller
      */
     public function destroy($id)
     {
+        if($this->checkIdasOwner($id) == false)
+        {
+            return ['error' => 'Access Forbidden!'];
+        }
+
         $this->service->delete($id);
+    }
+
+    /**
+     * Check if the user is owner of the resource.
+     *
+     * @param $orionId
+     * @return mixed
+     */
+    private function checkIdasOwner($orionId)
+    {
+        $userId = Authorizer::getResourceOwnerId();
+
+        return $this->repository->isOwner($orionId, $userId);
     }
 }

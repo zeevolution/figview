@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call(IoTEnvTableSeeder::class);
         $this->call(ContextTreePathTableSeeder::class);
         $this->call(DeviceModelTableSeeder::class);
+        $this->call(IoTEnvMemberTableSeeder::class);
 
         Model::reguard();
     }

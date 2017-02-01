@@ -48,6 +48,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             DeviceModelRepository::class,
             DeviceModelRepositoryEloquent::class);
+        $this->app->bind(\Figview\Repositories\IoTEnvMemberRepository::class, \Figview\Repositories\IoTEnvMemberRepositoryEloquent::class);
         //:end-bindings:
     }
 }
