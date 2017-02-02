@@ -9,6 +9,7 @@
 namespace Figview\Repositories;
 
 use Figview\Entities\Orion;
+use Figview\Presenters\OrionPresenter;
 use Prettus\Repository\Eloquent\BaseRepository;
 
 class OrionRepositoryEloquent extends BaseRepository implements OrionRepository
@@ -27,6 +28,11 @@ class OrionRepositoryEloquent extends BaseRepository implements OrionRepository
         }
 
         return false;
+    }
+
+    public function presenter()
+    {
+        return OrionPresenter::class;
     }
 
 }

@@ -40,6 +40,7 @@ $factory->define(Figview\Entities\Idas::class, function (Faker\Generator $faker)
 
 $factory->define(Figview\Entities\IotEnv::class, function (Faker\Generator $faker) {
     return [
+        'name' => $faker->name,
         'orion_id' => rand(1, 10),
         'idas_id' => rand(1, 10),
         'user_id' => rand(1, 10),

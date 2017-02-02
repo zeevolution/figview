@@ -11,6 +11,7 @@ class IotEnv extends Model implements Transformable
     use TransformableTrait;
 
     protected $fillable = [
+        'name',
         'orion_id',
         'idas_id',
         'user_id'

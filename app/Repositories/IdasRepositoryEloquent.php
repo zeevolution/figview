@@ -9,6 +9,7 @@
 namespace Figview\Repositories;
 
 use Figview\Entities\Idas;
+use Figview\Presenters\IdasPresenter;
 use Prettus\Repository\Eloquent\BaseRepository;
 
 class IdasRepositoryEloquent extends BaseRepository implements IdasRepository
@@ -26,6 +27,11 @@ class IdasRepositoryEloquent extends BaseRepository implements IdasRepository
         }
 
         return false;
+    }
+
+    public function presenter()
+    {
+        return IdasPresenter::class;
     }
 
 }

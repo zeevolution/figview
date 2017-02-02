@@ -2,6 +2,7 @@
 
 namespace Figview\Repositories;
 
+use Figview\Presenters\IoTEnvPresenter;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Figview\Repositories\iotEnvRepository;
@@ -80,5 +81,15 @@ class IotEnvRepositoryEloquent extends BaseRepository implements IotEnvRepositor
         }
 
         return false;
+    }
+
+    /**
+     * Return the IoTEnv Presenter that identifies the data transformer.
+     *
+     * @return mixed
+     */
+    public function presenter()
+    {
+        return IoTEnvPresenter::class;
     }
 }

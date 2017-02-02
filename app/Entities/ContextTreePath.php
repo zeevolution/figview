@@ -15,4 +15,14 @@ class ContextTreePath extends Model implements Transformable
         'descendant'
     ];
 
+    public function iotEnvAncestor()
+    {
+        return $this->belongsTo(IotEnv::class, 'ancestor');
+    }
+
+    public function iotEnvDescendant()
+    {
+        return $this->belongsTo(IotEnv::class, 'descendant');
+    }
+
 }

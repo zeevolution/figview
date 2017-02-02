@@ -15,6 +15,7 @@ class CreateIotEnvsTable extends Migration
 	{
 		Schema::create('iot_envs', function(Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
 			$table->integer('orion_id')->unsigned();
 			$table->foreign('orion_id')->references('id')->on('orions');
             $table->integer('idas_id')->unsigned();
