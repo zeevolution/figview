@@ -80,8 +80,16 @@
 		<script src="{{ asset('build/js/vendor/angular-oauth2.min.js') }}"></script>
 
 		<script src="{{ asset('build/js/app.js') }}"></script>
+
+		<!-- Controllers -->
 		<script src="{{ asset('build/js/controllers/login.js') }}"></script>
 		<script src="{{ asset('build/js/controllers/home.js') }}"></script>
+		<script src="{{ asset('build/js/controllers/orion/orionList.js') }}"></script>
+		<script src="{{ asset('build/js/controllers/orion/orionNew.js') }}"></script>
+
+		<!-- Services -->
+		<script src="{{ asset('build/js/services/orion.js') }}"></script>
+		<script src="{{ asset('build/js/services/user.js') }}"></script>
 
 	@else
 		<script src="{{ elixir('js/all.js') }}"></script>

@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">List of Orions</div>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Orion Address</th>
+                            <th>Owner Name </th>
+                            <th>Owner Email</th>
+                        </tr>
+                        </thead>
+
+                        <tboby>
+                            <tr ng-repeat = "o in orions.data">
+                                <td>{{ o.orion_name }}</td>
+                                <td>{{ o.orion_url_port }}</td>
+                                <td>{{ o.user.data.user_name }}</td>
+                                <td>{{ o.user.data.user_email }}</td>
+                            </tr>
+                        </tboby>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

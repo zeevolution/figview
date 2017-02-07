@@ -11,16 +11,17 @@ namespace Figview\Repositories;
 
 use Figview\Entities\User;
 use Figview\Presenters\UserPresenter;
+use Prettus\Repository\Eloquent\BaseRepository;
 
-class UserRepositoryEloquent
+class UserRepositoryEloquent extends BaseRepository implements UserRepository
 {
     public function model()
     {
         return User::class;
     }
 
-    public function presenter()
-    {
-        return UserPresenter::class;
-    }
+    //public function presenter()
+    //{
+    //    return UserPresenter::class;
+    //}
 }

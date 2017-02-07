@@ -44,5 +44,7 @@ Route::group(['middleware' => 'oauth'], function(){
 
     Route::resource('iotenvmember', 'IoTEnvMembersController', ['except' => ['create', 'edit']]);
 
+    Route::get('user/authenticated', 'UserController@authenticated');
+
 });
 

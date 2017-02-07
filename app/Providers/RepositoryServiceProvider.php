@@ -12,6 +12,8 @@ use Figview\Repositories\IotEnvRepository;
 use Figview\Repositories\IotEnvRepositoryEloquent;
 use Figview\Repositories\OrionRepository;
 use Figview\Repositories\OrionRepositoryEloquent;
+use Figview\Repositories\UserRepository;
+use Figview\Repositories\UserRepositoryEloquent;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
@@ -49,6 +51,9 @@ class RepositoryServiceProvider extends ServiceProvider
             DeviceModelRepository::class,
             DeviceModelRepositoryEloquent::class);
         $this->app->bind(\Figview\Repositories\IoTEnvMemberRepository::class, \Figview\Repositories\IoTEnvMemberRepositoryEloquent::class);
+        $this->app->bind(
+            UserRepository::class,
+            UserRepositoryEloquent::class);
         //:end-bindings:
     }
 }
