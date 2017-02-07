@@ -414,4 +414,152 @@ this.init=function(g,h){e=g,this.config=h,e.$render=function(){d.render()},b.ite
  */
 'use strict';angular.module('mgcrea.ngStrap.navbar',[]).provider('$navbar',function(){var t=this.defaults={activeClass:'active',routeAttr:'data-match-route',strict:!1};this.$get=function(){return{defaults:t}}}).directive('bsNavbar',['$window','$location','$navbar',function(t,a,r){var e=r.defaults;return{restrict:'A',link:function(t,r,n,i){var c=angular.copy(e);angular.forEach(Object.keys(e),function(t){angular.isDefined(n[t])&&(c[t]=n[t])}),t.$watch(function(){return a.path()},function(t,a){var e=r[0].querySelectorAll('li['+c.routeAttr+']');angular.forEach(e,function(a){var r=angular.element(a),e=r.attr(c.routeAttr).replace('/','\\/');c.strict&&(e='^'+e+'$');var n=new RegExp(e,'i');n.test(t)?r.addClass(c.activeClass):r.removeClass(c.activeClass)})})}}}]);
 //# sourceMappingURL=../modules/navbar.min.js.map
+/*
+ AngularJS v1.6.1
+ (c) 2010-2016 Google, Inc. http://angularjs.org
+ License: MIT
+*/
+(function(n,c){'use strict';function l(b,a,g){var d=g.baseHref(),k=b[0];return function(b,e,f){var g,h;f=f||{};h=f.expires;g=c.isDefined(f.path)?f.path:d;c.isUndefined(e)&&(h="Thu, 01 Jan 1970 00:00:00 GMT",e="");c.isString(h)&&(h=new Date(h));e=encodeURIComponent(b)+"="+encodeURIComponent(e);e=e+(g?";path="+g:"")+(f.domain?";domain="+f.domain:"");e+=h?";expires="+h.toUTCString():"";e+=f.secure?";secure":"";f=e.length+1;4096<f&&a.warn("Cookie '"+b+"' possibly not set or overflowed because it was too large ("+
+f+" > 4096 bytes)!");k.cookie=e}}c.module("ngCookies",["ng"]).provider("$cookies",[function(){var b=this.defaults={};this.$get=["$$cookieReader","$$cookieWriter",function(a,g){return{get:function(d){return a()[d]},getObject:function(d){return(d=this.get(d))?c.fromJson(d):d},getAll:function(){return a()},put:function(d,a,m){g(d,a,m?c.extend({},b,m):b)},putObject:function(d,b,a){this.put(d,c.toJson(b),a)},remove:function(a,k){g(a,void 0,k?c.extend({},b,k):b)}}}]}]);c.module("ngCookies").factory("$cookieStore",
+["$cookies",function(b){return{get:function(a){return b.getObject(a)},put:function(a,c){b.putObject(a,c)},remove:function(a){b.remove(a)}}}]);l.$inject=["$document","$log","$browser"];c.module("ngCookies").provider("$$cookieWriter",function(){this.$get=l})})(window,window.angular);
+//# sourceMappingURL=angular-cookies.min.js.map
+
+/*!
+	query-string
+	Parse and stringify URL query strings
+	https://github.com/sindresorhus/query-string
+	by Sindre Sorhus
+	MIT License
+*/
+(function () {
+	'use strict';
+	var queryString = {};
+
+	queryString.parse = function (str) {
+		if (typeof str !== 'string') {
+			return {};
+		}
+
+		str = str.trim().replace(/^(\?|#)/, '');
+
+		if (!str) {
+			return {};
+		}
+
+		return str.trim().split('&').reduce(function (ret, param) {
+			var parts = param.replace(/\+/g, ' ').split('=');
+			var key = parts[0];
+			var val = parts[1];
+
+			key = decodeURIComponent(key);
+			// missing `=` should be `null`:
+			// http://w3.org/TR/2012/WD-url-20120524/#collect-url-parameters
+			val = val === undefined ? null : decodeURIComponent(val);
+
+			if (!ret.hasOwnProperty(key)) {
+				ret[key] = val;
+			} else if (Array.isArray(ret[key])) {
+				ret[key].push(val);
+			} else {
+				ret[key] = [ret[key], val];
+			}
+
+			return ret;
+		}, {});
+	};
+
+	queryString.stringify = function (obj) {
+		return obj ? Object.keys(obj).map(function (key) {
+			var val = obj[key];
+
+			if (Array.isArray(val)) {
+				return val.map(function (val2) {
+					return encodeURIComponent(key) + '=' + encodeURIComponent(val2);
+				}).join('&');
+			}
+
+			return encodeURIComponent(key) + '=' + encodeURIComponent(val);
+		}).join('&') : '';
+	};
+
+	if (typeof define === 'function' && define.amd) {
+		define(function() { return queryString; });
+	} else if (typeof module !== 'undefined' && module.exports) {
+		module.exports = queryString;
+	} else {
+		self.queryString = queryString;
+	}
+})();
+
+!function(e,t){"function"==typeof define&&define.amd?define(["angular","angular-cookies","query-string"],t):"object"==typeof exports?module.exports=t(require("angular"),require("angular-cookies"),require("query-string")):e.angularOAuth2=t(e.angular,"ngCookies",e.queryString)}(this,function(e,t,n){function r(e,t,n){return{request:function(e){return e.headers=e.headers||{},!e.headers.hasOwnProperty("Authorization")&&n.getAuthorizationHeader()&&(e.headers.Authorization=n.getAuthorizationHeader()),e},responseError:function(r){return 400!==r.status||!r.data||"invalid_request"!==r.data.error&&"invalid_grant"!==r.data.error||(n.removeToken(),t.$emit("oauth:error",r)),(401===r.status&&r.data&&"invalid_token"===r.data.error||r.headers("www-authenticate")&&0===r.headers("www-authenticate").indexOf("Bearer"))&&t.$emit("oauth:error",r),e.reject(r)}}}function o(e){e.interceptors.push("oauthInterceptor")}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function a(){var t=this,r=function(t){if(!(t instanceof Object))throw new TypeError("Invalid argument: `config` must be an `Object`.");var n=e.extend({},f,t);return e.forEach(h,function(e){if(!n[e])throw new Error("Missing parameter: "+e+".")}),"/"===n.baseUrl.substr(-1)&&(n.baseUrl=n.baseUrl.slice(0,-1)),"/"!==n.grantPath[0]&&(n.grantPath="/"+n.grantPath),"/"!==n.revokePath[0]&&(n.revokePath="/"+n.revokePath),n};this.configure=function(e){t.defaultConfig=r(e)},this.$get=function(t,o){var a=function(){function a(e){i(this,a),this.config=e}return s(a,[{key:"configure",value:function(e){this.config=r(e)}},{key:"isAuthenticated",value:function(){return!!o.getToken()}},{key:"getAccessToken",value:function(r,i){return r=e.extend({client_id:this.config.clientId,grant_type:"password"},r),null!==this.config.clientSecret&&(r.client_secret=this.config.clientSecret),r=n.stringify(r),i=e.extend({headers:{Authorization:void 0,"Content-Type":"application/x-www-form-urlencoded"}},i),t.post(""+this.config.baseUrl+this.config.grantPath,r,i).then(function(e){return o.setToken(e.data),e})}},{key:"getRefreshToken",value:function(r,i){return r=e.extend({client_id:this.config.clientId,grant_type:"refresh_token",refresh_token:o.getRefreshToken()},r),null!==this.config.clientSecret&&(r.client_secret=this.config.clientSecret),r=n.stringify(r),i=e.extend({headers:{Authorization:void 0,"Content-Type":"application/x-www-form-urlencoded"}},i),t.post(""+this.config.baseUrl+this.config.grantPath,r,i).then(function(e){return o.setToken(e.data),e})}},{key:"revokeToken",value:function(r,i){var a=o.getRefreshToken();return r=e.extend({client_id:this.config.clientId,token:a?a:o.getAccessToken(),token_type_hint:a?"refresh_token":"access_token"},r),null!==this.config.clientSecret&&(r.client_secret=this.config.clientSecret),r=n.stringify(r),i=e.extend({headers:{"Content-Type":"application/x-www-form-urlencoded"}},i),t.post(""+this.config.baseUrl+this.config.revokePath,r,i).then(function(e){return o.removeToken(),e})}}]),a}();return new a(this.defaultConfig)},this.$get.$inject=["$http","OAuthToken"]}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function u(){var t={name:"token",options:{secure:!0}};this.configure=function(n){if(!(n instanceof Object))throw new TypeError("Invalid argument: `config` must be an `Object`.");return e.extend(t,n),t},this.$get=function(e){var n=function(){function n(){i(this,n)}return s(n,[{key:"setToken",value:function(n){return e.putObject(t.name,n,t.options)}},{key:"getToken",value:function(){return e.getObject(t.name)}},{key:"getAccessToken",value:function(){return this.getToken()?this.getToken().access_token:void 0}},{key:"getAuthorizationHeader",value:function(){if(this.getTokenType()&&this.getAccessToken())return this.getTokenType().charAt(0).toUpperCase()+this.getTokenType().substr(1)+" "+this.getAccessToken()}},{key:"getRefreshToken",value:function(){return this.getToken()?this.getToken().refresh_token:void 0}},{key:"getTokenType",value:function(){return this.getToken()?this.getToken().token_type:void 0}},{key:"removeToken",value:function(){return e.remove(t.name,t.options)}}]),n}();return new n},this.$get.$inject=["$cookies"]}var c=e.module("angular-oauth2",[t]).config(o).factory("oauthInterceptor",r).provider("OAuth",a).provider("OAuthToken",u);r.$inject=["$q","$rootScope","OAuthToken"],o.$inject=["$httpProvider"];var s=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),f={baseUrl:null,clientId:null,clientSecret:null,grantPath:"/oauth2/token",revokePath:"/oauth2/revoke"},h=["baseUrl","clientId","grantPath","revokePath"],s=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}();return c});
+var app = angular.module('app',['ngRoute', 'angular-oauth2','app.controllers']);
+
+angular.module('app.controllers',['ngMessages','angular-oauth2']);
+
+app.config(['$routeProvider', 'OAuthProvider', function ($routeProvider, OAuthProvider) {
+    $routeProvider
+        .when('/login', {
+            templateUrl: 'build/views/login.html',
+            controller: "LoginController"
+        })
+        .when('/home', {
+            templateUrl: "build/views/home.html",
+            controller: "HomeController"
+        });
+    OAuthProvider.configure({
+        baseUrl: 'http://localhost:8000',
+        clientId: 'appid_1',
+        clientSecret: 'secret', // optional
+        grantPath: 'oauth/access_token'
+    });
+
+}]);
+
+app.run(['$rootScope', '$window', 'OAuth', function($rootScope, $window, OAuth) {
+    $rootScope.$on('oauth:error', function(event, rejection) {
+        // Ignore `invalid_grant` error - should be catched on `LoginController`.
+        if ('invalid_grant' === rejection.data.error) {
+            return;
+        }
+
+        // Refresh token when a `invalid_token` error occurs.
+        if ('invalid_token' === rejection.data.error) {
+            return OAuth.getRefreshToken();
+        }
+
+        // Redirect to `/login` with the `error_reason`.
+        return $window.location.href = '/login?error_reason=' + rejection.data.error;
+    });
+}]);
+
+angular.module('app.controllers')
+    .controller('HomeController', ['$scope', function ($scope) {
+
+
+    }]);
+angular.module('app.controllers')
+.controller('LoginController', ['$scope', '$location', 'OAuth', function ($scope, $location, OAuth) {
+    $scope.user = {
+        username: '',
+        password: ''
+    };
+
+    $scope.error = {
+        message: '',
+        error: false
+    };
+
+    $scope.login = function () {
+        if($scope.form.$valid) {
+            OAuth.getAccessToken($scope.user).then(function () {
+                $location.path('home');
+            }, function (data) {
+                $scope.error.error = true;
+                $scope.error.message = data.data.error_description;
+            });
+        }
+    };
+
+
+}]);
 //# sourceMappingURL=all.js.map
