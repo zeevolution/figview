@@ -3,6 +3,7 @@
 namespace Figview\Http\Controllers;
 
 use Figview\Repositories\UserRepository;
+use Figview\Services\UserService;
 use Illuminate\Http\Request;
 
 use Figview\Http\Requests;
@@ -12,17 +13,26 @@ use LucaDegasperi\OAuth2Server\Facades\Authorizer;
 class UserController extends Controller
 {
 
+    /**
+     * @var UserRepository
+     */
     private $repository;
 
-    public function __construct(UserRepository $repository)
+    /**
+     * @var UserService
+     */
+    private $service;
+
+    public function __construct(UserRepository $repository, UserService $service)
     {
         $this->repository = $repository;
+        $this->service = $service;
     }
 
     public function authenticated()
     {
         $userId = Authorizer::getResourceOwnerId();
-        return $this->repository->find($userId);
+        return $this->service->find($userId);
 
     }
 

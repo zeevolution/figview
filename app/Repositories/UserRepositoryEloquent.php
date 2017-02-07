@@ -20,8 +20,8 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
         return User::class;
     }
 
-    //public function presenter()
-    //{
-    //    return UserPresenter::class;
-    //}
+    public function presenter()
+    {
+        return UserPresenter::class;
+    }
 }

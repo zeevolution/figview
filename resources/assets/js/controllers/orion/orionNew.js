@@ -9,13 +9,13 @@ angular.module('app.controllers')
 
         $scope.save = function () {
             if($scope.form.$valid) {
-                $scope.orion.user_id = $cookies.getObject('user').id;
+                $scope.orion.user_id = $cookies.getObject('user').data.user_id;
                 $scope.orion.$save().then(function () {
                     $location.path('/orions');
-                    
+
                 }, function (data) {
                     $scope.error.error = true;
-                    $scope.error.message = data.data.error_description;
+                    $scope.error.message = data.error_description;
                 });
             }
         }

@@ -15,7 +15,7 @@ class UserPresenter extends FractalPresenter
 {
     public function getTransformer()
     {
-        return UserTransformer::class;
+        return new UserTransformer();
     }
 
 }
