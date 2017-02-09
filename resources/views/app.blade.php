@@ -86,6 +86,8 @@
 		<script src="{{ asset('build/js/controllers/home.js') }}"></script>
 		<script src="{{ asset('build/js/controllers/orion/orionList.js') }}"></script>
 		<script src="{{ asset('build/js/controllers/orion/orionNew.js') }}"></script>
+		<script src="{{ asset('build/js/controllers/orion/orionEdit.js') }}"></script>
+		<script src="{{ asset('build/js/controllers/orion/orionRemove.js') }}"></script>
 
 		<!-- Services -->
 		<script src="{{ asset('build/js/services/orion.js') }}"></script>

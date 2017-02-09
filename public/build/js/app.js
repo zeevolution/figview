@@ -36,6 +36,14 @@ app.config([
         .when('/orions/new', {
             templateUrl: "build/views/orion/new.html",
             controller: "OrionNewController"
+        })
+        .when('/orions/:id/edit', {
+            templateUrl: "build/views/orion/edit.html",
+            controller: "OrionEditController"
+        })
+        .when('/orions/:id/remove', {
+            templateUrl: "build/views/orion/remove.html",
+            controller: "OrionRemoveController"
         });
 
     OAuthProvider.configure({

@@ -7,10 +7,11 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th>Name</th>
+                            <th>Orion Name</th>
                             <th>Orion Address</th>
                             <th>Owner Name </th>
                             <th>Owner Email</th>
+                            <th>Action</th>
                         </tr>
                         </thead>
 
@@ -20,6 +21,10 @@
                                 <td>{{ o.orion_url_port }}</td>
                                 <td>{{ o.user.data.user_name }}</td>
                                 <td>{{ o.user.data.user_email }}</td>
+                                <td>
+                                    <a ng-href="#/orions/{{o.orion_id}}/edit">Edit</a> |
+                                    <a ng-href="#/orions/{{o.orion_id}}/remove">Delete</a>
+                                </td>
                             </tr>
                         </tboby>
                     </table>

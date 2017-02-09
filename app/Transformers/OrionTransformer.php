@@ -28,6 +28,9 @@ class OrionTransformer extends TransformerAbstract
             'orion_id' => $orion->id,
             'orion_name' => $orion->name,
             'orion_url_port' => rtrim($orion->url, "/") . ":" . $orion->port . "/",
+            'name' => $orion->name,
+            'url' => $orion->url,
+            'port' => $orion->port
         ];
     }
 
