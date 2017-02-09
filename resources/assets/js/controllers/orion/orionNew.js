@@ -9,7 +9,7 @@ angular.module('app.controllers')
 
         $scope.save = function () {
             if($scope.form.$valid) {
-                $scope.orion.user_id = $cookies.getObject('user').data.user_id;
+                $scope.orion.user_id = $cookies.getObject('user').user_id;
                 $scope.orion.$save().then(function () {
                     $location.path('/orions');
 

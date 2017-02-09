@@ -6,7 +6,7 @@ angular.module('app.controllers')
 
         $scope.save = function () {
             if($scope.form.$valid) {
-                Orion.update({id: $scope.orion.data.orion_id}, $scope.orion.data, function () {
+                Orion.update({id: $scope.orion.orion_id}, $scope.orion, function () {
                     $location.path('/orions');
                 });
             }
