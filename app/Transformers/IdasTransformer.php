@@ -27,6 +27,9 @@ class IdasTransformer extends TransformerAbstract
             'idas_id' => $idas->id,
             'idas_name' => $idas->name,
             'idas_url_port' => rtrim($idas->url, "/") . ":" . $idas->port . "/",
+            'name' => $idas->name,
+            'url' => $idas->url,
+            'port' => $idas->port
         ];
     }
 
@@ -34,7 +37,7 @@ class IdasTransformer extends TransformerAbstract
     {
         $user = $idas->user;
 
-        return $this->item($user, new OrionUserTransformer);
+        return $this->item($user, new IdasUserTransformer);
     }
 
 }

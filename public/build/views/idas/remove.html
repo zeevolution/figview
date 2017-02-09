@@ -1,0 +1,26 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">Delete Orion</div>
+                <div class="panel-body">
+
+                    <p>Do you really want to delete this Idas?</p>
+
+                    <ul>
+                        <li><strong>Idas Name: </strong> {{idas.name}} </li>
+                        <li><strong>Idas Address: </strong> {{idas.idas_url_port}} </li>
+                    </ul>
+
+                    <div class="form-group">
+                        <div class="col-md-6 col-md-offset-4">
+                            <button type="button" class="btn btn-danger" ng-click="remove()">
+                                Delete Orion
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

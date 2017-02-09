@@ -60,6 +60,22 @@ app.config([
         .when('/orions/:id/remove', {
             templateUrl: "build/views/orion/remove.html",
             controller: "OrionRemoveController"
+        })
+        .when('/idas', {
+            templateUrl: "build/views/idas/list.html",
+            controller: "IdasListController"
+        })
+        .when('/idas/new', {
+            templateUrl: "build/views/idas/new.html",
+            controller: "IdasNewController"
+        })
+        .when('/idas/:id/edit', {
+            templateUrl: "build/views/idas/edit.html",
+            controller: "IdasEditController"
+        })
+        .when('/idas/:id/remove', {
+            templateUrl: "build/views/idas/remove.html",
+            controller: "IdasRemoveController"
         });
 
     OAuthProvider.configure({

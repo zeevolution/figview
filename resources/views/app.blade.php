@@ -90,10 +90,15 @@
 		<script src="{{ asset('build/js/controllers/orion/orionNew.js') }}"></script>
 		<script src="{{ asset('build/js/controllers/orion/orionEdit.js') }}"></script>
 		<script src="{{ asset('build/js/controllers/orion/orionRemove.js') }}"></script>
+        <script src="{{ asset('build/js/controllers/idas/idasList.js') }}"></script>
+        <script src="{{ asset('build/js/controllers/idas/idasNew.js') }}"></script>
+        <script src="{{ asset('build/js/controllers/idas/idasEdit.js') }}"></script>
+        <script src="{{ asset('build/js/controllers/idas/idasRemove.js') }}"></script>
 
 		<!-- Services -->
 		<script src="{{ asset('build/js/services/orion.js') }}"></script>
 		<script src="{{ asset('build/js/services/user.js') }}"></script>
+        <script src="{{ asset('build/js/services/idas.js') }}"></script>
 
 	@else
 		<script src="{{ elixir('js/all.js') }}"></script>

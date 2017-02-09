@@ -1,0 +1,35 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">List of Idas</div>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Idas Name</th>
+                            <th>Idas Address</th>
+                            <th>Owner Name </th>
+                            <th>Owner Email</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+
+                        <tboby>
+                            <tr ng-repeat = "i in idas">
+                                <td>{{ i.idas_name }}</td>
+                                <td>{{ i.idas_url_port }}</td>
+                                <td>{{ i.user.data.user_name }}</td>
+                                <td>{{ i.user.data.user_email }}</td>
+                                <td>
+                                    <a ng-href="#/idas/{{i.idas_id}}/edit">Edit</a> |
+                                    <a ng-href="#/idas/{{i.idas_id}}/remove">Delete</a>
+                                </td>
+                            </tr>
+                        </tboby>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
