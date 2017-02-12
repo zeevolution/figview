@@ -1,0 +1,49 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">Register New Device Model</div>
+                <div class="panel-body">
+
+                    <div class="alert alert-danger" ng-show="error.error">
+                        <strong>Whoops!</strong> There have been errors.<br><br>
+                        <div>{{ error.message }}</div>
+                    </div>
+
+
+                    <form class="form-horizontal" name="form" role="form" method="POST" ng-submit="save()">
+
+                        <div class="form-group" ng-class="{'has-error': !form.name.$valid && form.name.$touched}">
+                            <label class="col-md-4 control-label">Model Name:</label>
+
+                            <div class="col-md-6">
+                                <input type="name" class="form-control" name="name" ng-model="devicemodel.name" required>
+                                <div ng-messages="form.name.$error" class="help-block" ng-show="form.name.$touched">
+                                    <div ng-message="required">Field required</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group" ng-class="{'has-error': !form.model.$valid && form.model.$touched}">
+                            <label class="col-md-4 control-label">Model JSON:</label>
+
+                            <div class="col-md-6">
+                                <textarea rows="10" type="json" class="form-control" name="model" ng-model="devicemodel.model" required></textarea>
+                                <div ng-messages="form.model.$error" class="help-block" ng-show="form.model.$touched">
+                                    <div ng-message="required">Field required.</div>
+                                    <div ng-message="json">Invalid JSON</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">Add New Device Model</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

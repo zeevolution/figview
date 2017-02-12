@@ -32,11 +32,12 @@ class DeviceModelsController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param $iotEnvId
+     * @return mixed
      */
-    public function index()
+    public function index($iotEnvId)
     {
-        return $this->service->all();
+        return $this->service->iotenvAllDeviceModels($iotEnvId);
     }
 
     /**
@@ -52,12 +53,13 @@ class DeviceModelsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     *
-     * @return \Illuminate\Http\Response
+     * @param $iotEnvId
+     * @param Request $request
+     * @return array|mixed
      */
-    public function store(Request $request)
+    public function store($iotEnvId, Request $request)
     {
+        $request["iotenv_id"] = $iotEnvId;
         //dd($request->all());
         return $this->service->create($request->all());
     }
@@ -66,13 +68,13 @@ class DeviceModelsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+     * @param $iotEnvId
+     * @param $deviceModelId
+     * @return mixed
      */
-    public function show($id)
+    public function show($iotEnvId, $deviceModelId)
     {
-        return $this->service->find($id);
+        return $this->service->iotenvDeviceModel($iotEnvId, $deviceModelId);
     }
 
 

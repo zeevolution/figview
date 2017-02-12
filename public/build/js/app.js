@@ -76,6 +76,26 @@ app.config([
         .when('/idas/:id/remove', {
             templateUrl: "build/views/idas/remove.html",
             controller: "IdasRemoveController"
+        })
+        .when('/iotenv/:id/devicemodels', {
+            templateUrl: "build/views/iotenv-devicemodel/list.html",
+            controller: "DeviceModelListController"
+        })
+        .when('/iotenv/:id/devicemodels/:idDeviceModel/show', {
+            templateUrl: "build/views/iotenv-devicemodel/show.html",
+            controller: "DeviceModelShowController"
+        })
+        .when('/iotenv/:id/devicemodels/new', {
+            templateUrl: "build/views/iotenv-devicemodel/new.html",
+            controller: "DeviceModelNewController"
+        })
+        .when('/iotenv/:id/devicemodels/:idDeviceModel/edit', {
+            templateUrl: "build/views/iotenv-devicemodel/edit.html",
+            controller: "DeviceModelEditController"
+        })
+        .when('/iotenv/:id/devicemodels/:idDeviceModel/remove', {
+            templateUrl: "build/views/iotenv-devicemodel/remove.html",
+            controller: "DeviceModelRemoveController"
         });
 
     OAuthProvider.configure({

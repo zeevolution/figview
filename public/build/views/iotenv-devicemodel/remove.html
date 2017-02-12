@@ -1,0 +1,26 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">Delete Device Model</div>
+                <div class="panel-body">
+
+                    <p>Do you really want to delete this device model?</p>
+
+                    <ul>
+                        <li><strong>Model Name: </strong> {{devicemodel.model_name}} </li>
+                        <li><strong>JSON Model: </strong> {{devicemodel.model_json}} </li>
+                    </ul>
+
+                    <div class="form-group">
+                        <div class="col-md-6 col-md-offset-4">
+                            <button type="button" class="btn btn-danger" ng-click="remove()">
+                                Delete Model
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

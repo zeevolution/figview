@@ -40,7 +40,15 @@ Route::group(['middleware' => 'oauth'], function(){
         Route::put('/', 'ContextTreePathsController@update');
     });
 
-    Route::resource('devicemodel', 'DeviceModelsController', ['except' => ['create', 'edit']]);
+    //Route::resource('devicemodel', 'DeviceModelsController', ['except' => ['create', 'edit']]);
+    Route::group(['prefix'=>'iotenv'], function() {
+        Route::get('{id}/devicemodel', 'DeviceModelsController@index');
+        Route::post('{id}/devicemodel', 'DeviceModelsController@store');
+        Route::get('{id}/devicemodel/{idDeviceModel}', 'DeviceModelsController@show');
+        Route::delete('devicemodel/{idDeviceModel}', 'DeviceModelsController@destroy');
+        Route::put('devicemodel/{idDeviceModel}', 'DeviceModelsController@update');
+    });
+
 
     Route::resource('iotenvmember', 'IoTEnvMembersController', ['except' => ['create', 'edit']]);
 

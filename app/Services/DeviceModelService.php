@@ -36,6 +36,34 @@ class DeviceModelService
         return $this->repository->all();
     }
 
+    public function iotenvAllDeviceModels($iotEnvId)
+    {
+        $result =  $this->repository->findWhere(['iotenv_id' => $iotEnvId]);
+
+        if(isset($result['data']) && count($result['data']) == 1)
+        {
+            $result = [
+                'data' => $result['data'][0]
+            ];
+        }
+
+        return $result;
+    }
+
+    public function iotenvDeviceModel($iotEnvId, $devicemodelId)
+    {
+        $result =  $this->repository->findWhere(['iotenv_id' => $iotEnvId, 'id' => $devicemodelId]);
+
+        if(isset($result['data']) && count($result['data']) == 1)
+        {
+            $result = [
+                'data' => $result['data'][0]
+            ];
+        }
+
+        return $result;
+    }
+
     public function create(array $data)
     {
         try{

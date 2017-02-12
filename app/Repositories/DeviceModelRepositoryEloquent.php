@@ -2,6 +2,7 @@
 
 namespace Figview\Repositories;
 
+use Figview\Presenters\DeviceModelPresenter;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Figview\Repositories\DeviceModelRepository;
@@ -42,5 +43,10 @@ class DeviceModelRepositoryEloquent extends BaseRepository implements DeviceMode
     public function boot()
     {
         $this->pushCriteria(app(RequestCriteria::class));
+    }
+
+    public function presenter()
+    {
+        return DeviceModelPresenter::class;
     }
 }

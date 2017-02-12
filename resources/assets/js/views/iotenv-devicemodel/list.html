@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">List of the IoT Environment's Device Models</div>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Model Name</th>
+                            <th>JSON Model</th>
+                        </tr>
+                        </thead>
+
+                        <tboby>
+                            <tr ng-repeat = "d in devicemodels">
+                                <td>{{ d.model_name }}</td>
+                                <td>{{ d.model_json }}</td>
+                                <td>
+                                    <a ng-href="#/iotenv/{{d.model_iotenvId}}/devicemodels/{{d.model_id}}/edit">Edit</a> |
+                                    <a ng-href="#/iotenv/{{d.model_iotenvId}}/devicemodels/{{d.model_id}}/remove">Delete</a>
+                                </td>
+                            </tr>
+                        </tboby>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

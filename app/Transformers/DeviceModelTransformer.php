@@ -18,7 +18,10 @@ class DeviceModelTransformer extends TransformerAbstract
         return [
             'model_id' => $deviceModel->id,
             'model_name' => $deviceModel->name,
-            'model_json' => $deviceModel->model
+            'model_json' => $deviceModel->model,
+            'model_iotenvId' => $deviceModel->iotenv_id,
+            'name' => $deviceModel->name,
+            'model' => $deviceModel->model
         ];
     }
 
