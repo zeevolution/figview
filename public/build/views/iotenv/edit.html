@@ -1,0 +1,67 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">Edit IoT Environment</div>
+                <div class="panel-body">
+
+                    <div class="alert alert-danger" ng-show="error.error">
+                        <strong>Whoops!</strong> There have been errors.<br><br>
+                        <div>{{ error.message }}</div>
+                    </div>
+
+
+                    <form class="form-horizontal" name="form" role="form" method="POST" ng-submit="save()">
+
+                        <div class="form-group" ng-class="{'has-error': !form.name.$valid && form.name.$touched}">
+                            <label class="col-md-4 control-label">Environment Name:</label>
+
+                            <div class="col-md-6">
+                                <input type="name" class="form-control" name="name" ng-model="iotenv.name" required>
+                                <div ng-messages="form.name.$error" class="help-block" ng-show="form.name.$touched">
+                                    <div ng-message="required">Field required</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group" ng-class="{'has-error': !form.orion_id.$valid && form.orion_id.$touched}">
+                            <label class="col-md-4 control-label">Orion Address:</label>
+
+                            <div class="col-md-6">
+                                <select class="form-control" name="orion_id" ng-model="iotenv.orion_id" ng-options="o.orion_id as o.orion_url_port for o in orions" required>
+                                    <option value=""><-- Select a Orion Context Broker Address --> </option>
+                                </select>
+                                <div ng-messages="form.orion_id.$error" class="help-block" ng-show="form.orion_id.$touched">
+                                    <div ng-message="required">Field required</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group" ng-class="{'has-error': !form.idas_id.$valid && form.idas_id.$touched}">
+                            <label class="col-md-4 control-label">IDAS Address:</label>
+
+                            <div class="col-md-6">
+                                <select class="form-control" name="idas_id" ng-model="iotenv.idas_id" ng-options="i.idas_id as i.idas_url_port for i in idas" required>
+                                    <option value=""><-- Select a Backend Device Management --> </option>
+                                </select>
+                                <div ng-messages="form.idas_id.$error" class="help-block" ng-show="form.idas_id.$touched">
+                                    <div ng-message="required">Field required</div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">Edit IoT Environment</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

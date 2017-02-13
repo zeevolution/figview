@@ -1,0 +1,33 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">List of the IoT Environment</div>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th width="15%">Environment Name</th>
+                            <th width="40%">Orion Context Broker</th>
+                            <th width="40%">Backend Device Management - IDAS </th>
+                            <th width="5%">Action</th>
+                        </tr>
+                        </thead>
+
+                        <tboby>
+                            <tr ng-repeat = "i in iotenvs">
+                                <td>{{ i.name }}</td>
+                                <td>{{ i.orion.data.orion_name }} at {{i.orion.data.orion_url_port}}</td>
+                                <td>{{ i.idas.data.idas_name }} at {{i.idas.data.idas_url_port}}</td>
+                                <td>
+                                    <a ng-href="#/iotenvs/{{i.id}}/edit">Edit</a> |
+                                    <a ng-href="#/iotenvs/{{i.id}}/remove">Delete</a>
+                                </td>
+                            </tr>
+                        </tboby>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

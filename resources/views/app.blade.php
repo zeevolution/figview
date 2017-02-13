@@ -97,6 +97,13 @@
         <script src="{{ asset('build/js/controllers/idas/idasEdit.js') }}"></script>
         <script src="{{ asset('build/js/controllers/idas/idasRemove.js') }}"></script>
 
+
+        <script src="{{ asset('build/js/controllers/iotenv/iotEnvList.js') }}"></script>
+        <script src="{{ asset('build/js/controllers/iotenv/iotEnvNew.js') }}"></script>
+        <script src="{{ asset('build/js/controllers/iotenv/iotEnvEdit.js') }}"></script>
+        <script src="{{ asset('build/js/controllers/iotenv/iotEnvRemove.js') }}"></script>
+
+
         <script src="{{ asset('build/js/controllers/iotenv-devicemodel/deviceModelList.js') }}"></script>
         <script src="{{ asset('build/js/controllers/iotenv-devicemodel/deviceModelNew.js') }}"></script>
         <script src="{{ asset('build/js/controllers/iotenv-devicemodel/deviceModelEdit.js') }}"></script>
@@ -108,6 +115,7 @@
 		<script src="{{ asset('build/js/services/user.js') }}"></script>
         <script src="{{ asset('build/js/services/idas.js') }}"></script>
         <script src="{{ asset('build/js/services/devicemodel.js') }}"></script>
+        <script src="{{ asset('build/js/services/iotenv.js') }}"></script>
 
 	@else
 		<script src="{{ elixir('js/all.js') }}"></script>

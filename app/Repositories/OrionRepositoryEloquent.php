@@ -15,6 +15,12 @@ use Prettus\Repository\Eloquent\BaseRepository;
 class OrionRepositoryEloquent extends BaseRepository implements OrionRepository
 {
 
+    protected $fieldSearchable = [
+        'name',
+        'url',
+        'port'
+    ];
+
     public function model()
     {
         return Orion::class;
@@ -22,8 +28,7 @@ class OrionRepositoryEloquent extends BaseRepository implements OrionRepository
 
     public function isOwner($orionId, $userId)
     {
-        if(count($this->findWhere(['id' =>$orionId, 'user_id' => $userId])))
-        {
+        if (count($this->findWhere(['id' => $orionId, 'user_id' => $userId]))) {
             return true;
         }
 
@@ -33,6 +38,11 @@ class OrionRepositoryEloquent extends BaseRepository implements OrionRepository
     public function presenter()
     {
         return OrionPresenter::class;
+    }
+
+    public function boot()
+    {
+        $this->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
     }
 
 }

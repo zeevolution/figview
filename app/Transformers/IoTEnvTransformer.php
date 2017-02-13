@@ -34,6 +34,9 @@ class IoTEnvTransformer extends TransformerAbstract
         return [
             'id' => $iotenv->id,
             'name' => $iotenv->name,
+            'user_id' => $iotenv->user_id,
+            'orion_id' => $iotenv->orion_id,
+            'idas_id' => $iotenv->idas_id
         ];
 
     }

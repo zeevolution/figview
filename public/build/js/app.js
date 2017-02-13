@@ -5,7 +5,24 @@ angular.module('app.services',['ngResource']);
 
 app.provider('appConfig', function () {
     var config = {
-        baseUrl: "http://localhost:8000"
+        baseUrl: "http://localhost:8000",
+        utils: {
+            transformResponse: function (data, headers) {
+                var headersGetter = headers();
+                if(headersGetter['content-type'] == 'application/json' ||
+                    headersGetter['content-type'] == 'text/json') {
+
+                    var dataJson = JSON.parse(data);
+                    if(dataJson.hasOwnProperty('data')){
+                        dataJson = dataJson.data;
+                    }
+                    return dataJson;
+
+                }
+                return data;
+            }
+        }
+
     };
 
     return {
@@ -22,20 +39,7 @@ app.config([
     'OAuthTokenProvider','appConfigProvider',
     function ($routeProvider, $httpProvider, OAuthProvider, OAuthTokenProvider, appConfigProvider) {
 
-        $httpProvider.defaults.transformResponse = function (data, headers) {
-            var headersGetter = headers();
-            if(headersGetter['content-type'] == 'application/json' ||
-                headersGetter['content-type'] == 'text/json') {
-
-                var dataJson = JSON.parse(data);
-                if(dataJson.hasOwnProperty('data')){
-                    dataJson = dataJson.data;
-                }
-                return dataJson;
-
-            }
-            return data;
-        };
+        $httpProvider.defaults.transformResponse = appConfigProvider.config.utils.transformResponse;
         $routeProvider
         .when('/login', {
             templateUrl: 'build/views/login.html',
@@ -77,6 +81,22 @@ app.config([
             templateUrl: "build/views/idas/remove.html",
             controller: "IdasRemoveController"
         })
+        .when('/iotenvs', {
+            templateUrl: "build/views/iotenv/list.html",
+            controller: "IotEnvListController"
+        })
+        .when('/iotenvs/new', {
+            templateUrl: "build/views/iotenv/new.html",
+            controller: "IotEnvNewController"
+        })
+        .when('/iotenvs/:id/edit', {
+            templateUrl: "build/views/iotenv/edit.html",
+            controller: "IotEnvEditController"
+        })
+        .when('/iotenvs/:id/remove', {
+            templateUrl: "build/views/iotenv/remove.html",
+            controller: "IotEnvRemoveController"
+         })
         .when('/iotenv/:id/devicemodels', {
             templateUrl: "build/views/iotenv-devicemodel/list.html",
             controller: "DeviceModelListController"
