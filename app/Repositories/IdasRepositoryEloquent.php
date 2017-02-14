@@ -14,6 +14,12 @@ use Prettus\Repository\Eloquent\BaseRepository;
 
 class IdasRepositoryEloquent extends BaseRepository implements IdasRepository
 {
+    protected $fieldSearchable = [
+        'name',
+        'url',
+        'port'
+    ];
+    
     public function model()
     {
        return Idas::class;
@@ -32,6 +38,11 @@ class IdasRepositoryEloquent extends BaseRepository implements IdasRepository
     public function presenter()
     {
         return IdasPresenter::class;
+    }
+
+    public function boot()
+    {
+        $this->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
     }
 
 }

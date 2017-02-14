@@ -3,9 +3,6 @@ angular.module('app.controllers')
         ['$scope', '$location', '$cookies','IotEnv', 'Orion', 'Idas',
             function ($scope, $location, $cookies, IotEnv, Orion, Idas) {
                 $scope.iotenv = new IotEnv();
-                $scope.orions = Orion.query();
-                $scope.idas = Idas.query();
-
 
                 $scope.error = {
                     message: '',
@@ -22,5 +19,46 @@ angular.module('app.controllers')
                             $scope.error.message = data.message;
                         });
                     }
-                }
+                };
+
+                $scope.formatOrionUrl = function(model) {
+                    if(model){
+                        return model.orion_url_port;
+                    }
+                    return '';
+
+                };
+
+                $scope.getOrions = function(orionUrl){
+                    return Orion.query({
+                        search: orionUrl,
+                        searchFields: 'url:like'
+
+                    }).$promise;
+                };
+
+                $scope.selectOrion = function (item){
+                    $scope.iotenv.orion_id = item.orion_id;
+                };
+
+                $scope.formatIdasUrl = function(model) {
+                    if(model){
+                        return model.idas_url_port;
+                    }
+                    return '';
+
+                };
+
+                $scope.getIdas = function(idasUrl){
+                    return Idas.query({
+                        search: idasUrl,
+                        searchFields: 'url:like'
+
+                    }).$promise;
+                };
+
+                $scope.selectIdas = function (item){
+                    $scope.iotenv.idas_id = item.idas_id;
+                };
+
             }]);
