@@ -15,6 +15,14 @@ class IoTEnvMember extends Model implements Transformable
         'member_id'
     ];
 
-    
+    public function iotenv()
+    {
+        return $this->belongsTo(IotEnv::class);
+    }
+
+    public function member()
+    {
+        return $this->belongsTo(User::class);
+    }
 
 }

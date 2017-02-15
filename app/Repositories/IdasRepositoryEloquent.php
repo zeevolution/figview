@@ -27,7 +27,7 @@ class IdasRepositoryEloquent extends BaseRepository implements IdasRepository
 
     public function isOwner($idasId, $userId)
     {
-        if(count($this->findWhere(['id' => $idasId, 'user_id' => $userId])))
+        if(count($this->skipPresenter()->findWhere(['id' => $idasId, 'user_id' => $userId])))
         {
             return true;
         }

@@ -2,6 +2,7 @@
 
 namespace Figview\Repositories;
 
+use Figview\Presenters\IoTEnvMemberPresenter;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Figview\Repositories\IoTEnvMemberRepository;
@@ -42,5 +43,10 @@ class IoTEnvMemberRepositoryEloquent extends BaseRepository implements IoTEnvMem
     public function boot()
     {
         $this->pushCriteria(app(RequestCriteria::class));
+    }
+
+    public function presenter()
+    {
+        return IoTEnvMemberPresenter::class;
     }
 }

@@ -122,13 +122,13 @@ class IDASController extends Controller
     /**
      * Check if the user is owner of the resource.
      *
-     * @param $orionId
+     * @param $idasId
      * @return mixed
      */
-    private function checkIdasOwner($orionId)
+    private function checkIdasOwner($idasId)
     {
         $userId = Authorizer::getResourceOwnerId();
 
-        return $this->repository->isOwner($orionId, $userId);
+        return $this->repository->isOwner($idasId, $userId);
     }
 }

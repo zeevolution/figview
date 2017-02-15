@@ -28,7 +28,7 @@ class OrionRepositoryEloquent extends BaseRepository implements OrionRepository
 
     public function isOwner($orionId, $userId)
     {
-        if (count($this->findWhere(['id' => $orionId, 'user_id' => $userId]))) {
+        if (count($this->skipPresenter()->findWhere(['id' => $orionId, 'user_id' => $userId]))) {
             return true;
         }
 

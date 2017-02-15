@@ -48,13 +48,13 @@ class IotEnvRepositoryEloquent extends BaseRepository implements IotEnvRepositor
     /**
      * Check if the user is owner of this IoTEnv resource.
      *
-     * @param $orionId
+     * @param $iotenvId
      * @param $userId
      * @return bool
      */
-    public function isOwner($orionId, $userId)
+    public function isOwner($iotenvId, $userId)
     {
-        if(count($this->findWhere(['id' =>$orionId, 'user_id' => $userId])))
+        if(count($this->skipPresenter()->findWhere(['id' =>$iotenvId, 'user_id' => $userId])))
         {
             return true;
         }
@@ -71,7 +71,7 @@ class IotEnvRepositoryEloquent extends BaseRepository implements IotEnvRepositor
      */
     public function hasMember($iotenvId, $memberId)
     {
-        $iotenv = $this->find($iotenvId);
+        $iotenv = $this->skipPresenter()->find($iotenvId);
 
         foreach ($iotenv->members as $member) {
             if($member->id == $memberId)
