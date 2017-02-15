@@ -12,6 +12,7 @@ namespace Figview\Services;
 use Figview\Repositories\OrionRepository;
 use Figview\Validators\OrionValidator;
 use Illuminate\Contracts\Validation\ValidationException;
+use LucaDegasperi\OAuth2Server\Facades\Authorizer;
 use Prettus\Validator\Exceptions\ValidatorException;
 
 //Servico utilizado para transacoes, e que pode utilizar repository.
@@ -53,6 +54,10 @@ class OrionService
 
     public function find($id)
     {
+        if($this->checkOrionOwner($id) == false)
+        {
+            return ['error' => 'Access Forbidden!'];
+        }
         return $this->repository->find($id);
     }
 
@@ -63,6 +68,11 @@ class OrionService
 
     public function update(array $data, $id)
     {
+        if($this->checkOrionOwner($id) == false)
+        {
+            return ['error' => 'Access Forbidden!'];
+        }
+
         try{
             $this->validator->with($data)->passesOrFail();
             return $this->repository->update($data, $id);
@@ -77,6 +87,17 @@ class OrionService
 
     public function delete($id)
     {
+        if($this->checkOrionOwner($id) == false)
+        {
+            return ['error' => 'Access Forbidden!'];
+        }
         $this->repository->delete($id);
+    }
+
+    private function checkOrionOwner($orionId)
+    {
+        $userId = Authorizer::getResourceOwnerId();
+
+        return $this->repository->isOwner($orionId, $userId);
     }
 }

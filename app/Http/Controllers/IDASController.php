@@ -67,11 +67,6 @@ class IDASController extends Controller
      */
     public function show($id)
     {
-        if($this->checkIdasOwner($id) == false)
-        {
-            return ['error' => 'Access Forbidden!'];
-        }
-
         return $this->service->find($id);
     }
 
@@ -95,11 +90,6 @@ class IDASController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if($this->checkIdasOwner($id) == false)
-        {
-            return ['error' => 'Access Forbidden!'];
-        }
-
         return $this->service->update($request->all(), $id);
     }
 
@@ -111,24 +101,6 @@ class IDASController extends Controller
      */
     public function destroy($id)
     {
-        if($this->checkIdasOwner($id) == false)
-        {
-            return ['error' => 'Access Forbidden!'];
-        }
-
         $this->service->delete($id);
-    }
-
-    /**
-     * Check if the user is owner of the resource.
-     *
-     * @param $idasId
-     * @return mixed
-     */
-    private function checkIdasOwner($idasId)
-    {
-        $userId = Authorizer::getResourceOwnerId();
-
-        return $this->repository->isOwner($idasId, $userId);
     }
 }

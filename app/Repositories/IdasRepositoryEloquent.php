@@ -14,6 +14,11 @@ use Prettus\Repository\Eloquent\BaseRepository;
 
 class IdasRepositoryEloquent extends BaseRepository implements IdasRepository
 {
+    /**
+     * @var bool
+     */
+    protected $skipPresenter = false;
+
     protected $fieldSearchable = [
         'name',
         'url',
@@ -27,11 +32,14 @@ class IdasRepositoryEloquent extends BaseRepository implements IdasRepository
 
     public function isOwner($idasId, $userId)
     {
+        $this->skipPresenter = true;
         if(count($this->skipPresenter()->findWhere(['id' => $idasId, 'user_id' => $userId])))
         {
+            $this->skipPresenter = false;
             return true;
         }
 
+        $this->skipPresenter = false;
         return false;
     }
 

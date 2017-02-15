@@ -16,6 +16,11 @@ use Figview\Validators\IotEnvValidator;
 class IotEnvRepositoryEloquent extends BaseRepository implements IotEnvRepository
 {
     /**
+     * @var bool
+     */
+    protected $skipPresenter = false;
+
+    /**
      * Specify Model class name
      *
      * @return string
@@ -54,11 +59,13 @@ class IotEnvRepositoryEloquent extends BaseRepository implements IotEnvRepositor
      */
     public function isOwner($iotenvId, $userId)
     {
-        if(count($this->skipPresenter()->findWhere(['id' =>$iotenvId, 'user_id' => $userId])))
+        $this->skipPresenter = true;
+        if(count($this->findWhere(['id' =>$iotenvId, 'user_id' => $userId])))
         {
+            $this->skipPresenter = false;
             return true;
         }
-
+        $this->skipPresenter = false;
         return false;
     }
 
@@ -71,7 +78,9 @@ class IotEnvRepositoryEloquent extends BaseRepository implements IotEnvRepositor
      */
     public function hasMember($iotenvId, $memberId)
     {
-        $iotenv = $this->skipPresenter()->find($iotenvId);
+        $this->skipPresenter = true;
+        $iotenv = $this->find($iotenvId);
+        $this->skipPresenter = false;
 
         foreach ($iotenv->members as $member) {
             if($member->id == $memberId)
@@ -81,6 +90,16 @@ class IotEnvRepositoryEloquent extends BaseRepository implements IotEnvRepositor
         }
 
         return false;
+    }
+
+    public function findIoTEnvsAsOwnerAsMember($userId)
+    {
+        return $this->scopeQuery(function ($query) use ($userId) {
+            return $query->select('iot_envs.*')
+                ->leftJoin('io_t_env_members', 'io_t_env_members.iotenv_id', '=', 'iot_envs.id')
+                ->where('io_t_env_members.member_id', '=', $userId)
+                ->union($this->model->query()->getQuery()->where('user_id', '=', $userId));
+        })->all();
     }
 
     /**

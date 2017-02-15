@@ -15,6 +15,11 @@ use Prettus\Repository\Eloquent\BaseRepository;
 class OrionRepositoryEloquent extends BaseRepository implements OrionRepository
 {
 
+    /**
+     * @var bool
+     */
+    protected $skipPresenter = false;
+
     protected $fieldSearchable = [
         'name',
         'url',
@@ -28,10 +33,13 @@ class OrionRepositoryEloquent extends BaseRepository implements OrionRepository
 
     public function isOwner($orionId, $userId)
     {
+        $this->skipPresenter = true;
         if (count($this->skipPresenter()->findWhere(['id' => $orionId, 'user_id' => $userId]))) {
+            $this->skipPresenter = false;
             return true;
         }
 
+        $this->skipPresenter = false;
         return false;
     }
 

@@ -66,11 +66,6 @@ class OrionController extends Controller
      */
     public function show($id)
     {
-        if($this->checkOrionOwner($id) == false)
-        {
-            return ['error' => 'Access Forbidden!'];
-        }
-
         return $this->service->find($id);
     }
 
@@ -94,11 +89,6 @@ class OrionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if($this->checkOrionOwner($id) == false)
-        {
-            return ['error' => 'Access Forbidden!'];
-        }
-
         return $this->service->update($request->all(), $id);
     }
 
@@ -110,18 +100,6 @@ class OrionController extends Controller
      */
     public function destroy($id)
     {
-        if($this->checkOrionOwner($id) == false)
-        {
-            return ['error' => 'Access Forbidden!'];
-        }
-
         $this->service->delete($id);
-    }
-
-    private function checkOrionOwner($orionId)
-    {
-        $userId = Authorizer::getResourceOwnerId();
-
-        return $this->repository->isOwner($orionId, $userId);
     }
 }
