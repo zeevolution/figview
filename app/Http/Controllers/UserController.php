@@ -43,7 +43,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        return $this->service->all();
     }
 
     /**
@@ -64,7 +64,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $this->service->create($request->all());
     }
 
     /**
@@ -75,7 +75,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        return $this->service->find($id);
     }
 
     /**
@@ -98,7 +98,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return $this->service->update($request->all(), $id);
     }
 
     /**
@@ -109,6 +109,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->service->delete($id);
     }
 }

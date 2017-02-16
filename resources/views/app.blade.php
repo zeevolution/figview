@@ -110,12 +110,18 @@
         <script src="{{ asset('build/js/controllers/iotenv-devicemodel/deviceModelRemove.js') }}"></script>
         <script src="{{ asset('build/js/controllers/iotenv-devicemodel/deviceModelShow.js') }}"></script>
 
+        <script src="{{ asset('build/js/controllers/iotenv-member/iotenvMemberList.js') }}"></script>
+        <script src="{{ asset('build/js/controllers/iotenv-member/iotenvMemberRemove.js') }}"></script>
+
+
+
 		<!-- Services -->
 		<script src="{{ asset('build/js/services/orion.js') }}"></script>
 		<script src="{{ asset('build/js/services/user.js') }}"></script>
         <script src="{{ asset('build/js/services/idas.js') }}"></script>
         <script src="{{ asset('build/js/services/devicemodel.js') }}"></script>
         <script src="{{ asset('build/js/services/iotenv.js') }}"></script>
+        <script src="{{ asset('build/js/services/iotenvMember.js') }}"></script>
 
 	@else
 		<script src="{{ elixir('js/all.js') }}"></script>

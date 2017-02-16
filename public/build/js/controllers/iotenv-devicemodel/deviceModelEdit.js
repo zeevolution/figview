@@ -9,7 +9,7 @@ angular.module('app.controllers')
 
                 $scope.save = function () {
                     if($scope.form.$valid) {
-                        DeviceModel.update({id: null, idDeviceModel: $scope.devicemodel.model_id}, $scope.devicemodel, function () {
+                        DeviceModel.update({id: $routeParams.id, idDeviceModel: $scope.devicemodel.model_id}, $scope.devicemodel, function () {
                             $location.path('/iotenv/' + $routeParams.id + '/devicemodels');
                         });
                     }

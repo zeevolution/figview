@@ -35,5 +35,7 @@ class Kernel extends HttpKernel
         'oauth-client' => \LucaDegasperi\OAuth2Server\Middleware\OAuthClientOwnerMiddleware::class,
         'check-authorization-params' => \LucaDegasperi\OAuth2Server\Middleware\CheckAuthCodeRequestMiddleware::class,
         'check-orion-owner' => \Figview\Http\Middleware\CheckOrionOwner::class,
+        'check.iotenv.owner' => \Figview\Http\Middleware\CheckIoTEnvOwner::class,
+        'check.iotenv.permission' => \Figview\Http\Middleware\CheckIoTEnvPermission::class, 
     ];
 }

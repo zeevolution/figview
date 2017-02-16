@@ -118,6 +118,14 @@ app.config([
         .when('/iotenv/:id/devicemodels/:idDeviceModel/remove', {
             templateUrl: "build/views/iotenv-devicemodel/remove.html",
             controller: "DeviceModelRemoveController"
+        })
+        .when('/iotenv/:id/iotenvmembers/', {
+            templateUrl: "build/views/iotenv-member/list.html",
+            controller: "IoTEnvMemberListController"
+        })
+        .when('/iotenv/:id/iotenvmember/:idIotEnvMember/remove', {
+            templateUrl: "build/views/iotenv-member/remove.html",
+            controller: "IoTEnvMemberRemoveController"
         });
 
     OAuthProvider.configure({

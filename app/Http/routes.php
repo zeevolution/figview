@@ -30,7 +30,7 @@ Route::group(['middleware' => 'oauth'], function(){
 
     Route::resource('iotenv', 'IotEnvsController', ['except' => ['create', 'edit']]);
 
-    Route::resource('contextpath', 'ContextTreePathsController', ['except' => ['create', 'edit']]);
+    Route::resource('contextpath', 'ContextTreePathsController', ['except' => ['create', 'edit', 'update']]);
 
     Route::group(['prefix'=>'contextpath'], function() {
         Route::get('/', 'ContextTreePathsController@index');
@@ -41,18 +41,20 @@ Route::group(['middleware' => 'oauth'], function(){
     });
 
     //Route::resource('devicemodel', 'DeviceModelsController', ['except' => ['create', 'edit']]);
-    Route::group(['prefix'=>'iotenv'], function() {
+    Route::group(['middleware' => 'check.iotenv.permission', 'prefix'=>'iotenv'], function() {
         Route::get('{id}/devicemodel', 'DeviceModelsController@index');
         Route::post('{id}/devicemodel', 'DeviceModelsController@store');
         Route::get('{id}/devicemodel/{idDeviceModel}', 'DeviceModelsController@show');
-        Route::delete('devicemodel/{idDeviceModel}', 'DeviceModelsController@destroy');
-        Route::put('devicemodel/{idDeviceModel}', 'DeviceModelsController@update');
+        Route::delete('{id}/devicemodel/{idDeviceModel}', 'DeviceModelsController@destroy');
+        Route::put('{id}/devicemodel/{idDeviceModel}', 'DeviceModelsController@update');
+
     });
 
 
-    Route::resource('iotenvmember', 'IoTEnvMembersController', ['except' => ['create', 'edit']]);
+    Route::resource('iotenv.iotenvmember', 'IoTEnvMembersController', ['except' => ['create', 'edit', 'update']]);
 
     Route::get('user/authenticated', 'UserController@authenticated');
+    Route::resource('user', 'UserController', ['except' => ['create', 'edit']]);
 
 });
 

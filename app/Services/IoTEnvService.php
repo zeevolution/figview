@@ -51,10 +51,6 @@ class IoTEnvService
 
     public function find($id)
     {
-        if($this->checkIoTEnvPermissions($id) == false)
-        {
-            return ['error' => 'Access Forbidden!'];
-        }
         return $this->repository->find($id);
     }
 
@@ -65,11 +61,6 @@ class IoTEnvService
 
     public function update(array $data, $id)
     {
-        if($this->checkIoTEnvOwner($id) == false)
-        {
-            return ['error' => 'Access Forbidden!'];
-        }
-
         try{
             $this->validator->with($data)->passesOrFail();
             return $this->repository->update($data, $id);
@@ -84,10 +75,6 @@ class IoTEnvService
 
     public function delete($id)
     {
-        if($this->checkIoTEnvOwner($id) == false)
-        {
-            return ['error' => 'Access Forbidden!'];
-        }
         $this->repository->delete($id);
     }
 
@@ -97,7 +84,7 @@ class IoTEnvService
      * @param $iotEnvId
      * @return mixed
      */
-    private function checkIoTEnvOwner($iotEnvId)
+    public function checkIoTEnvOwner($iotEnvId)
     {
         $userId = Authorizer::getResourceOwnerId();
 
@@ -110,14 +97,14 @@ class IoTEnvService
      * @param $iotEnvId
      * @return mixed
      */
-    private function checkIoTEnvMember($iotEnvId)
+    public function checkIoTEnvMember($iotEnvId)
     {
         $userId = Authorizer::getResourceOwnerId();
 
         return $this->repository->hasMember($iotEnvId, $userId);
     }
 
-    private function checkIoTEnvPermissions($iotEnvId)
+    public function checkIoTEnvPermissions($iotEnvId)
     {
         if($this->checkIoTEnvOwner($iotEnvId) or $this->checkIoTEnvMember($iotEnvId))
         {

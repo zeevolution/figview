@@ -27,6 +27,8 @@ class IoTEnvMembersController extends Controller
     {
         $this->repository = $repository;
         $this->service  = $service;
+        $this->middleware('check.iotenv.owner', ['except' => ['index', 'show']]);
+        $this->middleware('check.iotenv.permission', ['except' => ['store', 'destroy']]);
     }
 
 
@@ -35,9 +37,9 @@ class IoTEnvMembersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($iotenvId)
     {
-        return $this->service->all();
+        return $this->service->findWhere($iotenvId);
     }
 
     /**
@@ -46,22 +48,24 @@ class IoTEnvMembersController extends Controller
      * @param Request $request
      * @return array|mixed
      */
-    public function store(Request $request)
+    public function store(Request $request, $iotenvId)
     {
-        return $this->service->create($request->all());
+        $data = $request->all();
+        $data['iotenv_id'] = $iotenvId;
+        return $this->service->create($data);
     }
 
 
     /**
      * Display the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+     * 
+     * @param $iotenvId
+     * @param $idIotEnvMember
+     * @return mixed
      */
-    public function show($id)
+    public function show($iotenvId, $idIotEnvMember)
     {
-        return $this->service->find($id);
+        return $this->service->find($idIotEnvMember);
     }
 
 
@@ -85,9 +89,9 @@ class IoTEnvMembersController extends Controller
      * @param $id
      * @return array|mixed
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, $idIotEnvMember)
     {
-        return $this->service->update($request->all(), $id);
+        return $this->service->update($request->all(), $idIotEnvMember);
     }
 
 
@@ -98,8 +102,8 @@ class IoTEnvMembersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, $idIotEnvMember)
     {
-        $this->service->delete($id);
+        $this->service->delete($idIotEnvMember);
     }
 }

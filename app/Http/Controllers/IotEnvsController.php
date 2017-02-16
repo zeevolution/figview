@@ -25,6 +25,8 @@ class IotEnvsController extends Controller
     {
         $this->repository = $repository;
         $this->service  = $service;
+        $this->middleware('check.iotenv.owner', ['except' => ['index', 'store', 'show']]);
+        $this->middleware('check.iotenv.permission', ['except' => ['index', 'store', 'update', 'destroy']]);
     }
 
 

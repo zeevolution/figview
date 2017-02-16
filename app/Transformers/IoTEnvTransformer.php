@@ -10,6 +10,7 @@ namespace Figview\Transformers;
 
 use League\Fractal\TransformerAbstract;
 use Figview\Entities\IotEnv;
+use LucaDegasperi\OAuth2Server\Facades\Authorizer;
 
 class IoTEnvTransformer extends TransformerAbstract
 {
@@ -36,7 +37,8 @@ class IoTEnvTransformer extends TransformerAbstract
             'name' => $iotenv->name,
             'user_id' => $iotenv->user_id,
             'orion_id' => $iotenv->orion_id,
-            'idas_id' => $iotenv->idas_id
+            'idas_id' => $iotenv->idas_id,
+            'isMember' => $iotenv->user_id != Authorizer::getResourceOwnerId()
         ];
 
     }

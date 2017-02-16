@@ -38,16 +38,7 @@ class DeviceModelService
 
     public function iotenvAllDeviceModels($iotEnvId)
     {
-        $result =  $this->repository->findWhere(['iotenv_id' => $iotEnvId]);
-
-        if(isset($result['data']) && count($result['data']) == 1)
-        {
-            $result = [
-                'data' => $result['data'][0]
-            ];
-        }
-
-        return $result;
+        return $this->repository->findWhere(['iotenv_id' => $iotEnvId]);
     }
 
     public function iotenvDeviceModel($iotEnvId, $devicemodelId)

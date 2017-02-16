@@ -99,9 +99,9 @@ class DeviceModelsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, $deviceModelId)
     {
-        return $this->service->update($request->all(), $id);
+        return $this->service->update($request->all(), $deviceModelId);
     }
 
 
@@ -112,8 +112,8 @@ class DeviceModelsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, $deviceModelId)
     {
-        $this->service->delete($id);
+        $this->service->delete($deviceModelId);
     }
 }

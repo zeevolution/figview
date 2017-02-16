@@ -11,6 +11,7 @@ namespace Figview\Services;
 
 use Figview\Repositories\IoTEnvMemberRepository;
 use Figview\Validators\IoTEnvMemberValidator;
+use LucaDegasperi\OAuth2Server\Facades\Authorizer;
 use Prettus\Validator\Exceptions\ValidatorException;
 
 class IoTEnvMemberService
@@ -50,9 +51,14 @@ class IoTEnvMemberService
         }
     }
 
-    public function find($id)
+    public function find($idIotEnvMember)
     {
-        return $this->repository->find($id);
+        return $this->repository->find($idIotEnvMember);
+    }
+
+    public function findWhere($iotEnvId)
+    {
+        return $this->repository->findWhere(['iotenv_id' => $iotEnvId]);
     }
 
     public function update(array $data, $id)
@@ -69,8 +75,8 @@ class IoTEnvMemberService
 
     }
 
-    public function delete($id)
+    public function delete($idIotEnvMember)
     {
-        $this->repository->delete($id);
+        $this->repository->delete($idIotEnvMember);
     }
 }

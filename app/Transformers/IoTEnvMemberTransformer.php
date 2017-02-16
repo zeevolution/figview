@@ -19,11 +19,12 @@ class IoTEnvMemberTransformer extends TransformerAbstract
      *
      * @var array
      */
-    protected $defaultIncludes = ['user', 'iotenv'];
+    protected $defaultIncludes = ['user'];
 
     public function transform(IoTEnvMember $ioTEnvMember)
     {
         return [
+            'id' => $ioTEnvMember->id, 
             'iotenv_id' => $ioTEnvMember->iotenv_id,
             'member_id' => $ioTEnvMember->member_id
         ];
@@ -36,12 +37,7 @@ class IoTEnvMemberTransformer extends TransformerAbstract
         return $this->item($user, new UserTransformer());
     }
 
-    public function includeIotenv(IoTEnvMember $ioTEnvMember)
-    {
-        $iotenv = $ioTEnvMember->iotenv;
 
-        return $this->item($iotenv, new IoTEnvTransformer());
-    }
 
 
 }
