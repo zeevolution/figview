@@ -82,11 +82,14 @@
 		<script src="{{ asset('build/js/vendor/angular-oauth2.min.js') }}"></script>
         <script src="{{ asset('build/js/vendor/tree-grid-directive.js') }}"></script>
         <script src="{{ asset('build/js/vendor/angular-ui-tree.min.js') }}"></script>
+        <script src="{{ asset('build/js/vendor/http-auth-interceptor.js') }}"></script>
+
 
 		<script src="{{ asset('build/js/app.js') }}"></script>
 
 		<!-- Controllers -->
 		<script src="{{ asset('build/js/controllers/login.js') }}"></script>
+        <script src="{{ asset('build/js/controllers/loginModal.js') }}"></script>
 		<script src="{{ asset('build/js/controllers/home.js') }}"></script>
 
 		<script src="{{ asset('build/js/controllers/orion/orionList.js') }}"></script>
@@ -115,6 +118,8 @@
         <script src="{{ asset('build/js/controllers/iotenv-member/iotenvMemberList.js') }}"></script>
         <script src="{{ asset('build/js/controllers/iotenv-member/iotenvMemberRemove.js') }}"></script>
 
+        <!-- Directives -->
+        <script src="{{ asset('build/js/directives/loginForm.js') }}"></script>
 
 
 		<!-- Services -->

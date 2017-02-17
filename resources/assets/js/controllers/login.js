@@ -20,7 +20,7 @@ angular.module('app.controllers')
 
             }, function (data) {
                 $scope.error.error = true;
-                $scope.error.message = data.data.error_description;
+                $scope.error.message = data.error_description;
             });
         }
     };

@@ -1,9 +1,11 @@
 var app = angular.module('app',[
-    'ngRoute', 'angular-oauth2','app.controllers', 'app.services',
-    'ui.bootstrap.typeahead', 'ui.bootstrap.tpls', 'treeGrid', 'ui.tree' ]);
+    'ngRoute', 'angular-oauth2','app.controllers', 'app.services', 'app.directives',
+    'ui.bootstrap.typeahead', 'ui.bootstrap.tpls', 'treeGrid',
+    'ui.tree', 'http-auth-interceptor', 'ui.bootstrap.modal' ]);
 
 angular.module('app.controllers',['ngMessages','angular-oauth2']);
 angular.module('app.services',['ngResource']);
+angular.module('app.directives',['ngResource']);
 
 app.provider('appConfig', function () {
     var config = {
@@ -42,6 +44,8 @@ app.config([
     function ($routeProvider, $httpProvider, OAuthProvider, OAuthTokenProvider, appConfigProvider) {
 
         $httpProvider.defaults.transformResponse = appConfigProvider.config.utils.transformResponse;
+        $httpProvider.interceptors.splice(0,1);
+        $httpProvider.interceptors.splice(0,1);
         $httpProvider.interceptors.push('oauthFixInterceptor');
 
         $routeProvider
@@ -145,6 +149,7 @@ app.config([
         grantPath: 'oauth/access_token'
     });
 
+    //This section must be eliminated when using https.
     OAuthTokenProvider.configure({
         name: 'token',
         options: {
@@ -154,7 +159,7 @@ app.config([
     })
 }]);
 
-app.run(['$rootScope', '$location', '$http','OAuth', function($rootScope, $location, $http, OAuth) {
+app.run(['$rootScope', '$location', '$http', '$modal', 'httpBuffer','OAuth', function($rootScope, $location, $http, $modal, httpBuffer, OAuth) {
     $rootScope.$on('$routeChangeStart', function(event, next, current){
         if(next.$$route.originalPath != 'login') {
             if(!OAuth.isAuthenticated()) {
@@ -170,20 +175,15 @@ app.run(['$rootScope', '$location', '$http','OAuth', function($rootScope, $locat
 
         // Refresh token when a `invalid_token` error occurs.
         if ('access_denied' === data.rejection.data.error) {
-            if(!$rootScope.isRefreshingToken) {
-                $rootScope.isRefreshingToken = true;
-                return OAuth.getRefreshToken().then(function (response) {
-                    $rootScope.isRefreshingToken = false;
-                    return $http(data.rejection.config).then(function (response) {
-                        return data.deferred.resolve(response);
-                    });
-
+            httpBuffer.append(data.rejection.config, data.deferred);
+            if(!$rootScope.loginModalOpened){
+                var modalInstance = $modal.open({
+                    templateUrl: 'build/views/templates/loginModal.html',
+                    controller: 'LoginModalController'
                 });
-            } else {
-                return $http(data.rejection.config).then(function (response) {
-                    return data.deferred.resolve(response);
-                });
+                $rootScope.loginModalOpened = true;
             }
+            return;
         }
 
         // Redirect to `/login` with the `error_reason`.
