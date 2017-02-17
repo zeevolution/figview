@@ -80,6 +80,7 @@
 		<script src="{{ asset('build/js/vendor/angular-cookies.min.js') }}"></script>
 		<script src="{{ asset('build/js/vendor/query-string.js') }}"></script>
 		<script src="{{ asset('build/js/vendor/angular-oauth2.min.js') }}"></script>
+        <script src="{{ asset('build/js/vendor/tree-grid-directive.js') }}"></script>
 
 		<script src="{{ asset('build/js/app.js') }}"></script>
 
@@ -122,6 +123,7 @@
         <script src="{{ asset('build/js/services/devicemodel.js') }}"></script>
         <script src="{{ asset('build/js/services/iotenv.js') }}"></script>
         <script src="{{ asset('build/js/services/iotenvMember.js') }}"></script>
+        <script src="{{ asset('build/js/services/contextTreePath.js') }}"></script>
 
 	@else
 		<script src="{{ elixir('js/all.js') }}"></script>
