@@ -125,6 +125,7 @@
         <script src="{{ asset('build/js/services/iotenv.js') }}"></script>
         <script src="{{ asset('build/js/services/iotenvMember.js') }}"></script>
         <script src="{{ asset('build/js/services/contextTreePath.js') }}"></script>
+        <script src="{{ asset('build/js/services/oauthFixInterceptor.js') }}"></script>
 
 	@else
 		<script src="{{ elixir('js/all.js') }}"></script>
