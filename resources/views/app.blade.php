@@ -81,6 +81,7 @@
 		<script src="{{ asset('build/js/vendor/query-string.js') }}"></script>
 		<script src="{{ asset('build/js/vendor/angular-oauth2.min.js') }}"></script>
         <script src="{{ asset('build/js/vendor/tree-grid-directive.js') }}"></script>
+        <script src="{{ asset('build/js/vendor/angular-ui-tree.min.js') }}"></script>
 
 		<script src="{{ asset('build/js/app.js') }}"></script>
 

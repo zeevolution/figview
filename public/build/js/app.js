@@ -1,6 +1,6 @@
 var app = angular.module('app',[
     'ngRoute', 'angular-oauth2','app.controllers', 'app.services',
-    'ui.bootstrap.typeahead', 'ui.bootstrap.tpls', 'treeGrid' ]);
+    'ui.bootstrap.typeahead', 'ui.bootstrap.tpls', 'treeGrid', 'ui.tree' ]);
 
 angular.module('app.controllers',['ngMessages','angular-oauth2']);
 angular.module('app.services',['ngResource']);
