@@ -1,7 +1,7 @@
 angular.module('app.controllers')
     .controller('IotEnvEditController',
-        ['$scope', '$location', '$cookies', '$routeParams','IotEnv', 'Orion', 'Idas',
-            function ($scope, $location, $cookies, $routeParams, IotEnv, Orion, Idas) {
+        ['$scope', '$location', '$cookies', '$q','$routeParams','IotEnv', 'Orion', 'Idas',
+            function ($scope, $location, $cookies, $q,$routeParams, IotEnv, Orion, Idas) {
                 IotEnv.get({id: $routeParams.id}, function (data) {
                     $scope.iotenv = data;
                     $scope.orionSelected = data.orion.data;
@@ -26,11 +26,17 @@ angular.module('app.controllers')
                 };
 
                 $scope.getOrions = function(orionUrl){
-                    return Orion.query({
+                    var deffered = $q.defer();
+                    Orion.query({
                         search: orionUrl,
                         searchFields: 'url:like'
+                    }, function(data){
+                        deffered.resolve(data.data);
+                    }, function (error){
+                        deffered.reject(error);
+                    });
 
-                    }).$promise;
+                    return deffered.promise;
                 };
 
                 $scope.selectOrion = function (item){
@@ -46,11 +52,17 @@ angular.module('app.controllers')
                 };
 
                 $scope.getIdas = function(idasUrl){
-                    return Idas.query({
+                    var deffered = $q.defer();
+                    Idas.query({
                         search: idasUrl,
                         searchFields: 'url:like'
+                    }, function (data) {
+                        deffered.resolve(data.data);
+                    }, function (error) {
+                        deffered.reject(error);
+                    });
 
-                    }).$promise;
+                    return deffered.promise;
                 };
 
                 $scope.selectIdas = function (item){

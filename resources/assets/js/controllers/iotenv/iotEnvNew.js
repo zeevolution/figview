@@ -1,7 +1,7 @@
 angular.module('app.controllers')
     .controller('IotEnvNewController',
-        ['$scope', '$location', '$cookies','IotEnv', 'Orion', 'Idas',
-            function ($scope, $location, $cookies, IotEnv, Orion, Idas) {
+        ['$scope', '$location', '$cookies', '$q','IotEnv', 'Orion', 'Idas',
+            function ($scope, $location, $cookies, $q, IotEnv, Orion, Idas) {
                 $scope.iotenv = new IotEnv();
                 $scope.orions = Orion.query();
                 $scope.idas = Idas.query();
@@ -36,11 +36,17 @@ angular.module('app.controllers')
                 };
 
                 $scope.getOrions = function(orionUrl){
-                    return Orion.query({
+                    var deffered = $q.defer();
+                    Orion.query({
                         search: orionUrl,
                         searchFields: 'url:like'
+                    }, function(data){
+                        deffered.resolve(data.data);
+                    }, function (error){
+                        deffered.reject(error);
+                    });
 
-                    }).$promise;
+                    return deffered.promise;
                 };
 
                 $scope.selectOrion = function (item){
@@ -56,11 +62,17 @@ angular.module('app.controllers')
                 };
 
                 $scope.getIdas = function(idasUrl){
-                    return Idas.query({
+                    var deffered = $q.defer();
+                    Idas.query({
                         search: idasUrl,
                         searchFields: 'url:like'
+                    }, function (data) {
+                        deffered.resolve(data.data);
+                    }, function (error) {
+                        deffered.reject(error);
+                    });
 
-                    }).$promise;
+                    return deffered.promise;
                 };
 
                 $scope.selectIdas = function (item){
