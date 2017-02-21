@@ -10,18 +10,11 @@
                                     Orion's List
 
                                     <div class="btn-group pull-right">
-                                        <label class="select-styled select-styled-default select-styled-sm">
-                                            <select>
-                                                <option selected="selected">A</option>
-                                                <option>B</option>
-                                                <option>C</option>
-                                                <option>D</option>
-                                                <option>E</option>
-                                                <option>F</option>
-                                            </select>
-                                        </label>
+                                        <a href="#/orions" class="btn btn-primary btn-sm text-upper">
+                                            <i class="fa fa-list-alt" aria-hidden="true"></i>
+                                        </a>
                                         <a href="#/orions/new" class="btn btn-default btn-sm">
-                                            <i class="fa fa-plus"></i>
+                                            <i class="fa fa-plus" aria-hidden="true"></i>
                                         </a>
                                     </div>
                                 </h3>
@@ -40,8 +33,8 @@
                     </div>
                     <div class="boxed-manager-main boxed-manager-main-xlg">
                         <div class="boxed-manager-main-header">
-                            <h4 class="h4">
-                                Orion Data
+                            <h4 class="h4 text-center">
+                                {{ orion.orion_name }} Data <small> - Orion Context Broker</small>
 
                                 <div class="btn-group pull-right">
                                     <a href="#/orions/{{orion.orion_id}}/edit" class="btn btn-default btn-xs" title="Edit">
@@ -86,7 +79,7 @@
                                     <thead>
                                     <tr>
                                         <th width="50%">Environment Name</th>
-                                        <th width="50%">Backend Management Device IDAS</th>
+                                        <th width="50%">Backend Device Management - IDAS</th>
                                     </tr>
                                     </thead>
                                     <tbody>

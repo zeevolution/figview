@@ -18,7 +18,9 @@ class IdasTransformer extends TransformerAbstract
      *
      * @var array
      */
-    protected $defaultIncludes = ['user'];
+    protected $defaultIncludes = [
+        'user',
+        'iotenvs'];
 
     public function transform(Idas $idas)
     {
@@ -38,6 +40,15 @@ class IdasTransformer extends TransformerAbstract
         $user = $idas->user;
 
         return $this->item($user, new IdasUserTransformer);
+    }
+
+    public function includeIotenvs(Idas $idas)
+    {
+        $transformer = new IoTEnvTransformer();
+        $transformer->setDefaultIncludes(['orion']);
+        $iotenvs = $idas->iotenvs;
+
+        return $this->collection($iotenvs, $transformer);
     }
 
 }

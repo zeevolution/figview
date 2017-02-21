@@ -93,6 +93,11 @@ app.config([
             controller: "OrionRemoveController",
             title: "Fiware Orion Context Broker"
         })
+        .when('/idas/dashboard', {
+            templateUrl: "build/views/idas/dashboard.html",
+            controller: "IdasDashboardController",
+            title: "Fiware Backend Device Management"
+        })
         .when('/idas', {
             templateUrl: "build/views/idas/list.html",
             controller: "IdasListController",

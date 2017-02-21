@@ -3,6 +3,8 @@ angular.module('app.controllers')
         ['$scope', '$location', '$cookies','IotEnv', 'Orion', 'Idas',
             function ($scope, $location, $cookies, IotEnv, Orion, Idas) {
                 $scope.iotenv = new IotEnv();
+                $scope.orions = Orion.query();
+                $scope.idas = Idas.query();
 
                 $scope.error = {
                     message: '',

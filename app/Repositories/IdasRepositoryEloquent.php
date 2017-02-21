@@ -53,7 +53,7 @@ class IdasRepositoryEloquent extends BaseRepository implements IdasRepository
         $this->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
     }
 
-    public function findAllUserIdas($userId, $limit = 8, $columns = array())
+    public function findAllUserIdas($userId, $limit = 5, $columns = array())
     {
         return $this->scopeQuery(function ($query) use ($userId) {
             return $query->select('idas.*')->where('idas.user_id', '=', $userId);

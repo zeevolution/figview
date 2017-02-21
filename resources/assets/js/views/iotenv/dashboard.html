@@ -2,11 +2,11 @@
 <section class="main">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-xs-18">
                 <div class="boxed-manager">
                     <div class="boxed-manager-menu">
                         <ul class="boxed-manager-menu-nav">
-                            <li class="boxed-manager-menu-nav-header">
+                            <li data-match-route="/#/iotenvs/dashboard" class="boxed-manager-menu-nav-header">
                                 <h3 class="h4">
                                     IotEnvs List
 
@@ -15,12 +15,13 @@
                                             <i class="fa fa-list-alt" aria-hidden="true"></i>
                                         </a>
                                         <a href="#/iotenvs/new" class="btn btn-default btn-sm">
-                                            <i class="fa fa-plus"></i>
+                                            <i class="fa fa-plus" aria-hidden="true"></i>
                                         </a>
                                     </div>
                                 </h3>
                             </li>
-                            <li class="boxed-manager-menu-nav-item" dir-paginate="i in iotenvs| itemsPerPage: iotenvsPerPage"
+                            <div class="boxed-manager-menu-nav">
+                            <li data-match-route="/#/iotenvs/dashboard" class="boxed-manager-menu-nav-item" dir-paginate="i in iotenvs| itemsPerPage: iotenvsPerPage"
                                 total-items="totalIotEnvs" current-page="pagination.current">
                                 <a href="javascript:void(0)" ng-click="showIotEnv(i)">
                                     <header>
@@ -29,19 +30,20 @@
                                     </header>
                                 </a>
                             </li>
+                            </div>
                         </ul>
                         <dir-pagination-controls on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
                     </div>
                     <div class="boxed-manager-main arrow">
                         <div class="boxed-manager-main-header">
-                            <h4 class="h4">
+                            <h4 class="h4 text-center text-capital">
                                 {{iotenv.name}} <small> - IoT Environment</small>
 
                                 <div class="btn-group pull-right">
                                     <a href="#/iotenvs/{{iotenv.id}}/edit" class="btn btn-default btn-xs" title="Edit">
                                         <i class="fa fa-pencil"></i>
                                     </a>
-                                    <a href="#/iotenvs/{{iotenv.id}}/remove" class="btn btn-danger btn-xs" title="Delete">
+                                    <a href="#/iotenvs/{{iotenv.id}}/remove" class="btn delete-button btn-xs" title="Delete">
                                         <i class="fa fa-trash"></i>
                                     </a>
                                 </div>
@@ -73,10 +75,41 @@
                                         </div>
                                     </div>
                                 </tab>
-                                <tab heading="Device Models">Tab 2 content</tab>
+                                <tab heading="Device Models">
+                                    <div class="panel-body">
+                                        <div class=" col-md-12 fa fa-plus text-center" aria-hidden="true">
+                                            <a class="text-success" ng-href="#/iotenv/{{iotenv.id}}/devicemodels/new">
+                                                <strong>Add New Model</strong>
+                                            </a>
+                                            <br>
+                                            <br>
+                                        </div>
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th>Model Name</th>
+                                                <th>JSON Model</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            </thead>
+
+                                            <tboby>
+                                                <tr ng-repeat="d in devicemodels.data">
+                                                    <td>{{ d.model_name }}</td>
+                                                    <td>{{ d.model_json }}</td>
+                                                    <td>
+                                                        <a class="text-warning" ng-href="#/iotenv/{{iotenv.id}}/devicemodels/{{d.model_id}}/edit">Edit</a> |
+                                                        <a class="text-danger" ng-href="#/iotenv/{{iotenv.id}}/devicemodels/{{d.model_id}}/remove">Delete</a>
+                                                    </td>
+                                                </tr>
+                                            </tboby>
+                                        </table>
+                                        <dir-pagination-controls on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
+                                    </div>
+                                </tab>
                                 <tab heading="Members">
                                     <div class="panel-heading">
-                                        <div class="pull-left col-md-12">
+                                        <div class="pull-left col-md-24">
                                             <form class="form-inline" name="form" role="form" method="POST" ng-submit="save()" >
                                                 <div class="form-group" ng-class="{'has-error': !form.member_id.$valid && form.member_id.$touched}">
                                                     <label class="col-md-6 control-label">Search user name:</label>
@@ -91,13 +124,14 @@
                                                                required />
                                                         <div ng-messages="form.member_id.$error" class="help-block" ng-show="form.member_id.$touched">
                                                             <div ng-message="required">Field required</div>
-                                                            <div ng-message="editable">Select a valid user name</div>
+                                                            <div ng-message="editable">Not a valid user name</div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <div class="col-md-6 col-md-offset-0">
+                                                    <div class="col-md-12 col-md-offset-1">
                                                         <button type="submit" class="btn btn-primary" >Add New Member</button>
+                                                        <button type="reset" class="btn btn-primary" ng-disabled="form.$pristine" ng-click="reset()">Clean</button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -119,7 +153,7 @@
                                             <tboby>
                                                 <tr ng-repeat = "m in iotenvMembers">
                                                     <td>{{ m.user.data.user_name }}</td>
-                                                    <td>{{ m.user.data.user_email }} {{m.id}}</td>
+                                                    <td>{{ m.user.data.user_email }}</td>
                                                     <td>
                                                         <a ng-href="#/iotenv/{{iotenv.id}}/iotenvmember/{{m.id}}/remove">Delete Member</a>
                                                     </td>
@@ -136,10 +170,11 @@
                     </div>
                     <div class="boxed-manager-info">
                         <div class="boxed-manager-info-header">
-                            <h4 class="h4">IoTEnv Stats Info</h4>
+                            <h4 class="h4 text-center">IoTEnv Stats Info</h4>
                         </div>
                         <div class="boxed-manager-info-body">
-                            <div  style="background-image: url(/build/images/IoT-PoC.png); height: 200px; width: 180px; border: 0px solid black;">
+
+                            <p style="text-align:center;"><img src="/build/images/IoT-PoC.png" alt="" align="middle"/></p>
 
 
                             </div>

@@ -1,6 +1,7 @@
 angular.module('app.controllers')
     .controller('IotEnvListController', [
-        '$scope', '$routeParams','IotEnv', 'ContextTreePath', function ($scope, $routeParams, IotEnv, ContextTreePath) {
+        '$scope', '$routeParams','IotEnv', 'ContextTreePath', '$location', function (
+            $scope, $routeParams, IotEnv, ContextTreePath, $location) {
 
             $scope.iotenvs = [];
             $scope.iotEnvsPerPage = 5;
@@ -24,5 +25,9 @@ angular.module('app.controllers')
             }
 
             getResultsPage(1);
+
+            $scope.cancel = function () {
+                $location.path('/iotenvs/dashboard');
+            };
 
         }]);

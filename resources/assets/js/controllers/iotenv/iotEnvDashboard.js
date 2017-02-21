@@ -1,7 +1,7 @@
 angular.module('app.controllers')
     .controller('IotEnvDashboardController',
-        ['$scope', '$location', '$cookies', '$routeParams','IotEnv', 'IoTEnvMember', 'User',
-            function ($scope, $location, $cookies, $routeParams, IotEnv, IoTEnvMember, User) {
+        ['$scope', '$location', '$cookies', '$routeParams','IotEnv', 'IoTEnvMember', 'User', 'DeviceModel',
+            function ($scope, $location, $cookies, $routeParams, IotEnv, IoTEnvMember, User, DeviceModel) {
                 $scope.iotenv = {
 
                 };
@@ -26,6 +26,7 @@ angular.module('app.controllers')
                         $scope.iotenvs = data.data;
                         $scope.iotenv = data.data[0];
                         $scope.loadMember(data.data[0].id);
+                        $scope.loadDeviceModel(data.data[0].id);
                         $scope.totalIotEnvs = data.meta.pagination.total;
                     });
                 }
@@ -35,6 +36,7 @@ angular.module('app.controllers')
                 $scope.showIotEnv = function (iotenv) {
                     $scope.iotenv = iotenv;
                     $scope.loadMember($scope.iotenv.id);
+                    $scope.loadDeviceModel($scope.iotenv.id);
                 };
 
 
@@ -52,6 +54,15 @@ angular.module('app.controllers')
 
                 $scope.loadMember = function (id){
                     $scope.iotenvMembers = IoTEnvMember.query({
+                        id: id,
+                        orderBy: 'id',
+                        sortedBy:'asc'
+
+                    });
+                };
+
+                $scope.loadDeviceModel = function (id){
+                    $scope.devicemodels = DeviceModel.query({
                         id: id,
                         orderBy: 'id',
                         sortedBy:'asc'
@@ -77,6 +88,11 @@ angular.module('app.controllers')
 
                 $scope.selectUser = function (item){
                     $scope.iotenvMember.member_id = item.user_id;
+                };
+
+                $scope.reset = function() {
+                    $scope.addemp = {};
+                    $scope.form.$setPristine();
                 };
 
             }]);

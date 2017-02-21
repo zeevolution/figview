@@ -12,7 +12,7 @@ angular.module('app.controllers')
                     if($scope.form.$valid) {
                         $scope.iotenv.user_id = $cookies.getObject('user').user_id;
                         IotEnv.update({id: $scope.iotenv.id}, $scope.iotenv, function () {
-                            $location.path('/iotenvs');
+                            $location.path('/iotenvs/dashboard');
                         });
                     }
                 };

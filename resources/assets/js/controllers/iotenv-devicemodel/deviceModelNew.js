@@ -13,7 +13,8 @@ angular.module('app.controllers')
         $scope.save = function () {
             if($scope.form.$valid) {
                 $scope.devicemodel.$save({id: $routeParams.id}).then(function () {
-                    $location.path('/iotenv/' + $routeParams.id + '/devicemodels');
+                    //$location.path('/iotenv/' + $routeParams.id + '/devicemodels');
+                    $location.path('/iotenvs/dashboard');
                 }, function (data) {
                     $scope.error.error = true;
                     $scope.error.message = data.message;

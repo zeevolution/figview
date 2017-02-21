@@ -6,7 +6,7 @@ angular.module('app.controllers')
 
                 $scope.remove = function () {
                     $scope.iotenv.$delete({id: $scope.iotenv.id}).then(function(){
-                        $location.path('/iotenvs');
+                        $location.path('/iotenvs/dashboard');
                     });
                 }
             }]);

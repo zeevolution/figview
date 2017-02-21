@@ -16,7 +16,7 @@
                         <div class="form-group" ng-class="{'has-error': !form.name.$valid && form.name.$touched}">
                             <label class="col-md-4 control-label">Environment Name:</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-7">
                                 <input type="name" class="form-control" name="name" ng-model="iotenv.name" required>
                                 <div ng-messages="form.name.$error" class="help-block" ng-show="form.name.$touched">
                                     <div ng-message="required">Field required</div>
@@ -27,14 +27,14 @@
                         <div class="form-group" ng-class="{'has-error': !form.orion_id.$valid && form.orion_id.$touched}">
                             <label class="col-md-4 control-label">Orion Address:</label>
 
-                            <div class="col-md-6">
-                                <input class="form-control" type="text" name="orion_id" ng-model="orionSelected"
+                            <div class="col-md-7">
+                                <!--Doesn't work on paginated data<input class="form-control" type="text" name="orion_id" ng-model="orionSelected"
                                        typeahead="o as o.orion_url_port for o in getOrions($viewValue)|limitTo:10 "
                                        typeahead-input-formatter="formatOrionUrl($model)" typeahead-on-select="selectOrion($item)"
-                                       typeahead-editable="false" required/>
-                                <!--<select class="form-control" name="orion_id" ng-model="iotenv.orion_id" ng-options="o.orion_id as o.orion_url_port for o in orions" required>
+                                       typeahead-editable="false" required/>-->
+                                <select class="form-control" name="orion_id" ng-model="iotenv.orion_id" ng-options="o.orion_id as o.orion_url_port for o in orions.data" required>
                                     <option value=""><-- Select a Orion Context Broker Address </option>
-                                </select> -->
+                                </select>
                                 <div ng-messages="form.orion_id.$error" class="help-block" ng-show="form.orion_id.$touched">
                                     <div ng-message="required">Field required</div>
                                     <div ng-message="editable">Select a valid Orion url address</div>
@@ -45,14 +45,14 @@
                         <div class="form-group" ng-class="{'has-error': !form.idas_id.$valid && form.idas_id.$touched}">
                             <label class="col-md-4 control-label">IDAS Address:</label>
 
-                            <div class="col-md-6">
-                                <input class="form-control" type="text" name="idas_id" ng-model="idasSelected"
+                            <div class="col-md-7">
+                                <!--<input class="form-control" type="text" name="idas_id" ng-model="idasSelected"
                                        typeahead="i as i.idas_url_port for i in getIdas($viewValue)|limitTo:10 "
                                        typeahead-input-formatter="formatIdasUrl($model)" typeahead-on-select="selectIdas($item)"
-                                       typeahead-editable="false" required/>
-                                <!--<select class="form-control" name="idas_id" ng-model="iotenv.idas_id" ng-options="i.idas_id as i.idas_url_port for i in idas" required>
+                                       typeahead-editable="false" required/>-->
+                                <select class="form-control" name="idas_id" ng-model="iotenv.idas_id" ng-options="i.idas_id as i.idas_url_port for i in idas.data" required>
                                     <option value=""><-- Select a Backend Device Management </option>
-                                </select>-->
+                                </select>
                                 <div ng-messages="form.idas_id.$error" class="help-block" ng-show="form.idas_id.$touched">
                                     <div ng-message="required">Field required</div>
                                     <div ng-message="editable">Select a valid Idas url address</div>

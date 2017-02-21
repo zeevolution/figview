@@ -71,6 +71,7 @@
         <script src="{{ asset('build/js/controllers/idas/idasNew.js') }}"></script>
         <script src="{{ asset('build/js/controllers/idas/idasEdit.js') }}"></script>
         <script src="{{ asset('build/js/controllers/idas/idasRemove.js') }}"></script>
+		<script src="{{ asset('build/js/controllers/idas/idasDashboard.js') }}"></script>
 
 
         <script src="{{ asset('build/js/controllers/iotenv/iotEnvList.js') }}"></script>
