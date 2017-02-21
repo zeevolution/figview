@@ -37,7 +37,7 @@ class IotEnvsController extends Controller
      */
     public function index()
     {
-        return $this->repository->findIoTEnvsAsOwnerAsMember(Authorizer::getResourceOwnerId());
+        return $this->service->findIoTEnvAsOwner(Authorizer::getResourceOwnerId());
     }
 
     /**

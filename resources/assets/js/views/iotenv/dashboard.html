@@ -1,0 +1,166 @@
+</header> <!-- /header-global -->
+<section class="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="boxed-manager">
+                    <div class="boxed-manager-menu">
+                        <ul class="boxed-manager-menu-nav">
+                            <li class="boxed-manager-menu-nav-header">
+                                <h3 class="h4">
+                                    IotEnvs List
+
+                                    <div class="btn-group pull-right">
+                                        <a href="#/iotenvs" class="btn btn-primary btn-sm text-upper">
+                                            <i class="fa fa-list-alt" aria-hidden="true"></i>
+                                        </a>
+                                        <a href="#/iotenvs/new" class="btn btn-default btn-sm">
+                                            <i class="fa fa-plus"></i>
+                                        </a>
+                                    </div>
+                                </h3>
+                            </li>
+                            <li class="boxed-manager-menu-nav-item" dir-paginate="i in iotenvs| itemsPerPage: iotenvsPerPage"
+                                total-items="totalIotEnvs" current-page="pagination.current">
+                                <a href="javascript:void(0)" ng-click="showIotEnv(i)">
+                                    <header>
+                                        <h4 class="h4 text-boulder">{{i.name}}</h4>
+                                        <small class="text-upper text-gray">{{i.userowner.data.user_email}}</small>
+                                    </header>
+                                </a>
+                            </li>
+                        </ul>
+                        <dir-pagination-controls on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
+                    </div>
+                    <div class="boxed-manager-main arrow">
+                        <div class="boxed-manager-main-header">
+                            <h4 class="h4">
+                                {{iotenv.name}} <small> - IoT Environment</small>
+
+                                <div class="btn-group pull-right">
+                                    <a href="#/iotenvs/{{iotenv.id}}/edit" class="btn btn-default btn-xs" title="Edit">
+                                        <i class="fa fa-pencil"></i>
+                                    </a>
+                                    <a href="#/iotenvs/{{iotenv.id}}/remove" class="btn btn-danger btn-xs" title="Delete">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
+                                </div>
+                            </h4>
+                        </div>
+                        <div class="boxed-manager-main-body">
+                            <tabset type="pills">
+                                <tab heading="Details">
+                                    <div role="tabpanel" class="tab-pane active" id="details">
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <br>
+                                                <i class="fa fa-leaf" aria-hidden="true"></i> <strong> Environment Name: </strong></br>{{ iotenv.name }}
+                                                </p>
+                                                <br>
+                                                <i class="fa fa-map-marker" aria-hidden="true"></i>  <strong>Fiware Orion Context Broker:</strong></br>
+                                                {{ iotenv.orion.data.orion_name }} at {{ iotenv.orion.data.orion_url_port }}
+                                                </p>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <br>
+                                                <i class="fa fa-user" aria-hidden="true"></i>  <strong>Owner:</strong></br> {{ iotenv.userowner.data.user_email}}
+                                                </p>
+                                                <br>
+                                                <i class="fa fa-map-marker" aria-hidden="true"></i> <strong>Fiware Backend Device Management:</strong></br>
+                                                {{ iotenv.idas.data.idas_name }} at {{ iotenv.idas.data.idas_url_port }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tab>
+                                <tab heading="Device Models">Tab 2 content</tab>
+                                <tab heading="Members">
+                                    <div class="panel-heading">
+                                        <div class="pull-left col-md-12">
+                                            <form class="form-inline" name="form" role="form" method="POST" ng-submit="save()" >
+                                                <div class="form-group" ng-class="{'has-error': !form.member_id.$valid && form.member_id.$touched}">
+                                                    <label class="col-md-6 control-label">Search user name:</label>
+
+                                                    <div class="col-md-6" >
+                                                        <input class="form-control" type="text" name="member_id"
+                                                               ng-model="userSelected"
+                                                               typeahead="u as u.user_name for u in getUsers($viewValue)|limitTo:10"
+                                                               typeahead-input-formatter="formatName($model)"
+                                                               typeahead-on-select="selectUser($item)"
+                                                               typeahead-editable="false"
+                                                               required />
+                                                        <div ng-messages="form.member_id.$error" class="help-block" ng-show="form.member_id.$touched">
+                                                            <div ng-message="required">Field required</div>
+                                                            <div ng-message="editable">Select a valid user name</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-6 col-md-offset-0">
+                                                        <button type="submit" class="btn btn-primary" >Add New Member</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+
+
+                                    <div class="panel-body">
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th>Member Name</th>
+                                                <th>Member Email</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            </thead>
+
+                                            <tboby>
+                                                <tr ng-repeat = "m in iotenvMembers">
+                                                    <td>{{ m.user.data.user_name }}</td>
+                                                    <td>{{ m.user.data.user_email }} {{m.id}}</td>
+                                                    <td>
+                                                        <a ng-href="#/iotenv/{{iotenv.id}}/iotenvmember/{{m.id}}/remove">Delete Member</a>
+                                                    </td>
+                                                </tr>
+                                            </tboby>
+                                        </table>
+                                    </div>
+                                </tab>
+                                <tab heading="Operations">Tab 2 content</tab>
+                            </tabset>
+                            <br/>
+                            <br/>
+                        </div>
+                    </div>
+                    <div class="boxed-manager-info">
+                        <div class="boxed-manager-info-header">
+                            <h4 class="h4">IoTEnv Stats Info</h4>
+                        </div>
+                        <div class="boxed-manager-info-body">
+                            <div  style="background-image: url(/build/images/IoT-PoC.png); height: 200px; width: 180px; border: 0px solid black;">
+
+
+                            </div>
+                            <ul class="list-styled">
+                                <li class="list-styled-header  text-center">
+                                    IoT Environment
+                                </li>
+                                <li class="text-center text-info">{{iotenv.name}}</li>
+                                <li class="list-styled-header text-center">
+                                    Number of Device Models
+                                </li>
+                                <li class="text-center text-info">{{iotenv.devicemodels.data.length}}</li>
+                                <li class="list-styled-header text-center">
+                                    Number of Members
+                                </li>
+                                <li class="text-center text-info">{{iotenv.members.data.length}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

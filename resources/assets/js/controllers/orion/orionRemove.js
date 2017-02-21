@@ -6,7 +6,7 @@ angular.module('app.controllers')
 
                 $scope.remove = function () {
                     $scope.orion.$delete({id: $scope.orion.orion_id}).then(function(){
-                       $location.path('/orions');
+                       $location.path('/orions/dashboard');
                     });
                 }
             }]);

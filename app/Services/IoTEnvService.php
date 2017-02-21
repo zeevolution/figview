@@ -36,6 +36,16 @@ class IoTEnvService
         return $this->repository->all();
     }
 
+    public function findIoTEnvAsOwner($userId)
+    {
+        return $this->repository->findIoTEnvAsOwner($userId);
+    }
+
+    public function findIoTEnvAsMember($userId)
+    {
+        return $this->repository->findIoTEnvAsMember($userId);
+    }
+
     public function create(array $data)
     {
         try{

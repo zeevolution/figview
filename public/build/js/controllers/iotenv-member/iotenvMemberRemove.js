@@ -13,7 +13,7 @@ angular.module('app.controllers')
                         id: $routeParams.id,
                         idIotEnvMember: $routeParams.idIotEnvMember
                     }).then(function(){
-                        $location.path('/iotenv/' + $routeParams.id + '/iotenvmembers');
+                        $location.path('/iotenvs/dashboard');
                     });
                 }
             }]);

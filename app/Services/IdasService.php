@@ -37,6 +37,11 @@ class IdasService
         return $this->repository->all();
     }
 
+    public function findAllUserIdas($userId)
+    {
+        return $this->repository->findAllUserIdas($userId);
+    }
+
     public function create(array $data)
     {
         try{

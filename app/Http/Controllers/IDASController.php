@@ -34,7 +34,7 @@ class IDASController extends Controller
      */
     public function index()
     {
-        return $this->service->findWhere(Authorizer::getResourceOwnerId());
+        return $this->service->findAllUserIdas(Authorizer::getResourceOwnerId());
     }
 
     /**

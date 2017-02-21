@@ -33,7 +33,7 @@ class OrionController extends Controller
      */
     public function index()
     {
-        return $this->service->findWhere(Authorizer::getResourceOwnerId());
+        return $this->service->findAllUserOrions(Authorizer::getResourceOwnerId());
     }
 
     /**

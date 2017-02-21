@@ -46,15 +46,19 @@ class IoTEnvTransformer extends TransformerAbstract
     public function includeOrion(IotEnv $iotenv)
     {
         $orion = $iotenv->orion;
+        $transformer = new OrionTransformer();
+        $transformer->setDefaultIncludes(['user']);
 
-        return $this->item($orion, new OrionTransformer);
+        return $this->item($orion, $transformer);
     }
 
     public function includeIdas(IotEnv $iotenv)
     {
         $idas = $iotenv->idas;
-
-        return $this->item($idas, new IdasTransformer);
+        $transformer = new IdasTransformer();
+        $transformer->setDefaultIncludes(['user']);
+        
+        return $this->item($idas, $transformer);
     }
 
     public function includeUserOwner(IotEnv $iotenv)

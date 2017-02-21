@@ -3,7 +3,7 @@ angular.module('app.services')
     return $resource(appConfig.baseUrl + '/orion/:id/', { id: '@id'}, {
         'query':  {
             method:'GET',
-            isArray:true
+            isArray:false
         },
         'update': {
             method: 'PUT'

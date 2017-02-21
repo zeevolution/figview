@@ -19,7 +19,9 @@ class OrionTransformer extends TransformerAbstract
      *
      * @var array
      */
-    protected $defaultIncludes = ['user'];
+    protected $defaultIncludes = [
+        'user',
+        'iotenvs'];
 
     public function transform(Orion $orion)
     {
@@ -39,6 +41,15 @@ class OrionTransformer extends TransformerAbstract
         $user = $orion->user;
 
         return $this->item($user, new OrionUserTransformer);
+    }
+
+    public function includeIotenvs(Orion $orion)
+    {
+        $transformer = new IoTEnvTransformer();
+        $transformer->setDefaultIncludes(['idas']);
+        $iotenvs = $orion->iotenvs;
+
+        return $this->collection($iotenvs, $transformer);
     }
 
 }

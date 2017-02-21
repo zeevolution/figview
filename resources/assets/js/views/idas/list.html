@@ -16,7 +16,8 @@
                         </thead>
 
                         <tboby>
-                            <tr ng-repeat = "i in idas">
+                            <tr dir-paginate="i in idas | itemsPerPage: idasPerPage"
+                                total-items="totalIdas" current-page="pagination.current">
                                 <td>{{ i.idas_name }}</td>
                                 <td>{{ i.idas_url_port }}</td>
                                 <td>{{ i.user.data.user_name }}</td>
@@ -28,6 +29,7 @@
                             </tr>
                         </tboby>
                     </table>
+                    <dir-pagination-controls on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
                 </div>
             </div>
         </div>

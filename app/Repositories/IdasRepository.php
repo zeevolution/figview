@@ -14,4 +14,5 @@ use Prettus\Repository\Contracts\RepositoryInterface;
 interface IdasRepository extends RepositoryInterface
 {
 
+    public function findAllUserIdas($userId, $limit = null, $columns = array());
 }

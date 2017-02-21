@@ -13,7 +13,8 @@
                         </thead>
 
                         <tboby>
-                            <tr ng-repeat = "d in devicemodels">
+                            <tr dir-paginate="d in devicemodels | itemsPerPage: iotenvDeviceModelsPerPage"
+                                total-items="totalIotenvDeviceModels" current-page="pagination.current">
                                 <td>{{ d.model_name }}</td>
                                 <td>{{ d.model_json }}</td>
                                 <td>
@@ -23,6 +24,7 @@
                             </tr>
                         </tboby>
                     </table>
+                    <dir-pagination-controls on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
                 </div>
             </div>
         </div>

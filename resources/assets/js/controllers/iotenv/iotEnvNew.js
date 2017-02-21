@@ -13,12 +13,16 @@ angular.module('app.controllers')
                     if($scope.form.$valid) {
                         $scope.iotenv.user_id = $cookies.getObject('user').user_id;
                         $scope.iotenv.$save().then(function () {
-                            $location.path('/iotenvs');
+                            $location.path('/iotenvs/dashboard');
                         }, function (data) {
                             $scope.error.error = true;
                             $scope.error.message = data.message;
                         });
                     }
+                };
+
+                $scope.cancel = function () {
+                    $location.path('/iotenvs/dashboard');
                 };
 
                 $scope.formatOrionUrl = function(model) {

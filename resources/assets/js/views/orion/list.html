@@ -16,7 +16,8 @@
                         </thead>
 
                         <tboby>
-                            <tr ng-repeat = "o in orions">
+                            <tr dir-paginate="o in orions| itemsPerPage: orionsPerPage"
+                                total-items="totalOrions" current-page="pagination.current">
                                 <td>{{ o.orion_name }}</td>
                                 <td>{{ o.orion_url_port }}</td>
                                 <td>{{ o.user.data.user_name }}</td>
@@ -28,6 +29,7 @@
                             </tr>
                         </tboby>
                     </table>
+                    <dir-pagination-controls on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
                 </div>
             </div>
         </div>

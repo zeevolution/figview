@@ -53,4 +53,11 @@ class OrionRepositoryEloquent extends BaseRepository implements OrionRepository
         $this->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
     }
 
+    public function findAllUserOrions($userId, $limit = 5, $columns = array())
+    {
+        return $this->scopeQuery(function ($query) use ($userId) {
+            return $query->select('orions.*')->where('orions.user_id', '=', $userId);
+        })->paginate($limit, $columns);
+    }
+
 }

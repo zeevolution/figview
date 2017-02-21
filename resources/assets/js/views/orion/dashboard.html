@@ -1,0 +1,106 @@
+<section class="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="boxed-manager">
+                    <div class="boxed-manager-menu">
+                        <ul class="boxed-manager-menu-nav">
+                            <li class="boxed-manager-menu-nav-header">
+                                <h3 class="h4">
+                                    Orion's List
+
+                                    <div class="btn-group pull-right">
+                                        <label class="select-styled select-styled-default select-styled-sm">
+                                            <select>
+                                                <option selected="selected">A</option>
+                                                <option>B</option>
+                                                <option>C</option>
+                                                <option>D</option>
+                                                <option>E</option>
+                                                <option>F</option>
+                                            </select>
+                                        </label>
+                                        <a href="#/orions/new" class="btn btn-default btn-sm">
+                                            <i class="fa fa-plus"></i>
+                                        </a>
+                                    </div>
+                                </h3>
+                            </li>
+                            <li class="boxed-manager-menu-nav-item" dir-paginate="o in orions| itemsPerPage: orionsPerPage"
+                                total-items="totalOrions" current-page="pagination.current">
+                                <a href="javascript:void(0)" ng-click="showOrion(o)">
+                                    <header>
+                                        <h4 class="h4 text-boulder">{{o.orion_name}}</h4>
+                                        <small class="text-upper text-silver">{{o.url}}</small>
+                                    </header>
+                                </a>
+                            </li>
+                        </ul>
+                        <dir-pagination-controls on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
+                    </div>
+                    <div class="boxed-manager-main boxed-manager-main-xlg">
+                        <div class="boxed-manager-main-header">
+                            <h4 class="h4">
+                                Orion Data
+
+                                <div class="btn-group pull-right">
+                                    <a href="#/orions/{{orion.orion_id}}/edit" class="btn btn-default btn-xs" title="Edit">
+                                        <i class="fa fa-pencil"></i>
+                                    </a>
+                                    <a href="#/orions/{{orion.orion_id}}/remove" class="btn btn-danger btn-xs" title="Delete">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
+                                </div>
+                            </h4>
+                        </div>
+                        <div class="boxed-manager-main-body">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <p>
+                                        <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>  Name: {{ orion.orion_name }}
+                                    </p>
+                                    <p>
+                                         <i class="fa fa-map-marker" aria-hidden="true"></i>  URL Address: {{ orion.url }}
+                                    </p>
+                                </div>
+                                <div class="col-xs-6">
+                                    <p>
+                                        <i ></i>
+                                    </p>
+                                    <p>
+                                        <i class="fa fa-assistive-listening-systems" aria-hidden="true"></i> Port Number: {{ orion.port }}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <br/>
+
+                            <div class="boxed-manager-main-body-fluid">
+                                <ul class="list-styled list-styled-alt">
+                                    <li class="list-styled-header list-styled-header-lg text-upper text-center">
+                                        <h4 class="h4">IoT Environments</h4>
+                                    </li>
+                                </ul>
+
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th width="50%">Environment Name</th>
+                                        <th width="50%">Backend Management Device IDAS</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="i in orion.iotenvs.data">
+                                        <td>{{ i.name }}</td>
+                                        <td>{{ i.idas.data.idas_url_port}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

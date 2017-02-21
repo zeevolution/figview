@@ -92,6 +92,22 @@ class IotEnvRepositoryEloquent extends BaseRepository implements IotEnvRepositor
         return false;
     }
 
+    public function findIoTEnvAsOwner($userId, $limit = 5, $columns = array())
+    {
+        return $this->scopeQuery(function ($query) use ($userId) {
+            return $query->select('iot_envs.*')->where('iot_envs.user_id', '=', $userId);
+        })->paginate($limit, $columns);
+    }
+
+    public function findIoTEnvAsMember($userId, $limit = 5, $columns = array())
+    {
+        return $this->scopeQuery(function ($query) use ($userId) {
+            return $query->select('iot_envs.*')
+                ->leftJoin('io_t_env_members', 'io_t_env_members.iotenv_id', '=', 'iot_envs.id')
+                ->where('io_t_env_members.member_id', '=', $userId);
+        })->paginate($limit, $columns);
+    }
+
     public function findIoTEnvsAsOwnerAsMember($userId)
     {
         return $this->scopeQuery(function ($query) use ($userId) {

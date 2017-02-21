@@ -15,7 +15,8 @@
                         </thead>
 
                         <tboby>
-                            <tr ng-repeat = "i in iotenvs">
+                            <tr dir-paginate="i in iotenvs | itemsPerPage: iotEnvsPerPage"
+                                total-items="totalIotEnvs" current-page="pagination.current">
                                 <td>{{ i.name }}</td>
                                 <td>{{ i.orion.data.orion_name }} at {{i.orion.data.orion_url_port}}</td>
                                 <td>{{ i.idas.data.idas_name }} at {{i.idas.data.idas_url_port}}</td>
@@ -26,6 +27,7 @@
                             </tr>
                         </tboby>
                     </table>
+                    <dir-pagination-controls on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
                 </div>
             </div>
         </div>

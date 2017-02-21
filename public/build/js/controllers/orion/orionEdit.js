@@ -7,7 +7,7 @@ angular.module('app.controllers')
         $scope.save = function () {
             if($scope.form.$valid) {
                 Orion.update({id: $scope.orion.orion_id}, $scope.orion, function () {
-                    $location.path('/orions');
+                    $location.path('/orions/dashboard');
                 });
             }
         }

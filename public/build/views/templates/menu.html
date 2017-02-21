@@ -1,0 +1,60 @@
+
+<header class="header-global" bs-navbar ng-controller="MenuController">
+    <div class="top">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2">
+                    <a href="#/home" class="brand">
+                        <img src="/build/images/logo.png" alt=""/>
+                        <span class="text">Fiware Figview</span>
+                    </a> <!-- /brand -->
+                </div>
+                <div class="col-sm-6">
+                    <menu class="menu" menu-activated>
+                        <li data-match-route="/home">
+                            <a ng-href="#/home">
+                                <i class="fa fa-tachometer" aria-hidden="true"></i> Panel
+                            </a>
+                        </li>
+                        <li data-match-route="/iotenvs">
+                            <a ng-href="#/iotenvs/dashboard">
+                                <i class="flaticon-data-analytics1"></i> IoT Environments
+                            </a>
+                        </li>
+                        <li data-match-route="/orions">
+                            <a ng-href="#/orions/dashboard">
+                                <i class="fa fa-share-alt" aria-hidden="true"></i> Orions
+                            </a>
+                        </li>
+                        <li data-match-route="/idas">
+                            <a ng-href="#/idas">
+                                <i class="fa fa-signal" aria-hidden="true"></i> Idas
+                            </a>
+                        </li>
+                    </menu> <!-- /menu -->
+                </div>
+                <div class="col-sm-4">
+                    <a href="#/home" class="userinfo">
+                        <i class="avatar flaticon-user7"></i>
+                        Hello, {{ user.user_name }}
+                    </a>
+                    <a ng-href="#/logout" class="userinfo">
+                        <i class="fa fa fa-sign-out"></i>
+                        Logout
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div> <!-- /top -->
+    <div class="bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1 class="h3">{{ pageTitle }}</h1>
+                </div>
+            </div>
+        </div>
+    </div> <!-- /bottom -->
+</header> <!-- /header-global -->
+
+

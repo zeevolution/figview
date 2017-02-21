@@ -27,6 +27,7 @@
     "angular-oauth2": "^4.1.0",
     "angular-bootstrap-grid-tree": "^0.4.0",
     "angular-ui-tree": "^2.22.4",
-    "angular-http-auth": "^1.5.0"
+    "angular-http-auth": "^1.5.0",
+    "angularUtils-pagination": "angular-utils-pagination#^0.11.1"
   }
 }

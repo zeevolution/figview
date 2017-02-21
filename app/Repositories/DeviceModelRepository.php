@@ -10,5 +10,5 @@ use Prettus\Repository\Contracts\RepositoryInterface;
  */
 interface DeviceModelRepository extends RepositoryInterface
 {
-    
+    public function findAllIotEnvDeviceModels($iotenvId, $limit = null, $columns = array());
 }

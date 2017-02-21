@@ -49,4 +49,11 @@ class DeviceModelRepositoryEloquent extends BaseRepository implements DeviceMode
     {
         return DeviceModelPresenter::class;
     }
+
+    public function findAllIotEnvDeviceModels($iotenvId, $limit = 10, $columns = array())
+    {
+        return $this->scopeQuery(function ($query) use ($iotenvId) {
+            return $query->select('device_models.*')->where('device_models.iotenv_id', '=', $iotenvId);
+        })->paginate($limit, $columns);
+    }
 }

@@ -37,7 +37,7 @@ class DeviceModelsController extends Controller
      */
     public function index($iotEnvId)
     {
-        return $this->service->iotenvAllDeviceModels($iotEnvId);
+        return $this->service->findAllIotEnvDeviceModels($iotEnvId);
     }
 
     /**

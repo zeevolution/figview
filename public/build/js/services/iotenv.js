@@ -4,7 +4,7 @@ angular.module('app.services')
         {
             'query':  {
                 method:'GET',
-                isArray:true
+                isArray:false
             },
             'update': {
                 method: 'PUT'

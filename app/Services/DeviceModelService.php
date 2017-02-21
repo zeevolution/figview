@@ -36,6 +36,11 @@ class DeviceModelService
         return $this->repository->all();
     }
 
+    public function findAllIotEnvDeviceModels($iotenvId)
+    {
+        return $this->repository->findAllIotEnvDeviceModels($iotenvId);
+    }
+
     public function iotenvAllDeviceModels($iotEnvId)
     {
         return $this->repository->findWhere(['iotenv_id' => $iotEnvId]);

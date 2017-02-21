@@ -1,9 +1,10 @@
 angular.module('app.services')
     .service('Idas', ['$resource', 'appConfig', function ($resource, appConfig) {
-        return $resource(appConfig.baseUrl + '/idas/:id/', { id: '@id'}, {
+        return $resource(appConfig.baseUrl + '/idas/:id/', { id: '@id'},
+        {
             'query':  {
                 method:'GET',
-                isArray:true
+                isArray:false
             },
             'update': {
                 method: 'PUT'

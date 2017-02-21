@@ -15,4 +15,5 @@ interface OrionRepository extends RepositoryInterface
 {
 
     public function isOwner($orionId, $userId);
+    public function findAllUserOrions($userId, $limit = null, $columns = array());
 }

@@ -38,6 +38,10 @@ class OrionService
     {
         return $this->repository->all();
     }
+    public function findAllUserOrions($userId)
+    {
+        return $this->repository->findAllUserOrions($userId);
+    }
 
     public function create(array $data)
     {
