@@ -10,7 +10,7 @@ angular.module('app.directives',['ngResource']);
 
 app.provider('appConfig', function () {
     var config = {
-        baseUrl: "http://localhost:8000",
+        baseUrl: "http://192.168.1.12:8000",
         utils: {
             transformResponse: function (data, headers) {
                 var headersGetter = headers();
