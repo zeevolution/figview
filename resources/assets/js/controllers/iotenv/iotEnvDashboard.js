@@ -6,6 +6,12 @@ angular.module('app.controllers')
 
                 };
 
+                $scope.iotDevices = {
+
+                };
+
+
+
                 $scope.iotenvs = [];
                 $scope.iotenvsPerPage = 5;
                 $scope.totalIotEnvs = 0;
@@ -93,6 +99,33 @@ angular.module('app.controllers')
                 $scope.reset = function() {
                     $scope.addemp = {};
                     $scope.form.$setPristine();
+                };
+
+                $scope.getIoTDevices = function () {
+                    var settings = {
+                        "async": true,
+                        "crossDomain": true,
+                        "url": $scope.iotenv.idas.data.idas_url_adminport + "iot/devices",
+                        "method": "GET",
+                        "headers": {
+                            "fiware-service": $scope.iotenv.Fiware_Service,
+                            "content-type": $scope.iotenv.content_type,
+                            "fiware-servicepath": $scope.iotenv.Fiware_ServicePath,
+                            "x-auth-token": $scope.iotenv.X_Auth_Token,
+                            "cache-control": "no-cache",
+                            "postman-token": "40f5cd22-0f5d-6683-1ee0-59ed079f6b89"
+                        }
+                    };
+
+                    $.ajax(settings).done(function (response) {
+                        console.log(response);
+                        $scope.iotDevices = response;
+                    });
+
+                };
+                
+                $scope.resetGetIoTDevices = function () {
+                    $scope.iotDevices = {};
                 };
 
             }]);
