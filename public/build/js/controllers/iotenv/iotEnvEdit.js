@@ -17,6 +17,10 @@ angular.module('app.controllers')
                     }
                 };
 
+                $scope.cancel = function () {
+                    $location.path('/iotenvs/dashboard');
+                };
+
                 $scope.formatOrionUrl = function(model) {
                     if(model){
                         return model.orion_url_port;
@@ -45,7 +49,7 @@ angular.module('app.controllers')
 
                 $scope.formatIdasUrl = function(model) {
                     if(model){
-                        return model.idas_url_port;
+                        return model.url;
                     }
                     return '';
 

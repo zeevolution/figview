@@ -7,7 +7,7 @@ angular.module('app.controllers')
                 $scope.save = function () {
                     if($scope.form.$valid) {
                         Idas.update({id: $scope.idas.idas_id}, $scope.idas, function () {
-                            $location.path('/idas');
+                            $location.path('/idas/dashboard');
                         });
                     }
                 }

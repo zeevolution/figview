@@ -1,7 +1,7 @@
 angular.module('app.controllers')
     .controller('IdasListController', ['$scope', 'Idas', function ($scope, Idas) {
         $scope.idas = [];
-        $scope.idasPerPage = 10;
+        $scope.idasPerPage = 5;
         $scope.totalIdas = 0;
 
         $scope.pagination = {

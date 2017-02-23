@@ -14,6 +14,10 @@ class IotEnv extends Model implements Transformable
         'name',
         'orion_id',
         'idas_id',
+        'Fiware_Service',
+		'content_type',
+		'Fiware_ServicePath',
+		'X_Auth_Token',
         'user_id'
     ];
 

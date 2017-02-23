@@ -9,6 +9,8 @@
                         <tr>
                             <th>Idas Name</th>
                             <th>Idas Address</th>
+                            <th>Admin Port Number</th>
+                            <th>UL20 Port Number</th>
                             <th>Owner Name </th>
                             <th>Owner Email</th>
                             <th>Action</th>
@@ -19,7 +21,9 @@
                             <tr dir-paginate="i in idas | itemsPerPage: idasPerPage"
                                 total-items="totalIdas" current-page="pagination.current">
                                 <td>{{ i.idas_name }}</td>
-                                <td>{{ i.idas_url_port }}</td>
+                                <td>{{ i.url }}</td>
+                                <td>{{ i.adminport }}</td>
+                                <td>{{ i.ul20port }}</td>
                                 <td>{{ i.user.data.user_name }}</td>
                                 <td>{{ i.user.data.user_email }}</td>
                                 <td>

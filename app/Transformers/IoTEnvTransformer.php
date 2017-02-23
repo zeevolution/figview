@@ -35,6 +35,10 @@ class IoTEnvTransformer extends TransformerAbstract
         return [
             'id' => $iotenv->id,
             'name' => $iotenv->name,
+            'Fiware_Service' => $iotenv->Fiware_Service,
+            'content_type' => $iotenv->content_type,
+            'Fiware_ServicePath' => $iotenv->Fiware_ServicePath,
+            'X_Auth_Token' => $iotenv->X_Auth_Token,
             'user_id' => $iotenv->user_id,
             'orion_id' => $iotenv->orion_id,
             'idas_id' => $iotenv->idas_id,

@@ -1,9 +1,13 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-6 col-md-offset-3">
+        <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Edit IoT Environment</div>
+                <div class="panel-heading text-center">
+                    <h4 class="h4">Edit <strong>{{iotenv.name}}</strong> IoT Environment</h4>
+                </div>
                 <div class="panel-body">
+
+                    <br/>
 
                     <div class="alert alert-danger" ng-show="error.error">
                         <strong>Whoops!</strong> There have been errors.<br><br>
@@ -11,62 +15,128 @@
                     </div>
 
 
+
+
                     <form class="form-horizontal" name="form" role="form" method="POST" ng-submit="save()">
+                        <div class="row">
+                            <div class="form-group" ng-class="{'has-error': !form.name.$valid && form.name.$touched}">
+                                <label class="col-md-4 control-label">Environment Name:</label>
 
-                        <div class="form-group" ng-class="{'has-error': !form.name.$valid && form.name.$touched}">
-                            <label class="col-md-4 control-label">Environment Name:</label>
-
-                            <div class="col-md-6">
-                                <input type="name" class="form-control" name="name" ng-model="iotenv.name" required>
-                                <div ng-messages="form.name.$error" class="help-block" ng-show="form.name.$touched">
-                                    <div ng-message="required">Field required</div>
+                                <div class="col-md-5">
+                                    <input type="name" class="form-control" name="name" ng-model="iotenv.name" required>
+                                    <div ng-messages="form.name.$error" class="help-block" ng-show="form.name.$touched">
+                                        <div ng-message="required">Field required</div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="form-group" ng-class="{'has-error': !form.orion_id.$valid && form.orion_id.$touched}">
-                            <label class="col-md-4 control-label">Orion Address:</label>
+                            <br/>
 
-                            <div class="col-md-6">
-                                <input class="form-control" type="text" name="orion_id" ng-model="orionSelected"
-                                       typeahead="o as o.orion_url_port for o in getOrions($viewValue)|limitTo:10 "
-                                       typeahead-input-formatter="formatOrionUrl($model)" typeahead-on-select="selectOrion($item)"
-                                       typeahead-editable="false" required/>
-                                <!--<select class="form-control" name="orion_id" ng-model="iotenv.orion_id" ng-options="o.orion_id as o.orion_url_port for o in orions" required>
-                                    <option value=""><-- Select a Orion Context Broker Address </option>
-                                </select> -->
-                                <div ng-messages="form.orion_id.$error" class="help-block" ng-show="form.orion_id.$touched">
-                                    <div ng-message="required">Field required</div>
-                                    <div ng-message="editable">Select a valid Orion url address</div>
+                            <div class="boxed-manager-main-body-fluid">
+                                <ul class="list-styled list-styled-alt">
+                                    <li class="list-styled-header list-styled-header-lg text-capital text-center">
+                                        <h4 class="h4">Details: Orion, Idas & Header Info</h4>
+                                    </li>
+                                </ul>
+
+                                <br/>
+
+                                <div class="col-xs-6">
+
+                                    <div class="form-group" ng-class="{'has-error': !form.orion_id.$valid && form.orion_id.$touched}">
+                                        <label class="col-md-4 control-label">Orion Address:</label>
+
+                                        <div class="col-md-6">
+                                            <input class="form-control" type="text" name="orion_id" ng-model="orionSelected"
+                                                   typeahead="o as o.orion_url_port for o in getOrions($viewValue)|limitTo:10 "
+                                                   typeahead-input-formatter="formatOrionUrl($model)" typeahead-on-select="selectOrion($item)"
+                                                   typeahead-editable="false" required/>
+                                            <!--<select class="form-control" name="orion_id" ng-model="iotenv.orion_id" ng-options="o.orion_id as o.orion_url_port for o in orions" required>
+                                                <option value=""><-- Select a Orion Context Broker Address </option>
+                                            </select> -->
+                                            <div ng-messages="form.orion_id.$error" class="help-block" ng-show="form.orion_id.$touched">
+                                                <div ng-message="required">Field required</div>
+                                                <div ng-message="editable">Select a valid Orion url address</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group" ng-class="{'has-error': !form.Fiware_Service.$valid && form.Fiware_Service.$touched}">
+                                        <label class="col-md-4 control-label">Fiware-Service:</label>
+
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" name="Fiware_Service" ng-model="iotenv.Fiware_Service" required>
+                                            <div ng-messages="form.Fiware_Service.$error" class="help-block" ng-show="form.Fiware_Service.$touched">
+                                                <div ng-message="required">Field required</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group" ng-class="{'has-error': !form.Fiware_ServicePath.$valid && form.Fiware_ServicePath.$touched}">
+                                        <label class="col-md-4 control-label">Fiware-ServicePath:</label>
+
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" name="Fiware_ServicePath" ng-model="iotenv.Fiware_ServicePath" required>
+                                            <div ng-messages="form.Fiware_ServicePath.$error" class="help-block" ng-show="form.Fiware_ServicePath.$touched">
+                                                <div ng-message="required">Field required</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
-                            </div>
-                        </div>
 
-                        <div class="form-group" ng-class="{'has-error': !form.idas_id.$valid && form.idas_id.$touched}">
-                            <label class="col-md-4 control-label">IDAS Address:</label>
 
-                            <div class="col-md-6">
-                                <input class="form-control" type="text" name="idas_id" ng-model="idasSelected"
-                                       typeahead="i as i.idas_url_port for i in getIdas($viewValue)|limitTo:10 "
-                                       typeahead-input-formatter="formatIdasUrl($model)" typeahead-on-select="selectIdas($item)"
-                                       typeahead-editable="false" required/>
-                                <!--<select class="form-control" name="idas_id" ng-model="iotenv.idas_id" ng-options="i.idas_id as i.idas_url_port for i in idas" required>
-                                    <option value=""><-- Select a Backend Device Management </option>
-                                </select>-->
-                                <div ng-messages="form.idas_id.$error" class="help-block" ng-show="form.idas_id.$touched">
-                                    <div ng-message="required">Field required</div>
-                                    <div ng-message="editable">Select a valid Idas url address</div>
+                                <div class="col-xs-6">
+
+                                    <div class="form-group" ng-class="{'has-error': !form.idas_id.$valid && form.idas_id.$touched}">
+                                        <label class="col-md-4 control-label">IDAS Address:</label>
+
+                                        <div class="col-md-6">
+                                            <input class="form-control" type="text" name="idas_id" ng-model="idasSelected"
+                                                   typeahead="i as i.url for i in getIdas($viewValue)|limitTo:10 "
+                                                   typeahead-input-formatter="formatIdasUrl($model)" typeahead-on-select="selectIdas($item)"
+                                                   typeahead-editable="false" required/>
+                                            <!--<select class="form-control" name="idas_id" ng-model="iotenv.idas_id" ng-options="i.idas_id as i.idas_url_port for i in idas" required>
+                                                <option value=""><-- Select a Backend Device Management </option>
+                                            </select>-->
+                                            <div ng-messages="form.idas_id.$error" class="help-block" ng-show="form.idas_id.$touched">
+                                                <div ng-message="required">Field required</div>
+                                                <div ng-message="editable">Select a valid Idas url address</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group" ng-class="{'has-error': !form.content_type.$valid && form.content_type.$touched}">
+                                        <label class="col-md-4 control-label">content-type:</label>
+
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" name="content_type" ng-model="iotenv.content_type" required>
+                                            <div ng-messages="form.content_type.$error" class="help-block" ng-show="form.content_type.$touched">
+                                                <div ng-message="required">Field required</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group" ng-class="{'has-error': !form.X_Auth_Token.$valid && form.X_Auth_Token.$touched}">
+                                        <label class="col-md-4 control-label">X-Auth-Token:</label>
+
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" name="X_Auth_Token" ng-model="iotenv.X_Auth_Token" required>
+                                            <div ng-messages="form.X_Auth_Token.$error" class="help-block" ng-show="form.X_Auth_Token.$touched">
+                                                <div ng-message="required">Field required</div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                             </div>
                         </div>
 
-
-
-
+                        <br/>
 
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
+                            <div class="col-md-3 col-md-offset-5">
                                 <button type="submit" class="btn btn-primary">Edit IoT Environment</button>
+                                <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
                             </div>
                         </div>
                     </form>

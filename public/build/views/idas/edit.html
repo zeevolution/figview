@@ -36,12 +36,24 @@
                             </div>
                         </div>
 
-                        <div class="form-group" ng-class="{'has-error': !form.port.$valid && form.port.$touched}">
+                        <div class="form-group" ng-class="{'has-error': !form.adminport.$valid && form.adminport.$touched}">
+                            <label class="col-md-4 control-label">Admin Port Number:</label>
+
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="adminport" ng-model="idas.adminport" required>
+                                <div ng-messages="form.adminport.$error" class="help-block" ng-show="form.adminport.$touched">
+                                    <div ng-message="required">Field required. Must be numbers</div>
+                                    <div ng-message="number">Must be numbers</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group" ng-class="{'has-error': !form.ul20port.$valid && form.ul20port.$touched}">
                             <label class="col-md-4 control-label">Port Number:</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="port" ng-model="idas.port" required>
-                                <div ng-messages="form.port.$error" class="help-block" ng-show="form.port.$touched">
+                                <input type="text" class="form-control" name="ul20port" ng-model="idas.ul20port" required>
+                                <div ng-messages="form.ul20port.$error" class="help-block" ng-show="form.ul20port.$touched">
                                     <div ng-message="required">Field required. Must be numbers</div>
                                     <div ng-message="number">Must be numbers</div>
                                 </div>

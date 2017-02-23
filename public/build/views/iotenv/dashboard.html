@@ -69,8 +69,38 @@
                                                 </p>
                                                 <br>
                                                 <i class="fa fa-map-marker" aria-hidden="true"></i> <strong>Fiware Backend Device Management:</strong></br>
-                                                {{ iotenv.idas.data.idas_name }} at {{ iotenv.idas.data.idas_url_port }}
+                                                {{ iotenv.idas.data.idas_name }} at {{ iotenv.idas.data.url }}
                                                 </p>
+                                            </div>
+                                            <div class="col-xs-12">
+                                                <br/>
+
+                                                <div class="boxed-manager-main-body-fluid">
+                                                    <ul class="list-styled list-styled-alt">
+                                                        <li class="list-styled-header list-styled-header-lg text-upper text-center">
+                                                            <h4 class="h4">Fiware Service Header Info</h4>
+                                                        </li>
+                                                    </ul>
+
+                                                    <table class="table text-center">
+                                                        <thead>
+                                                        <tr>
+                                                            <th class="text-center" width="25%">Fiware-Service</th>
+                                                            <th class="text-center" width="25%">content-type</th>
+                                                            <th class="text-center" width="25%">Fiware-ServicePath</th>
+                                                            <th class="text-center" width="25%">X-Auth-Token</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr>
+                                                            <td>{{ iotenv.Fiware_Service }}</td>
+                                                            <td>{{ iotenv.content_type }}</td>
+                                                            <td>{{ iotenv.Fiware_ServicePath }}</td>
+                                                            <td>{{ iotenv.X_Auth_Token }}</td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -162,7 +192,33 @@
                                         </table>
                                     </div>
                                 </tab>
-                                <tab heading="Operations">Tab 2 content</tab>
+                                <tab heading="Operations">
+                                    <br/>
+
+                                    <div class="boxed-manager-main-body-fluid">
+                                        <ul class="list-styled list-styled-alt">
+                                            <li class="list-styled-header list-styled-header-lg text-upper text-center">
+                                                <h4 class="h4">List Devices</h4>
+                                            </li>
+                                        </ul>
+
+                                        <table class="table text-center">
+                                            <thead>
+                                            <tr>
+                                                <th class="text-center" width="25%">Device ID</th>
+                                                <th class="text-center" width="25%">Entity Name</th>
+                                                <th class="text-center" width="25%">Entity Type</th>
+                                                <th class="text-center" width="25%">Transport</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <!--<tr ng-repeat="i in idas.iotenvs.data">
+                                                <td>{{ i.name }}</td>
+                                            </tr>-->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </tab>
                             </tabset>
                             <br/>
                             <br/>

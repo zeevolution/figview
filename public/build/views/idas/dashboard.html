@@ -1,7 +1,7 @@
 <section class="main">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-xs-18">
                 <div class="boxed-manager">
                     <div class="boxed-manager-menu">
                         <ul class="boxed-manager-menu-nav">
@@ -31,7 +31,7 @@
                         </ul>
                         <dir-pagination-controls on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
                     </div>
-                    <div class="boxed-manager-main boxed-manager-main-xlg">
+                    <div class="boxed-manager-main arrow">
                         <div class="boxed-manager-main-header">
                             <h4 class="h4 text-center">
                                 {{ idas.idas_name }} Data <small> - Backend Device Management IDAS</small>
@@ -58,10 +58,10 @@
                                 </div>
                                 <div class="col-xs-6">
                                     <p>
-                                        <i ></i>
+                                        <i class="fa fa-assistive-listening-systems" aria-hidden="true"></i> Admin Port Number: {{ idas.adminport }}
                                     </p>
                                     <p>
-                                        <i class="fa fa-assistive-listening-systems" aria-hidden="true"></i> Port Number: {{ idas.port }}
+                                        <i class="fa fa-assistive-listening-systems" aria-hidden="true"></i> UL20 Port Number: {{ idas.ul20port }}
                                     </p>
                                 </div>
                             </div>
@@ -91,6 +91,35 @@
                                 </table>
                             </div>
                         </div>
+                    </div>
+                    <div class="boxed-manager-info">
+                        <div class="boxed-manager-info-header">
+                            <h4 class="h4 text-center">Idas Status Info</h4>
+                        </div>
+                        <div class="boxed-manager-info-body">
+
+                            <p style="text-align:center;"><img src="/build/images/idas.png" alt="" align="middle"/></p>
+
+
+                        </div>
+                        <ul class="list-styled">
+                            <li class="list-styled-header  text-center">
+                                Status
+                            </li>
+                            <li class="text-center text-info">{{ orionStatus }}</li>
+                            <li class="list-styled-header  text-center">
+                                Uptime
+                            </li>
+                            <li class="text-center text-info">{{ orionVersion.orion.uptime }}</li>
+                            <li class="list-styled-header text-center">
+                                Version
+                            </li>
+                            <li class="text-center text-info">{{ orionVersion.orion.version }}</li>
+                            <li class="list-styled-header text-center">
+                                Compile Time
+                            </li>
+                            <li class="text-center text-info">{{ orionVersion.orion.compile_time }}</li>
+                        </ul>
                     </div>
                 </div>
             </div>

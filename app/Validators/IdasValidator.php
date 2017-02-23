@@ -16,7 +16,8 @@ class IdasValidator extends LaravelValidator
     protected $rules = [
         'name' => 'sometimes|required|max:255',
         'url' => 'sometimes|required|URL',
-        'port' => 'sometimes|required|max:255'
+        'adminport' => 'sometimes|required|max:255',
+        'ul20port' => 'sometimes|required|max:255'
     ];
 
 }

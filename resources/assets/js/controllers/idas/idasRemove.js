@@ -6,7 +6,7 @@ angular.module('app.controllers')
 
                 $scope.remove = function () {
                     $scope.idas.$delete({id: $scope.idas.idas_id}).then(function(){
-                        $location.path('/idas');
+                        $location.path('/idas/dashboard');
                     });
                 }
             }]);

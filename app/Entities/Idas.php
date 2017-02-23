@@ -9,7 +9,8 @@ class Idas extends Model
     protected $fillable = [
         'name',
         'url',
-        'port',
+        'adminport',
+        'ul20port',
         'user_id'
     ];
 

@@ -11,7 +11,7 @@ angular.module('app.controllers')
             if($scope.form.$valid) {
                 $scope.idas.user_id = $cookies.getObject('user').user_id;
                 $scope.idas.$save().then(function () {
-                    $location.path('/idas');
+                    $location.path('/idas/dashboard');
 
                 }, function (data) {
                     $scope.error.error = true;

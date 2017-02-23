@@ -28,10 +28,12 @@ class IdasTransformer extends TransformerAbstract
         return [
             'idas_id' => $idas->id,
             'idas_name' => $idas->name,
-            'idas_url_port' => rtrim($idas->url, "/") . ":" . $idas->port . "/",
+            'idas_url_adminport' => rtrim($idas->url, "/") . ":" . $idas->adminport . "/",
+            'idas_url_ul20port' => rtrim($idas->url, "/") . ":" . $idas->ul20port . "/",
             'name' => $idas->name,
             'url' => $idas->url,
-            'port' => $idas->port
+            'adminport' => $idas->adminport,
+            'ul20port' => $idas->ul20port,
         ];
     }
 

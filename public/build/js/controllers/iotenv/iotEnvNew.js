@@ -55,7 +55,7 @@ angular.module('app.controllers')
 
                 $scope.formatIdasUrl = function(model) {
                     if(model){
-                        return model.idas_url_port;
+                        return model.url;
                     }
                     return '';
 
