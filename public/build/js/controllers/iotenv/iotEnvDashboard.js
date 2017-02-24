@@ -10,6 +10,10 @@ angular.module('app.controllers')
 
                 };
 
+                $scope.device_id = '';
+                $scope.entity_id = '';
+                $scope.model_json = '';
+
 
 
                 $scope.iotenvs = [];
@@ -127,5 +131,51 @@ angular.module('app.controllers')
                 $scope.resetGetIoTDevices = function () {
                     $scope.iotDevices = {};
                 };
+
+                $scope.registerNewDevice =function (model, device, entity) {
+                    console.log(model);
+                    console.log(device);
+                    console.log(entity);
+
+                    var jsonModelObject= JSON.parse(model);
+
+                    jsonModelObject.devices[0].entity_name = entity;
+                    jsonModelObject.devices[0].device_id = device;
+
+                    $scope.model_json = JSON.stringify(jsonModelObject);
+
+                    //console.log(jsonModelObject);
+                    //console.log($scope.model_json);
+
+                    var settings = {
+                        "async": true,
+                        "crossDomain": true,
+                        "url": $scope.iotenv.idas.data.idas_url_adminport + "iot/devices",
+                        "method": "POST",
+                        "headers": {
+                            "fiware-service": $scope.iotenv.Fiware_Service,
+                            "content-type": $scope.iotenv.content_type,
+                            "fiware-servicepath": $scope.iotenv.Fiware_ServicePath,
+                            "x-auth-token": $scope.iotenv.X_Auth_Token,
+                        },
+                        "processData": false,
+                        "data": $scope.model_json
+                    };
+
+
+                    $.ajax(settings).then(function (response) {
+                        alert("Device Registered!");
+
+                    }, function(error){
+                        alert(error.responseJSON.message);
+                    });
+
+
+                };
+                
+                $scope.eraseRegisterDeviceForm = function () {
+                    $scope.addemp = {};
+                    $scope.form.$setPristine();
+                }
 
             }]);

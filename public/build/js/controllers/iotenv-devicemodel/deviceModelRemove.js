@@ -10,7 +10,8 @@ angular.module('app.controllers')
                 $scope.remove = function () {
                     $scope.devicemodel.$delete({
                         id: $routeParams.id, idDeviceModel: $scope.devicemodel.model_id}).then(function(){
-                        $location.path('/iotenv/' + $routeParams.id + '/devicemodels');
+                        //$location.path('/iotenv/' + $routeParams.id + '/devicemodels');
+                        $location.path('iotenvs/dashboard');
                     });
                 }
             }]);

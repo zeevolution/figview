@@ -11,10 +11,10 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th width="15%">Environment Name</th>
-                            <th width="40%">Orion Context Broker</th>
-                            <th width="40%">Backend Device Management - IDAS </th>
-                            <th width="5%">Action</th>
+                            <th width="20%">Name</th>
+                            <th width="35%">Orion Context Broker</th>
+                            <th width="35%">Backend Device Management - IDAS </th>
+                            <th width="10%">Action</th>
                         </tr>
                         </thead>
 
@@ -23,7 +23,7 @@
                                 total-items="totalIotEnvs" current-page="pagination.current">
                                 <td>{{ i.name }}</td>
                                 <td>{{ i.orion.data.orion_name }} at {{i.orion.data.orion_url_port}}</td>
-                                <td>{{ i.idas.data.idas_name }} at {{i.idas.data.idas_url_port}}</td>
+                                <td>{{ i.idas.data.idas_name }} at {{i.idas.data.url}}</td>
                                 <td>
                                     <a ng-href="#/iotenvs/{{i.id}}/edit">Edit</a> |
                                     <a ng-href="#/iotenvs/{{i.id}}/remove">Delete</a>

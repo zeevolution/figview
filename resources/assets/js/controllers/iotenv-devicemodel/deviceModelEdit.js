@@ -10,7 +10,8 @@ angular.module('app.controllers')
                 $scope.save = function () {
                     if($scope.form.$valid) {
                         DeviceModel.update({id: $routeParams.id, idDeviceModel: $scope.devicemodel.model_id}, $scope.devicemodel, function () {
-                            $location.path('/iotenv/' + $routeParams.id + '/devicemodels');
+                            //$location.path('/iotenv/' + $routeParams.id + '/devicemodels');
+                            $location.path('iotenvs/dashboard');
                         });
                     }
                 }
