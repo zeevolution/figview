@@ -102,7 +102,6 @@ angular.module('app.controllers')
 
                 $scope.reset = function() {
                     $scope.addemp = {};
-                    $scope.form.$setPristine();
                 };
 
                 $scope.getIoTDevices = function () {
@@ -133,9 +132,9 @@ angular.module('app.controllers')
                 };
 
                 $scope.registerNewDevice =function (model, device, entity) {
-                    console.log(model);
-                    console.log(device);
-                    console.log(entity);
+                    //console.log(model);
+                    //console.log(device);
+                    //console.log(entity);
 
                     var jsonModelObject= JSON.parse(model);
 
@@ -175,7 +174,40 @@ angular.module('app.controllers')
                 
                 $scope.eraseRegisterDeviceForm = function () {
                     $scope.addemp = {};
-                    $scope.form.$setPristine();
-                }
+                };
+
+                $scope.deviceId = '';
+                $scope.measurement = '';
+
+                $scope.sendDataObservations = function (deviceId, measurement) {
+                    //console.log(deviceId);
+                    //console.log(measurement);
+
+                    var settings = {
+                        "async": true,
+                        "crossDomain": true,
+                        "url": $scope.iotenv.idas.data.idas_url_ul20port +
+                        "iot/d?k="+ $scope.iotenv.X_Auth_Token + "&i=" + deviceId,
+                        "method": "POST",
+                        "headers": {
+                            "fiware-service": $scope.iotenv.Fiware_Service,
+                            "content-type": "text/plain",
+                            "fiware-servicepath": $scope.iotenv.Fiware_ServicePath,
+                            "x-auth-token": $scope.iotenv.X_Auth_Token,
+                        },
+                        "data": measurement
+                    };
+
+                    $.ajax(settings).then(function (response) {
+                        alert("Your measurement was sent successfully! Check the data at the corresponding Orion Entity");
+
+                    }, function(error){
+                        alert("Error sending the data. Check you token access, and make sure all your Fiware IoT Services are working properly.");
+                    });
+                };
+
+                $scope.eraseSendObservationForm = function () {
+                    $scope.addemp = {};
+                };
 
             }]);

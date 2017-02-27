@@ -10,6 +10,7 @@
         <link href="{{ asset('build/css/flaticon.css') }}" rel="stylesheet"/>
         <link href="{{ asset('build/css/app.css') }}" rel="stylesheet"/>
         <link href="{{ asset('build/css/components.css') }}" rel="stylesheet"/>
+		<link href="{{ asset('build/css/login.css') }}" rel="stylesheet"/>
 	@else
 		<link href="{{ elixir('css/all.css') }}" rel="stylesheet"/>
 	@endif

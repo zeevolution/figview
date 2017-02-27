@@ -61,6 +61,7 @@ angular.module('app.controllers')
                         "method": "GET",
                         "headers": {
                             "Accept": "application/json"
+                            //"x-auth-token": "OYP09TQPWhMXgBSMQpSxwmR7TsJH4Y" Add token to Orion Model
                         }
                     };
 
