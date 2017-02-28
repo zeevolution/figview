@@ -36,24 +36,6 @@ angular.module('app.controllers')
                 };
                 
                 $scope.getOrionVersion = function () {
-                    /**
-                    var data = null;
-                    var xhr = new XMLHttpRequest();
-                    xhr.withCredentials = false;
-
-                    xhr.addEventListener("readystatechange", function () {
-                        if (this.readyState === 4) {
-                            console.log(this.responseText);
-                        }
-                    });
-
-                    xhr.open("GET", "http://192.168.1.23:1026/version");
-                    xhr.setRequestHeader("Accept", "application/json");
-                    //xhr.setRequestHeader("Content-Type", "undefined");
-
-                    xhr.send(data);
-                     */
-
                     var settings = {
                         "async": true,
                         "crossDomain": true,
@@ -61,17 +43,9 @@ angular.module('app.controllers')
                         "method": "GET",
                         "headers": {
                             "Accept": "application/json"
-                            //"x-auth-token": "OYP09TQPWhMXgBSMQpSxwmR7TsJH4Y" Add token to Orion Model
+                            //"x-auth-token": $scope.orion.X_Auth_Token
                         }
                     };
-
-                    //$.when( $.ajax(settings) ).then(function( data, textStatus, jqXHR ) {
-                    //    alert(jqXHR.status); // Alerts 200
-                    //});
-                    //$.ajax(settings).done(function (response) {
-                    //    console.log(response);
-                    //    return response;
-                    //});
 
                     $.ajax(settings).then(function (response) {
                         console.log(response);
@@ -79,8 +53,8 @@ angular.module('app.controllers')
                         $scope.orionStatus = "Orion Up and Running";
 
                     }, function(error, textStatus){
-                        console.log(textStatus);
-                        $scope.orionStatus = textStatus + "! Orion Server is not responding...";
+                        console.log(error);
+                        $scope.orionStatus = textStatus + ". " + error.responseText + ". Orion Server is not responding...";
                     });
                 };
 
@@ -89,5 +63,36 @@ angular.module('app.controllers')
                     };
                     $scope.orionStatus = "";
                 };
+
+
+                $scope.orionEntities = [];
+
+                $scope.getEntitiesByService = function (fiware_service, X_Auth_Token) {
+                    var settings = {
+                        "async": true,
+                        "crossDomain": true,
+                        "url": "http://192.168.1.12:8000/orions/allEntities/" + fiware_service + '/' + X_Auth_Token,
+                        "method": "GET",
+                        "headers": {
+
+                        },
+                        "data": "url="+ $scope.orion.orion_url_port
+                    };
+
+                    $.ajax(settings).then(function (response) {
+                        //console.log(response);
+                        var jsonObject = JSON.parse(response);
+                        console.log(jsonObject);
+                        $scope.orionEntities = jsonObject.contextResponses;
+                    }, function(error, textStatus){
+                        console.log(textStatus);
+                        alert (textStatus + ". "+ error.responseText + ". Orion Server is not responding...");
+                    });
+                };
+
+                $scope.eraseGetOrionEntitiesByServiceForm = function () {
+                    $scope.orionEntities = {
+                    };
+                }
                 
             }]);

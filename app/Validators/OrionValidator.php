@@ -16,7 +16,8 @@ class OrionValidator extends LaravelValidator
     protected $rules = [
         'name' => 'sometimes|required|max:255',
         'url' => 'sometimes|required|URL',
-        'port' => 'sometimes|required|max:255'
+        'port' => 'sometimes|required|max:255',
+        'X_Auth_Token' => 'sometimes|required|max:255'
     ];
 
 }

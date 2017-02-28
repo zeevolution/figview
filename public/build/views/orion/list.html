@@ -9,6 +9,7 @@
                         <tr>
                             <th>Orion Name</th>
                             <th>Orion Address</th>
+                            <th>Access Token</th>
                             <th>Owner Name </th>
                             <th>Owner Email</th>
                             <th>Action</th>
@@ -20,6 +21,7 @@
                                 total-items="totalOrions" current-page="pagination.current">
                                 <td>{{ o.orion_name }}</td>
                                 <td>{{ o.orion_url_port }}</td>
+                                <td>{{ o.X_Auth_Token}}</td>
                                 <td>{{ o.user.data.user_name }}</td>
                                 <td>{{ o.user.data.user_email }}</td>
                                 <td>

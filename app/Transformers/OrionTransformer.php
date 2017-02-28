@@ -30,6 +30,7 @@ class OrionTransformer extends TransformerAbstract
             'orion_id' => $orion->id,
             'orion_name' => $orion->name,
             'orion_url_port' => rtrim($orion->url, "/") . ":" . $orion->port . "/",
+            'X_Auth_Token' => $orion->X_Auth_Token,
             'name' => $orion->name,
             'url' => $orion->url,
             'port' => $orion->port

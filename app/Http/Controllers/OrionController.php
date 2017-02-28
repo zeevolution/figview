@@ -36,6 +36,27 @@ class OrionController extends Controller
         return $this->service->findAllUserOrions(Authorizer::getResourceOwnerId());
     }
 
+    public function getEntities(Request $request, $fiwareService, $orionToken){
+
+        //dd($request->url);
+        $client = new \GuzzleHttp\Client([
+            'base_uri' => $request->url,
+            'headers'  =>  [
+                'Fiware-Service' => $fiwareService,
+                'content-type' => 'application/json',
+                'accept' => 'application/json',
+                'X-Auth-Token' => $orionToken ]
+        ]);
+
+        $body = \GuzzleHttp\Psr7\stream_for(
+            "{\n\"entities\":[\n{\n\"type\":\"\",\n\"id\":\".*\",\n\"isPattern\":\"true\"\n}\n],\n\"attributes\":[]\n}\n"
+        );
+
+        $response = $client->request('POST', 'ngsi10/queryContext', ['body' => $body ]);
+
+        return $response->getBody();
+    }
+
     /**
      * Show the form for creating a new resource.
      *

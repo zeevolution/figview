@@ -48,6 +48,17 @@
                             </div>
                         </div>
 
+                        <div class="form-group" ng-class="{'has-error': !form.X_Auth_Token.$valid && form.X_Auth_Token.$touched}">
+                            <label class="col-md-4 control-label">Access Token:</label>
+
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="X_Auth_Token" ng-model="orion.X_Auth_Token" required>
+                                <div ng-messages="form.X_Auth_Token.$error" class="help-block" ng-show="form.X_Auth_Token.$touched">
+                                    <div ng-message="required">Field required</div>
+                                </div>
+                            </div>
+                        </div>
+
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

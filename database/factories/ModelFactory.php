@@ -25,6 +25,7 @@ $factory->define(Figview\Entities\Orion::class, function (Faker\Generator $faker
         'name' => $faker->name,
         'url' => $faker->url,
         'port' => $faker->randomNumber(),
+        'X_Auth_Token' => $faker->word,
         'user_id' => rand(1, 10),
     ];
 });

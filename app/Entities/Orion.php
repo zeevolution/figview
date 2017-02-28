@@ -10,6 +10,7 @@ class Orion extends Model
         'name',
         'url',
         'port',
+        'X_Auth_Token',
         'user_id'
     ];
 
