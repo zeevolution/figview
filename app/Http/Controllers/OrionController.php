@@ -57,6 +57,22 @@ class OrionController extends Controller
         return $response->getBody();
     }
 
+    public function getEntityAttribute(Request $request, $entityId, $attributeId, $fiwareService, $orionToken){
+
+        //dd($request->url);
+        $client = new \GuzzleHttp\Client([
+            'base_uri' => $request->url,
+            'headers'  =>  [
+                'Fiware-Service' => $fiwareService,
+                'accept' => 'application/json',
+                'X-Auth-Token' => $orionToken ]
+        ]);
+
+        $response = $client->request('GET', "/v1/contextEntities/" . $entityId . "/attributes/" . $attributeId);
+
+        return $response->getBody();
+    }
+
     /**
      * Show the form for creating a new resource.
      *

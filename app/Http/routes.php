@@ -59,4 +59,5 @@ Route::group(['middleware' => 'oauth'], function(){
 });
 
 Route::get('orions/allEntities/{fiwareService}/{orionToken}', 'OrionController@getEntities');
+Route::get('orions/{entityId}/attribute/{attributeId}/{fiwareService}/{orionToken}', 'OrionController@getEntityAttribute');
 

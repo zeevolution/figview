@@ -69,8 +69,8 @@ angular.module('app.controllers')
 
                 $scope.getEntitiesByService = function (fiware_service, X_Auth_Token) {
                     var settings = {
-                        "async": true,
-                        "crossDomain": true,
+                        "async": false,
+                        "crossDomain": false,
                         "url": "http://192.168.1.12:8000/orions/allEntities/" + fiware_service + '/' + X_Auth_Token,
                         "method": "GET",
                         "headers": {
@@ -84,6 +84,8 @@ angular.module('app.controllers')
                         var jsonObject = JSON.parse(response);
                         console.log(jsonObject);
                         $scope.orionEntities = jsonObject.contextResponses;
+                        $scope.entity_id = jsonObject.contextResponses[0].contextElement;
+                        $scope.attributeTypeArray = $scope.entity_id;
                     }, function(error, textStatus){
                         console.log(textStatus);
                         alert (textStatus + ". "+ error.responseText + ". Orion Server is not responding...");
@@ -93,6 +95,39 @@ angular.module('app.controllers')
                 $scope.eraseGetOrionEntitiesByServiceForm = function () {
                     $scope.orionEntities = {
                     };
+                };
+
+                $scope.attributeTypeArray = [];
+
+                $scope.setEntityAttributeArray = function () {
+                    $scope.attributeTypeArray = $scope.entity_id;
+                };
+
+                $scope.attrArray = [];
+
+                $scope.getEntityAttributeByService = function (fiware_service, entity_id, attribute_id, X_Auth_Token) {
+                    var settings = {
+                        "async": false,
+                        "crossDomain": false,
+                        "url": "http://192.168.1.12:8000/orions/"+ entity_id.id + "/attribute/"
+                        + attribute_id + "/"
+                        + fiware_service + '/' + X_Auth_Token,
+                        "method": "GET",
+                        "headers": {
+
+                        },
+                        "data": "url="+ $scope.orion.orion_url_port
+                    };
+
+                    $.ajax(settings).then(function (response) {
+                        //console.log(response);
+                        var jsonObject = JSON.parse(response);
+                        console.log(jsonObject);
+                        $scope.attrArray = jsonObject;
+                    }, function(error, textStatus){
+                        console.log(textStatus);
+                        alert (textStatus + ". "+ error.responseText + ". Orion Server is not responding...");
+                    });
                 }
                 
             }]);
