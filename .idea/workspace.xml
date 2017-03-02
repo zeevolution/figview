@@ -3,73 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="ffaa0ab5-3b8f-479d-9f5b-cd8c4696d624" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/IDASController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/IDASController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/OrionController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrionController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repositories/IotEnvRepositoryEloquent.php" afterPath="$PROJECT_DIR$/app/Repositories/IotEnvRepositoryEloquent.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Transformers/IoTEnvTransformer.php" afterPath="$PROJECT_DIR$/app/Transformers/IoTEnvTransformer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/js/app.js" afterPath="$PROJECT_DIR$/public/build/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/js/controllers/home.js" afterPath="$PROJECT_DIR$/public/build/js/controllers/home.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/js/controllers/idas/idasDashboard.js" afterPath="$PROJECT_DIR$/public/build/js/controllers/idas/idasDashboard.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/js/controllers/idas/idasEdit.js" afterPath="$PROJECT_DIR$/public/build/js/controllers/idas/idasEdit.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/js/controllers/idas/idasList.js" afterPath="$PROJECT_DIR$/public/build/js/controllers/idas/idasList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/js/controllers/idas/idasNew.js" afterPath="$PROJECT_DIR$/public/build/js/controllers/idas/idasNew.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/js/controllers/idas/idasRemove.js" afterPath="$PROJECT_DIR$/public/build/js/controllers/idas/idasRemove.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/js/controllers/iotenv/iotEnvDashboard.js" afterPath="$PROJECT_DIR$/public/build/js/controllers/iotenv/iotEnvDashboard.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/js/controllers/iotenv/iotEnvList.js" afterPath="$PROJECT_DIR$/public/build/js/controllers/iotenv/iotEnvList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/js/controllers/iotenv/iotEnvRemove.js" afterPath="$PROJECT_DIR$/public/build/js/controllers/iotenv/iotEnvRemove.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/js/controllers/orion/orionDashboard.js" afterPath="$PROJECT_DIR$/public/build/js/controllers/orion/orionDashboard.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/js/controllers/orion/orionEdit.js" afterPath="$PROJECT_DIR$/public/build/js/controllers/orion/orionEdit.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/js/controllers/orion/orionList.js" afterPath="$PROJECT_DIR$/public/build/js/controllers/orion/orionList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/js/controllers/orion/orionNew.js" afterPath="$PROJECT_DIR$/public/build/js/controllers/orion/orionNew.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/js/controllers/orion/orionRemove.js" afterPath="$PROJECT_DIR$/public/build/js/controllers/orion/orionRemove.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/views/home.html" afterPath="$PROJECT_DIR$/public/build/views/home.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/views/idas/dashboard.html" afterPath="$PROJECT_DIR$/public/build/views/idas/dashboard.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/views/idas/edit.html" afterPath="$PROJECT_DIR$/public/build/views/idas/edit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/views/idas/list.html" afterPath="$PROJECT_DIR$/public/build/views/idas/list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/views/idas/new.html" afterPath="$PROJECT_DIR$/public/build/views/idas/new.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/views/idas/remove.html" afterPath="$PROJECT_DIR$/public/build/views/idas/remove.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/views/iotenv/edit.html" afterPath="$PROJECT_DIR$/public/build/views/iotenv/edit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/views/iotenv/list.html" afterPath="$PROJECT_DIR$/public/build/views/iotenv/list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/views/iotenv/new.html" afterPath="$PROJECT_DIR$/public/build/views/iotenv/new.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/views/iotenv/remove.html" afterPath="$PROJECT_DIR$/public/build/views/iotenv/remove.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/views/orion/dashboard.html" afterPath="$PROJECT_DIR$/public/build/views/orion/dashboard.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/views/orion/edit.html" afterPath="$PROJECT_DIR$/public/build/views/orion/edit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/views/orion/list.html" afterPath="$PROJECT_DIR$/public/build/views/orion/list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/views/orion/new.html" afterPath="$PROJECT_DIR$/public/build/views/orion/new.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/views/orion/remove.html" afterPath="$PROJECT_DIR$/public/build/views/orion/remove.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/views/templates/menu.html" afterPath="$PROJECT_DIR$/public/build/views/templates/menu.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/app.js" afterPath="$PROJECT_DIR$/resources/assets/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/controllers/home.js" afterPath="$PROJECT_DIR$/resources/assets/js/controllers/home.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/views/iotenv/dashboard.html" afterPath="$PROJECT_DIR$/public/build/views/iotenv/dashboard.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/controllers/idas/idasDashboard.js" afterPath="$PROJECT_DIR$/resources/assets/js/controllers/idas/idasDashboard.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/controllers/idas/idasEdit.js" afterPath="$PROJECT_DIR$/resources/assets/js/controllers/idas/idasEdit.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/controllers/idas/idasList.js" afterPath="$PROJECT_DIR$/resources/assets/js/controllers/idas/idasList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/controllers/idas/idasNew.js" afterPath="$PROJECT_DIR$/resources/assets/js/controllers/idas/idasNew.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/controllers/idas/idasRemove.js" afterPath="$PROJECT_DIR$/resources/assets/js/controllers/idas/idasRemove.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/controllers/iotenv/iotEnvDashboard.js" afterPath="$PROJECT_DIR$/resources/assets/js/controllers/iotenv/iotEnvDashboard.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/controllers/iotenv/iotEnvList.js" afterPath="$PROJECT_DIR$/resources/assets/js/controllers/iotenv/iotEnvList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/controllers/iotenv/iotEnvRemove.js" afterPath="$PROJECT_DIR$/resources/assets/js/controllers/iotenv/iotEnvRemove.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/controllers/orion/orionDashboard.js" afterPath="$PROJECT_DIR$/resources/assets/js/controllers/orion/orionDashboard.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/controllers/orion/orionEdit.js" afterPath="$PROJECT_DIR$/resources/assets/js/controllers/orion/orionEdit.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/controllers/orion/orionList.js" afterPath="$PROJECT_DIR$/resources/assets/js/controllers/orion/orionList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/controllers/orion/orionNew.js" afterPath="$PROJECT_DIR$/resources/assets/js/controllers/orion/orionNew.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/controllers/orion/orionRemove.js" afterPath="$PROJECT_DIR$/resources/assets/js/controllers/orion/orionRemove.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/views/home.html" afterPath="$PROJECT_DIR$/resources/assets/js/views/home.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/views/idas/dashboard.html" afterPath="$PROJECT_DIR$/resources/assets/js/views/idas/dashboard.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/views/idas/edit.html" afterPath="$PROJECT_DIR$/resources/assets/js/views/idas/edit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/views/idas/list.html" afterPath="$PROJECT_DIR$/resources/assets/js/views/idas/list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/views/idas/new.html" afterPath="$PROJECT_DIR$/resources/assets/js/views/idas/new.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/views/idas/remove.html" afterPath="$PROJECT_DIR$/resources/assets/js/views/idas/remove.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/views/iotenv/edit.html" afterPath="$PROJECT_DIR$/resources/assets/js/views/iotenv/edit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/views/iotenv/list.html" afterPath="$PROJECT_DIR$/resources/assets/js/views/iotenv/list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/views/iotenv/new.html" afterPath="$PROJECT_DIR$/resources/assets/js/views/iotenv/new.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/views/iotenv/remove.html" afterPath="$PROJECT_DIR$/resources/assets/js/views/iotenv/remove.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/views/orion/dashboard.html" afterPath="$PROJECT_DIR$/resources/assets/js/views/orion/dashboard.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/views/orion/edit.html" afterPath="$PROJECT_DIR$/resources/assets/js/views/orion/edit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/views/orion/list.html" afterPath="$PROJECT_DIR$/resources/assets/js/views/orion/list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/views/orion/new.html" afterPath="$PROJECT_DIR$/resources/assets/js/views/orion/new.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/views/orion/remove.html" afterPath="$PROJECT_DIR$/resources/assets/js/views/orion/remove.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/views/templates/menu.html" afterPath="$PROJECT_DIR$/resources/assets/js/views/templates/menu.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/views/iotenv/dashboard.html" afterPath="$PROJECT_DIR$/resources/assets/js/views/iotenv/dashboard.html" />
     </list>
     <ignored path="figview.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -91,26 +30,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="list.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/assets/js/views/iotenv/list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="489">
-              <caret line="50" column="18" selection-start-line="0" selection-start-column="4" selection-end-line="50" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="list.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/assets/js/views/idas/list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="39" column="104" selection-start-line="39" selection-start-column="89" selection-end-line="39" selection-end-column="104" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="iotEnvList.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/assets/js/controllers/iotenv/iotEnvList.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -124,8 +43,8 @@
       <file leaf-file-name="iotEnvDashboard.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/assets/js/controllers/iotenv/iotEnvDashboard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="41" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
+            <state relative-caret-position="120">
+              <caret line="106" column="16" selection-start-line="106" selection-start-column="16" selection-end-line="131" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -151,7 +70,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="home.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/assets/js/controllers/home.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
@@ -161,31 +80,53 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="idasList.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/assets/js/controllers/idas/idasList.js">
+      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/assets/js/views/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="103" selection-start-line="1" selection-start-column="103" selection-end-line="1" selection-end-column="103" />
+            <state relative-caret-position="930">
+              <caret line="62" column="58" selection-start-line="62" selection-start-column="58" selection-end-line="62" selection-end-column="58" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="orionList.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/assets/js/controllers/orion/orionList.js">
+      <file leaf-file-name="dashboard.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/assets/js/views/iotenv/dashboard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="106" selection-start-line="1" selection-start-column="106" selection-end-line="1" selection-end-column="106" />
+            <state relative-caret-position="1989">
+              <caret line="338" column="68" selection-start-line="338" selection-start-column="68" selection-end-line="338" selection-end-column="68" />
+              <folding>
+                <element signature="n#style#0;n#p#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dashboard.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/assets/js/views/idas/dashboard.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="339">
+              <caret line="115" column="69" selection-start-line="115" selection-start-column="69" selection-end-line="115" selection-end-column="69" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="list.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/assets/js/views/orion/list.html">
+        <entry file="file://$PROJECT_DIR$/resources/assets/js/views/idas/list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="39" column="105" selection-start-line="39" selection-start-column="89" selection-end-line="39" selection-end-column="105" />
+            <state relative-caret-position="390">
+              <caret line="78" column="36" selection-start-line="78" selection-start-column="36" selection-end-line="81" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="idasDashboard.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/assets/js/controllers/idas/idasDashboard.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="303">
+              <caret line="80" column="25" selection-start-line="80" selection-start-column="25" selection-end-line="80" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -208,7 +149,6 @@
         <option value="$PROJECT_DIR$/resources/assets/js/views/templates/loginModal.html" />
         <option value="$PROJECT_DIR$/resources/assets/js/views/templates/form-login.html" />
         <option value="$PROJECT_DIR$/resources/assets/css/login.css" />
-        <option value="$PROJECT_DIR$/resources/assets/js/views/iotenv/dashboard.html" />
         <option value="$PROJECT_DIR$/database/migrations/2017_01_11_182507_create_orions_table.php" />
         <option value="$PROJECT_DIR$/database/factories/ModelFactory.php" />
         <option value="$PROJECT_DIR$/app/Transformers/OrionTransformer.php" />
@@ -219,8 +159,6 @@
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/IDASController.php" />
         <option value="$PROJECT_DIR$/resources/assets/js/controllers/orion/orionDashboard.js" />
-        <option value="$PROJECT_DIR$/resources/assets/js/controllers/idas/idasDashboard.js" />
-        <option value="$PROJECT_DIR$/resources/assets/js/views/idas/dashboard.html" />
         <option value="$PROJECT_DIR$/resources/assets/js/app.js" />
         <option value="$PROJECT_DIR$/resources/assets/js/views/iotenv/new.html" />
         <option value="$PROJECT_DIR$/app/Transformers/IoTEnvTransformer.php" />
@@ -250,6 +188,9 @@
         <option value="$PROJECT_DIR$/resources/assets/js/controllers/iotenv/iotEnvDashboard.js" />
         <option value="$PROJECT_DIR$/app/Repositories/IotEnvRepositoryEloquent.php" />
         <option value="$PROJECT_DIR$/resources/assets/js/controllers/home.js" />
+        <option value="$PROJECT_DIR$/resources/assets/js/views/iotenv/dashboard.html" />
+        <option value="$PROJECT_DIR$/resources/assets/js/views/idas/dashboard.html" />
+        <option value="$PROJECT_DIR$/resources/assets/js/controllers/idas/idasDashboard.js" />
       </list>
     </option>
   </component>
@@ -954,12 +895,12 @@
       <workItem from="1487625959110" duration="10797000" />
       <workItem from="1487642825515" duration="11955000" />
       <workItem from="1487656879718" duration="110727000" />
-      <workItem from="1488278410057" duration="20563000" />
+      <workItem from="1488278410057" duration="22876000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="518972000" />
+    <option name="totallyTimeSpent" value="521285000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="0" />
@@ -1122,22 +1063,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/js/views/idas/dashboard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="88" column="72" selection-start-line="88" selection-start-column="72" selection-end-line="88" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/js/controllers/idas/idasDashboard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="573">
-          <caret line="62" column="72" selection-start-line="62" selection-start-column="72" selection-end-line="62" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/assets/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -1182,24 +1107,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="93" selection-start-line="15" selection-start-column="93" selection-end-line="15" selection-end-column="93" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/js/views/iotenv/dashboard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="48" column="38" selection-start-line="48" selection-start-column="38" selection-end-line="48" selection-end-column="38" />
-          <folding>
-            <element signature="n#style#0;n#p#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/js/views/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="62" column="58" selection-start-line="62" selection-start-column="58" selection-end-line="62" selection-end-column="58" />
           <folding />
         </state>
       </provider>
@@ -1340,14 +1247,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/js/views/idas/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="39" column="104" selection-start-line="39" selection-start-column="89" selection-end-line="39" selection-end-column="104" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/assets/js/controllers/idas/idasList.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -1380,14 +1279,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/js/controllers/iotenv/iotEnvDashboard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="41" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Repositories/IotEnvRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1404,10 +1295,60 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/js/views/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="930">
+          <caret line="62" column="58" selection-start-line="62" selection-start-column="58" selection-end-line="62" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/js/controllers/iotenv/iotEnvDashboard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="106" column="16" selection-start-line="106" selection-start-column="16" selection-end-line="131" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/js/views/idas/list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="78" column="36" selection-start-line="78" selection-start-column="36" selection-end-line="81" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/assets/js/controllers/home.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/js/views/iotenv/dashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1989">
+          <caret line="338" column="68" selection-start-line="338" selection-start-column="68" selection-end-line="338" selection-end-column="68" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/js/views/idas/dashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="115" column="69" selection-start-line="115" selection-start-column="69" selection-end-line="115" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/js/controllers/idas/idasDashboard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="80" column="25" selection-start-line="80" selection-start-column="25" selection-end-line="80" selection-end-column="25" />
           <folding />
         </state>
       </provider>
