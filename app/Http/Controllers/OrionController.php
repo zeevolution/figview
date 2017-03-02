@@ -36,6 +36,22 @@ class OrionController extends Controller
         return $this->service->findAllUserOrions(Authorizer::getResourceOwnerId());
     }
 
+    public function getVersion(Request $request, $orionToken){
+
+        //dd($request->url);
+        $client = new \GuzzleHttp\Client([
+            'base_uri' => $request->url,
+            'headers'  =>  [
+                'accept' => 'application/json',
+                'X-Auth-Token' => $orionToken ]
+        ]);
+
+        $response = $client->request('GET', 'version');
+
+        return $response->getBody();
+    }
+    
+
     public function getEntities(Request $request, $fiwareService, $orionToken){
 
         //dd($request->url);

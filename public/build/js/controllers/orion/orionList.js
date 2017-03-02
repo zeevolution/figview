@@ -1,5 +1,5 @@
 angular.module('app.controllers')
-    .controller('OrionListController', ['$scope', 'Orion', function ($scope, Orion) {
+    .controller('OrionListController', ['$scope', 'Orion', '$location', function ($scope, Orion, $location) {
         $scope.orions = [];
         $scope.orionsPerPage = 5;
         $scope.totalOrions = 0;
@@ -21,4 +21,13 @@ angular.module('app.controllers')
         }
 
         getResultsPage(1);
+
+        $scope.cancel = function () {
+            $location.path('/orions/dashboard');
+        };
+
+        $scope.goToNewOrionForm = function () {
+            $location.path('/orions/new');
+        };
+
     }]);

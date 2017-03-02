@@ -65,7 +65,8 @@ app.config([
         })
         .when('/home', {
             templateUrl: "build/views/home.html",
-            controller: "HomeController"
+            controller: "HomeController",
+            title: "Dashboard"
         })
         .when('/orions/dashboard', {
             templateUrl: "build/views/orion/dashboard.html",

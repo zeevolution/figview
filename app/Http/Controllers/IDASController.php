@@ -37,6 +37,20 @@ class IDASController extends Controller
         return $this->service->findAllUserIdas(Authorizer::getResourceOwnerId());
     }
 
+    public function getVersion(Request $request, $token){
+
+        $client = new \GuzzleHttp\Client([
+            'base_uri' => $request->url,
+            'headers'  =>  [
+                'accept' => 'application/json',
+                'x-auth-token' => $token ]
+        ]);
+
+        $response = $client->request('GET', 'iot/about');
+
+        return $response->getBody();
+    }
+
     /**
      * Show the form for creating a new resource.
      *

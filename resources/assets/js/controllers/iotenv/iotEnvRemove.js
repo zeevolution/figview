@@ -8,5 +8,10 @@ angular.module('app.controllers')
                     $scope.iotenv.$delete({id: $scope.iotenv.id}).then(function(){
                         $location.path('/iotenvs/dashboard');
                     });
-                }
+                };
+
+                $scope.cancel = function () {
+                    $location.path('/iotenvs/dashboard');
+                };
+
             }]);

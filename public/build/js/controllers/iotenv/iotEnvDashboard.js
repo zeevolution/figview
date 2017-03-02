@@ -17,7 +17,7 @@ angular.module('app.controllers')
 
 
                 $scope.iotenvs = [];
-                $scope.iotenvsPerPage = 5;
+                $scope.iotenvsPerPage = 6;
                 $scope.totalIotEnvs = 0;
 
                 $scope.pagination = {

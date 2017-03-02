@@ -35,26 +35,26 @@ angular.module('app.controllers')
                     $scope.orion = orion;
                 };
                 
-                $scope.getOrionVersion = function () {
+                $scope.getOrionVersion = function (X_Auth_Token) {
                     var settings = {
-                        "async": true,
-                        "crossDomain": true,
-                        "url": $scope.orion.orion_url_port + "version",
+                        "async": false,
+                        "crossDomain": false,
+                        "url": "http://192.168.1.12:8000/orions/version/" + X_Auth_Token,
                         "method": "GET",
                         "headers": {
-                            "Accept": "application/json"
-                            //"x-auth-token": $scope.orion.X_Auth_Token
-                        }
+                        },
+                        "data": "url="+ $scope.orion.orion_url_port
                     };
 
                     $.ajax(settings).then(function (response) {
-                        console.log(response);
-                        $scope.orionVersion = response;
-                        $scope.orionStatus = "Orion Up and Running";
-
+                        //console.log(response);
+                        var jsonObject = JSON.parse(response);
+                        console.log(jsonObject.orion);
+                        $scope.orionVersion = jsonObject;
+                        $scope.orionStatus = "Orion Service Up and Running";
                     }, function(error, textStatus){
-                        console.log(error);
-                        $scope.orionStatus = textStatus + ". " + error.responseText + ". Orion Server is not responding...";
+                        //console.log(error);
+                        $scope.orionStatus = error.statusText + ". Orion Server is not responding...";
                     });
                 };
 

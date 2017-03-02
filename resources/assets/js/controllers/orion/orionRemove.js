@@ -8,5 +8,9 @@ angular.module('app.controllers')
                     $scope.orion.$delete({id: $scope.orion.orion_id}).then(function(){
                        $location.path('/orions/dashboard');
                     });
-                }
+                };
+
+                $scope.cancel = function () {
+                    $location.path('/orions/dashboard');
+                };
             }]);

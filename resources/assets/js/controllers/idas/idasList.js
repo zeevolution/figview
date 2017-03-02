@@ -1,5 +1,5 @@
 angular.module('app.controllers')
-    .controller('IdasListController', ['$scope', 'Idas', function ($scope, Idas) {
+    .controller('IdasListController', ['$scope', 'Idas', '$location', function ($scope, Idas, $location) {
         $scope.idas = [];
         $scope.idasPerPage = 5;
         $scope.totalIdas = 0;
@@ -21,5 +21,13 @@ angular.module('app.controllers')
         }
 
         getResultsPage(1);
+
+        $scope.cancel = function () {
+            $location.path('/idas/dashboard');
+        };
+
+        $scope.goToNewIdasForm = function () {
+            $location.path('/idas/new');
+        }
 
     }]);

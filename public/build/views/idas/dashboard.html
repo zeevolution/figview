@@ -63,6 +63,12 @@
                                     <p>
                                         <i class="fa fa-assistive-listening-systems" aria-hidden="true"></i> UL20 Port Number: {{ idas.ul20port }}
                                     </p>
+                                    <p>
+                                        <button type="submit" class="btn btn-info" ng-click="getIdasInfo()"> Test Service</button>
+                                        <button type="reset" class="btn btn-info"  ng-click="eraseGetIdasInfoForm()">Reset Test
+                                    </button>
+                                    </p>
+                                    <i class="text-info text-center">{{ idasStatus }}</i>
                                 </div>
                             </div>
 
@@ -75,21 +81,24 @@
                                     </li>
                                 </ul>
 
-                                <table class="table">
+                                <table class="table text-center">
                                     <thead>
                                     <tr>
-                                        <th width="50%">Environment Name</th>
-                                        <th width="50%">Orion Context Broker</th>
+                                        <th class="text-center" width="30%">Environment Name</th>
+                                        <th class="text-center" width="30%">Orion Context Broker</th>
+                                        <th class="text-center" width="30%">Fiware Service</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr ng-repeat="i in idas.iotenvs.data">
+                                    <tr class="text-center" ng-repeat="i in idas.iotenvs.data">
                                         <td>{{ i.name }}</td>
                                         <td>{{ i.orion.data.orion_url_port}}</td>
+                                        <td>{{ i.Fiware_Service}}</td>
                                     </tr>
                                     </tbody>
                                 </table>
                             </div>
+
                         </div>
                     </div>
                     <div class="boxed-manager-info">
@@ -106,19 +115,23 @@
                             <li class="list-styled-header  text-center">
                                 Status
                             </li>
-                            <li class="text-center text-info">{{ orionStatus }}</li>
+                            <li class="text-center text-info">{{ idasStatus }}</li>
                             <li class="list-styled-header  text-center">
-                                Uptime
+                                Base root
                             </li>
-                            <li class="text-center text-info">{{ orionVersion.orion.uptime }}</li>
+                            <li class="text-center text-info">{{ idasVersion.baseRoot }}</li>
+                            <li class="list-styled-header text-center">
+                                Lib Version
+                            </li>
+                            <li class="text-center text-info">{{ idasVersion.libVersion }}</li>
+                            <li class="list-styled-header text-center">
+                                Admin Port
+                            </li>
+                            <li class="text-center text-info">{{ idasVersion.port }}</li>
                             <li class="list-styled-header text-center">
                                 Version
                             </li>
-                            <li class="text-center text-info">{{ orionVersion.orion.version }}</li>
-                            <li class="list-styled-header text-center">
-                                Compile Time
-                            </li>
-                            <li class="text-center text-info">{{ orionVersion.orion.compile_time }}</li>
+                            <li class="text-center text-info">{{ idasVersion.version }}</li>
                         </ul>
                     </div>
                 </div>

@@ -33,5 +33,37 @@ angular.module('app.controllers')
 
                 $scope.showIdas = function (idas) {
                     $scope.idas = idas;
+                };
+
+                $scope.idasVersion = {
+
+                };
+
+                $scope.idasStatus = "";
+
+                $scope.getIdasInfo = function(){
+                    var settings = {
+                        "async": false,
+                        "crossDomain": false,
+                        "url": "http://192.168.1.12:8000/idas/version/NULL",
+                        "method": "GET",
+                        "headers": {
+                        },
+                        "data": "url=" + $scope.idas.idas_url_adminport
+                    };
+
+                    $.ajax(settings).then(function (response) {
+                        //console.log(response);
+                        var jsonObject = JSON.parse(response);
+                        console.log(jsonObject);
+                        $scope.idasVersion = jsonObject;
+                        $scope.idasStatus = "Idas Service Up and Running";
+                    }, function(error, textStatus){
+                        //console.log(error);
+                        $scope.idasStatus = "Error " + error.status + ": " + error.statusText +
+                            ". Idas Server is not responding...";
+                    });
+
                 }
+
             }]);

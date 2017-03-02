@@ -42,7 +42,8 @@ class IoTEnvTransformer extends TransformerAbstract
             'user_id' => $iotenv->user_id,
             'orion_id' => $iotenv->orion_id,
             'idas_id' => $iotenv->idas_id,
-            'isMember' => $iotenv->user_id != Authorizer::getResourceOwnerId()
+            'isMember' => $iotenv->user_id != Authorizer::getResourceOwnerId(),
+            'created_at' => $iotenv->created_at
         ];
 
     }

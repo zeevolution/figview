@@ -10,5 +10,10 @@ angular.module('app.controllers')
                             $location.path('/idas/dashboard');
                         });
                     }
-                }
+                };
+
+                $scope.cancel = function () {
+                    $location.path('/idas/dashboard');
+                };
+                
             }]);

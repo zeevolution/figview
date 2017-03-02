@@ -1,8 +1,59 @@
-<div class="container-fluid">
-    <div class="row">
+<section class="main">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-xs-16">
+
+                <header class="header-internal">
+                    <div class="row row-xs">
+                        <div class="col-xs-8">
+                            <h2 class="h4 page-title line-after text-primary ">
+                                <span>List of the Fiware Backend Device Management</span>
+                            </h2>
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="tools">
+                                <!--
+                                <div>
+                                    <label class="select-styled select-styled-default select-styled-sm">
+                                        <select>
+                                            <option selected="selected">Todos</option>
+                                            <option>Nome do projeto</option>
+                                            <option>Nome do projeto2</option>
+                                            <option>Nome do projeto3</option>
+                                            <option>Nome do projeto4</option>
+                                            <option>Nome do projeto5</option>
+                                        </select>
+                                    </label>
+                                </div>
+                                -->
+                                <!--
+                                <div class="btn-group">
+                                    <a href="" class="btn btn-default btn-sm">
+                                        <i class="fa fa-th"></i>
+                                    </a>
+                                    <a href="" class="btn btn-default btn-sm">
+                                        <i class="fa fa-align-justify"></i>
+                                    </a>
+                                </div>
+                                -->
+                                <div>
+                                    <button class="btn btn-primary fa fa-plus" ng-click="goToNewOrionForm()" > New
+                                    </button>
+                                    <button class="btn btn-default fa fa-arrow-left" ng-click="cancel()"> Back
+                                    </button>
+                                </div>
+                            </div> <!-- /tools -->
+                        </div>
+                    </div>
+                </header> <!-- /header-internal -->
+
+            </div>
+        </div>
+
+
         <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">List of Orions</div>
+            <div class="panel panel-group">
+                <div class="panel-heading text-center text-info">List of Orions</div>
                 <div class="panel-body">
                     <table class="table">
                         <thead>
@@ -36,4 +87,4 @@
             </div>
         </div>
     </div>
-</div>
+</section>

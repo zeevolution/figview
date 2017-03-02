@@ -1,1 +1,168 @@
-Estamos Logados
+<section class="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <header class="header-internal">
+                    <div class="row row-xs">
+                        <div class="col-xs-10">
+                            <h2 class="h4 page-title line-after text-primary ">
+                                <span>Fiware IoT Environments</span>
+                            </h2>
+                        </div>
+                        <div class="col-xs-2">
+                            <div class="tools">
+                                <!--
+                                <div>
+                                    <label class="select-styled select-styled-default select-styled-sm">
+                                        <select>
+                                            <option selected="selected">Todos</option>
+                                            <option>Nome do projeto</option>
+                                            <option>Nome do projeto2</option>
+                                            <option>Nome do projeto3</option>
+                                            <option>Nome do projeto4</option>
+                                            <option>Nome do projeto5</option>
+                                        </select>
+                                    </label>
+                                </div>
+                                -->
+                                <!--
+                                <div class="btn-group">
+                                    <a href="" class="btn btn-default btn-sm">
+                                        <i class="fa fa-th"></i>
+                                    </a>
+                                    <a href="" class="btn btn-default btn-sm">
+                                        <i class="fa fa-align-justify"></i>
+                                    </a>
+                                </div>
+                                -->
+                                <div>
+                                    <a ng-href="#/iotenvs/new">
+                                        <i class="fa fa-plus btn btn-primary" aria-hidden="true"> New Environment</i>
+                                    </a>
+                                </div>
+                            </div> <!-- /tools -->
+                        </div>
+                    </div>
+                </header> <!-- /header-internal -->
+
+                <div class="row">
+                    <div class="col-sm-4"
+                         dir-paginate="i in iotenvs | itemsPerPage: iotEnvsPerPage"
+                         total-items="totalIotEnvs" current-page="pagination.current">
+                        <div class="panel panel-default panel-stacked">
+                            <div class="panel-footer panel-footer-xs no-border-top sazerac text-info font-bold text-center">
+                                Fiware IoT Environment Instance Info
+                                <span class="pull-right"></span>
+                            </div> <!-- /panel-footer panel-footer-xs sazerac -->
+
+                            <div class="panel-heading bg-white no-border-bottom text-boulder">
+                                <h5 class="h5 text-boulder">
+                                    <a ng-href="#/iotenvs/{{i.id}}/edit">
+                                        <i class="fa fa-arrow-right" aria-hidden="true"></i> {{i.name}}
+                                    </a>
+                                    <a href="#/iotenvs/{{i.id}}/remove" class="btn btn-danger btn-xs pull-right" title="Delete">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
+                                </h5>
+                                <small class="text-upper text-gray50 ">Owner: {{i.userowner.data.user_email}}</small>
+                            </div> <!-- /panel-heading bg-white -->
+                            <div class="panel-body">
+                                <ul class="list-unstyled list-padding text-boulder">
+                                    <li class="text-boulder text-gray70">
+                                        Orion Service: <span class="text-info pull-right">{{i.orion.data.orion_name}}</span>
+                                    </li>
+                                    <li class="text-boulder text-gray70">
+                                        Idas Service: <span class="text-info pull-right">{{i.idas.data.idas_name}}</span>
+                                    </li>
+                                    <li class="text-boulder text-gray70">
+                                        Fiware-Service Header: <span class="text-info pull-right">{{i.Fiware_Service}}</span>
+                                    </li>
+                                </ul> <!-- /panel-list-unstyled -->
+                            </div> <!-- /panel-body -->
+                        </div> <!-- /panel.panel-default -->
+                    </div>
+                </div>
+                <dir-pagination-controls on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
+            </div>
+            <!--<div class="col-xs-3">
+                <h5>Últimas atualizações</h5>
+
+                <br/>
+                <div class="mini-timeline">
+                    <div class="list-item list-item-stacked text-boulder">
+                        <div class="clearfix">
+                            <img src="http://mmn.silasribas.com.br/bundles/sonbase/geral/images/anonymous.png?2" alt="" class="avatar-sm rounded"/>
+                            <p>
+                                <strong>Mudança de status em um projeto</strong>
+                                <br/>
+                                <small>há alguns segundos</small>
+                                <br/>
+                                <span class="text-info">O status no novo site foi alterado para vencido</span>
+                            </p>
+                        </div>
+                    </div> <!-- /list-item
+                    <div class="list-item list-item-stacked text-boulder">
+                        <div class="clearfix">
+                            <img src="http://mmn.silasribas.com.br/bundles/sonbase/geral/images/anonymous.png?2" alt="" class="avatar-sm rounded"/>
+                            <p>
+                                <strong>Mudança de status em um projeto</strong>
+                                <br/>
+                                <small>há alguns segundos</small>
+                                <br/>
+                                <span class="text-info">O status no novo site foi alterado para vencido</span>
+                            </p>
+                        </div>
+                    </div> <!-- /list-item
+                    <div class="list-item list-item-stacked text-boulder">
+                        <div class="clearfix">
+                            <img src="http://mmn.silasribas.com.br/bundles/sonbase/geral/images/anonymous.png?2" alt="" class="avatar-sm rounded"/>
+                            <p>
+                                <strong>Mudança de status em um projeto</strong>
+                                <br/>
+                                <small>há alguns segundos</small>
+                                <br/>
+                                <span class="text-info">O status no novo site foi alterado para vencido</span>
+                            </p>
+                        </div>
+                    </div> <!-- /list-item
+                    <div class="list-item list-item-stacked text-boulder">
+                        <div class="clearfix">
+                            <img src="http://mmn.silasribas.com.br/bundles/sonbase/geral/images/anonymous.png?2" alt="" class="avatar-sm rounded"/>
+                            <p>
+                                <strong>Mudança de status em um projeto</strong>
+                                <br/>
+                                <small>há alguns segundos</small>
+                                <br/>
+                                <span class="text-info">O status no novo site foi alterado para vencido</span>
+                            </p>
+                        </div>
+                    </div> <!-- /list-item
+                    <div class="list-item list-item-stacked text-boulder">
+                        <div class="clearfix">
+                            <img src="http://mmn.silasribas.com.br/bundles/sonbase/geral/images/anonymous.png?2" alt="" class="avatar-sm rounded"/>
+                            <p>
+                                <strong>Mudança de status em um projeto</strong>
+                                <br/>
+                                <small>há alguns segundos</small>
+                                <br/>
+                                <span class="text-info">O status no novo site foi alterado para vencido</span>
+                            </p>
+                        </div>
+                    </div> <!-- /list-item
+                    <div class="list-item list-item-stacked text-boulder">
+                        <div class="clearfix">
+                            <img src="http://mmn.silasribas.com.br/bundles/sonbase/geral/images/anonymous.png?2" alt="" class="avatar-sm rounded"/>
+                            <p>
+                                <strong>Mudança de status em um projeto</strong>
+                                <br/>
+                                <small>há alguns segundos</small>
+                                <br/>
+                                <span class="text-info">O status no novo site foi alterado para vencido</span>
+                            </p>
+                        </div>
+                    </div> <!-- /list-item
+                </div> -->
+            </div>
+        </div>
+    </div>
+</section>

@@ -4,7 +4,7 @@ angular.module('app.controllers')
             $scope, $routeParams, IotEnv, ContextTreePath, $location) {
 
             $scope.iotenvs = [];
-            $scope.iotEnvsPerPage = 5;
+            $scope.iotEnvsPerPage = 6;
             $scope.totalIotEnvs = 0;
 
             $scope.pagination = {
@@ -29,5 +29,9 @@ angular.module('app.controllers')
             $scope.cancel = function () {
                 $location.path('/iotenvs/dashboard');
             };
+
+            $scope.goToNewIoTForm = function () {
+                $location.path('/iotenvs/new');
+            }
 
         }]);

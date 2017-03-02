@@ -10,5 +10,10 @@ angular.module('app.controllers')
                     $location.path('/orions/dashboard');
                 });
             }
-        }
+        };
+
+        $scope.cancel = function () {
+            $location.path('/orions/dashboard');
+        };
+
     }]);

@@ -8,5 +8,9 @@ angular.module('app.controllers')
                     $scope.idas.$delete({id: $scope.idas.idas_id}).then(function(){
                         $location.path('/idas/dashboard');
                     });
-                }
+                };
+
+                $scope.cancel = function () {
+                    $location.path('/idas/dashboard');
+                };
             }]);

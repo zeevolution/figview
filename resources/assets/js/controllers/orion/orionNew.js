@@ -18,5 +18,10 @@ angular.module('app.controllers')
                     $scope.error.message = data.data.error_description;
                 });
             }
-        }
+        };
+
+        $scope.cancel = function () {
+            $location.path('/orions/dashboard');
+        };
+
     }]);
