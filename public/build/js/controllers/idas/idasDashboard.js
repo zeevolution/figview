@@ -67,6 +67,11 @@ angular.module('app.controllers')
 
                 };
 
+                $scope.eraseIdasInfoForm = function () {
+                  $scope.idasVersion = {};
+                  $scope.idasStatus = "";
+                };
+
                 $scope.getIoTDevices = function (iotenv) {
                     var settings = {
                         "async": true,
